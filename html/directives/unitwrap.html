@@ -1,0 +1,11 @@
+<li class="input-wrap">
+    
+    <div class="input-wrap__content">
+
+        
+        <label for="length-{{unitObject.cname}}">{{unitObject.label}}</label>
+        <input ng-cancel-drag id="length-{{unitObject.cname}}" type="number" step="any" name="length-{{unitObject.cname}}" class="uc-input" ng-model="unitObject.value" required ng-click="onTextClick($event)">
+    </div>
+
+    <div class="input-wrap__bg"></div>
+</li>

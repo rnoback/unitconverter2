@@ -1,0 +1,33 @@
+// Animations
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+/*
+table.foldedin tr td,
+table.foldedin tr th,
+table.foldedout tr td,
+table.foldedout tr th{
+  display:table-cell;
+}
+table.foldedin tr.foldedout td,
+table.foldedin tr.foldedout th {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0s linear 0s;
+  position:absolute;
+}
+table.foldedout tr.foldedout td,
+table.foldedout tr.foldedout th {
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s linear  0s;
+}
+
+div.product-container {
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0s linear 0s;
+  position:absolute;
+  display: none;
+
+}
+*/

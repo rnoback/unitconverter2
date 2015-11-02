@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="converterApp" >
+<head>
+    
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Unit converter</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- build:css styles/lib.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:css styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+    <div class="container">
+        <div class="row box-row">
+            
+            <section id="box-container" class="two-thirds column" ng-view>
+            </section>
+        
+        </div>
+    </div>
+
+    <!-- build:js js/lib.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+
+    
+    <!-- build:js js/app.js -->
+    <!-- inject:js -->
+    <script src="/src/js/app.js"></script>
+    <script src="/src/js/_vendor/Sortable.js"></script>
+    <script src="/src/js/_vendor/angularjs-dropdown-multiselect.js"></script>
+    <script src="/src/js/_vendor/ng-sortable.js"></script>
+    <script src="/src/js/controllers/length.js"></script>
+    <script src="/src/js/controllers/weight.js"></script>
+    <script src="/src/js/services/unitSelector.js"></script>
+    <!-- endinject -->
+    
+    <!-- inject:templates:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

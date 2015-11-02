@@ -1,0 +1,33 @@
+.dropdown-toggle{
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 14px;
+}
+ul.dropdown-menu{
+    background: $white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position:absolute;
+    list-style: none; 
+    // /@include border-bottom-radius($global-radius);
+    border: 1px solid $border-color;
+    width: 240px;   
+    
+    
+    .divider {
+        height: 1px;
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: $light-grey;
+    }
+    >li{
+        margin-bottom:0;
+        >a{
+            padding: 5px 10px;
+            display: block;
+        }
+        >a:hover, a:focus{
+            background:   $light-grey;
+        }
+    }
+}

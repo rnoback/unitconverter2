@@ -1,0 +1,43 @@
+<div class="box-container__content">
+    <div class="row box-header">
+        <div class="box-content__bg">
+            <label class="elements-dropdown">Convert:</label>
+            <div ng-dropdown-multiselect="" 
+                 options="lengthData" 
+                 selected-model="lengthModel" 
+                 extra-settings="lengthSettings" 
+                 translation-texts="lengthCustomTexts"
+                 events="{ onItemSelect: addUnit, 
+                            onItemDeselect: removeUnit,
+                            onSelectAll: addAllUnits,
+                            onDeselectAll: removeAllUnits
+                         }"
+                 class="data-multiselect-dropdown">
+
+            </div>
+            <label class="units-dropdown">Select unit:</label>
+
+            <div ng-dropdown-multiselect="" 
+                 options="unitsCollection" 
+                 selected-model="unitsModel" 
+                 extra-settings="unitsSettings"
+                  translation-texts="unitCustomTexts"
+                 events="{ onItemSelect: redirectUnit }"
+                 class="units-multiselect-dropdown"
+                 >
+            </div>
+        </div>
+        <div class="box-header__bg"></div>
+    </div>
+
+    <div class="row box-body">
+        <ul class="sortable" ng-sortable="{animation:250}">
+            <unit-wrap unit-object="lengthUnit" ng-repeat="lengthUnit in unitsTicked"></unit-wrap>
+         </ul>   
+    </div>
+    
+    <div class="row box-footer">
+        
+    </div>
+</div>
+<div class="box-container__bg"></div>

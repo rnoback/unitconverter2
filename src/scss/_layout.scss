@@ -1,0 +1,32 @@
+// Layout
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+html {
+    background: url(../images/bg/bg1.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+html, 
+body, 
+.box-container, 
+.box-row, {
+    height:100%;
+}
+.row{
+    margin:0;
+    
+}
+
+#units_select{
+
+}
+@media (#{$bp-larger-than-phablet}) {
+    .container {
+        width: 95%;
+    }
+}

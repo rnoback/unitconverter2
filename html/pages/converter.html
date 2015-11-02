@@ -1,0 +1,22 @@
+<h4>Converter page</h4>
+<div class="form-group">
+    <input type="text" class="form-control" ng-model="name" />
+    <div>{{name}}</div>
+    
+    <h4>Input meter</h4>
+    <label>Meter:
+        <input type="number" step="any" name="input" ng-model="meter.value"
+ required>
+    </label>
+    <label>KM:
+        <input type="number" step="any" name="input" ng-model="km.value"
+ required>
+    </label>
+    <label>CM:
+        <input type="number" step="any" name="input" ng-model="cm.value"
+ required>
+    </label>
+    <tt>KM = {{handleKilometer()}}</tt><br/>
+    <tt>CM = {{meter.value / 100}}</tt><br/>
+</div>
+<a href="#/" class="btn btn-primary">Home</a>
