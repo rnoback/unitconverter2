@@ -192,7 +192,7 @@ a {
 button {
   display: inline-block;
   height: 30px;
-  padding: 0 30px;
+  padding: 0 22px;
   color: #555555;
   text-align: center;
   font-size: 11px;
@@ -717,14 +717,13 @@ html,
 body,
 .box-container,
 .box-row {
-  height: 100%; }
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin: 0; }
 
 .row {
   margin: 0; }
-
-@media (min-width: 550px) {
-  .container {
-    width: 95%; } }
 
 #box-container {
   position: relative;
@@ -738,6 +737,22 @@ body,
   border-radius: 5px;
   box-shadow: #333 0px 0px 35px;
   border: none; }
+  @media (min-width: 550px) {
+    #box-container {
+      width: 100%;
+      max-width: 470px; } }
+  @media (min-width: 750px) {
+    #box-container {
+      width: 100%;
+      max-width: 680px; } }
+  @media (min-width: 1000px) {
+    #box-container {
+      width: 100%;
+      max-width: 910px; } }
+  @media (min-width: 1200px) {
+    #box-container {
+      width: 100%;
+      max-width: 1110px; } }
   #box-container .box-container__bg {
     position: absolute;
     top: 0;
@@ -752,7 +767,6 @@ body,
     z-index: 2; }
     #box-container .box-container__content .box-header {
       width: auto;
-      height: auto;
       padding: 20px 20px 0 20px;
       zoom: 1;
       border-bottom: 1px solid #888888; }
@@ -765,63 +779,101 @@ body,
       #box-container .box-container__content .box-header .box-content__bg {
         position: relative;
         z-index: 3; }
-        #box-container .box-container__content .box-header .box-content__bg label.elements-dropdown {
-          float: left;
-          margin: 0.25em 0.75em 0 0; }
         #box-container .box-container__content .box-header .box-content__bg label.units-dropdown {
-          float: left;
-          margin: 0.25em 0.75em 0.25em 2em; }
+          margin: 3px 13px; }
+          @media (min-width: 550px) {
+            #box-container .box-container__content .box-header .box-content__bg label.units-dropdown {
+              float: left; } }
         #box-container .box-container__content .box-header .box-content__bg .dropdown-toggle {
-          background: white; }
+          background: white;
+          text-transform: capitalize; }
         #box-container .box-container__content .box-header .box-content__bg .data-multiselect-dropdown {
-          float: left; }
+          float: left;
+          text-transform: capitalize; }
         #box-container .box-container__content .box-header .box-content__bg .units-multiselect-dropdown {
-          float: left; }
-        #box-container .box-container__content .box-header .box-content__bg .ul.dropdown-menu {
-          z-index: 999; }
+          float: left;
+          text-transform: capitalize;
+          margin-right: 10px; }
       #box-container .box-container__content .box-header .box-header__bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 60px;
-        background: white;
-        opacity: 0.2; }
+        height: inherit;
+        background: yellow;
+        opacity: 0.5; }
     #box-container .box-container__content .box-body {
-      padding: 20px 20px 20px 20px;
+      padding: 20px;
       overflow: hidden; }
+      @media (min-width: 400px) {
+        #box-container .box-container__content .box-body {
+          padding: 20px 5px; } }
+      @media (min-width: 550px) {
+        #box-container .box-container__content .box-body {
+          padding: 20px; } }
 
-.input-wrap {
-  position: relative;
-  float: left;
-  margin: 0.5rem 1rem 0.5rem 0;
-  border: none;
-  display: table;
-  height: 30px;
-  padding: 5px;
-  border-radius: 5px; }
-  .input-wrap .input-wrap__content {
+ul {
+  list-style: none; }
+  ul li.input-wrap {
     position: relative;
-    z-index: 1; }
-    .input-wrap .input-wrap__content label {
-      cursor: move;
-      cursor: -webkit-grab;
-      cursor: -moz-grab;
-      margin: 0 0 0 .5rem;
-      text-align: left;
-      font-weight: normal;
-      font-size: 14px;
-      font-weight: bold;
-      text-shadow: 0px 0px 7px white; }
-  .input-wrap .input-wrap__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    opacity: 0.5;
-    border-radius: 5px; }
+    float: left;
+    border: none;
+    display: table;
+    height: auto;
+    border-radius: 5px;
+    width: 100%; }
+    @media (min-width: 400px) {
+      ul li.input-wrap {
+        width: 46%;
+        margin: 2%; } }
+    @media (min-width: 550px) {
+      ul li.input-wrap {
+        width: 46%;
+        max-width: 200px;
+        margin: 2%; } }
+    @media (min-width: 750px) {
+      ul li.input-wrap {
+        width: 31.33334%;
+        max-width: 200px;
+        margin: 1%; } }
+    @media (min-width: 1000px) {
+      ul li.input-wrap {
+        width: 23%;
+        max-width: 200px;
+        margin: 1%; } }
+    @media (min-width: 1200px) {
+      ul li.input-wrap {
+        width: 18%;
+        max-width: 200px;
+        margin: 1%; } }
+    ul li.input-wrap .input-wrap__content {
+      position: relative;
+      z-index: 1;
+      padding: 4px 6px 6px; }
+      ul li.input-wrap .input-wrap__content label {
+        cursor: move;
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        margin: 0 0 0 .5rem;
+        text-align: left;
+        font-weight: normal;
+        font-size: 14px;
+        font-weight: bold;
+        text-shadow: 0px 0px 7px white;
+        line-height: 22px;
+        padding-bottom: 4px; }
+      ul li.input-wrap .input-wrap__content input {
+        width: 100%;
+        border: 0; }
+    ul li.input-wrap .input-wrap__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      opacity: 0.5;
+      border-radius: 5px; }
 
 input.uc-input {
   width: auto;
@@ -841,7 +893,15 @@ ul.dropdown-menu {
   position: absolute;
   list-style: none;
   border: 1px solid #bbb;
-  width: 240px; }
+  border: none;
+  width: 240px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: #333 0px 2px 1px;
+  left: 0; }
+  @media (min-width: 400px) {
+    ul.dropdown-menu {
+      left: auto; } }
   ul.dropdown-menu .divider {
     height: 1px;
     margin: 9px 0;

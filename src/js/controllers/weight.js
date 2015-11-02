@@ -8,6 +8,7 @@
         function($scope, $filter, unitSelectionService) {
 
     $scope.unitsCollection = unitSelectionService.units;
+    $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
     
     $scope.unitsModel = {};
     $scope.unitsSettings = { 
@@ -308,13 +309,15 @@
        
     
     $scope.dataSettings = { 
+        dynamicTitle: false,
         enableSearch: false,
         scrollableHeight: '400px',
         scrollable: true,
         externalIdProp: ''
     }; 
 
-    $scope.dataCustomTexts = {buttonDefaultText: 'Length'};
+    var defaultButtonText = $scope.defaultButtonText;
+    $scope.dataCustomTexts = {buttonDefaultText: defaultButtonText};
     
     $scope.unitsTicked = [];
     

@@ -9,10 +9,16 @@ ul.dropdown-menu{
     overflow-y: auto;
     position:absolute;
     list-style: none; 
-    // /@include border-bottom-radius($global-radius);
     border: 1px solid $border-color;
+    border: none;
     width: 240px;   
-    
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+    box-shadow : $global-box-shadow-bottom;    
+    left:0;
+    @media (#{$bp-larger-than-mobile}) {
+        left:auto;
+    }
     
     .divider {
         height: 1px;

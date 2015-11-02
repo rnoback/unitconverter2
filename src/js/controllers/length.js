@@ -8,7 +8,8 @@
         function($scope, $filter, unitSelectionService){
    
     $scope.unitsCollection = unitSelectionService.units;
-    
+    $scope.defaultButtonText = unitSelectionService.defaultButtonText;        
+            
     $scope.unitsModel = {};
     $scope.unitsSettings = { 
         selectionLimit: 1,
@@ -20,7 +21,12 @@
     // Get last segment of URL
     var url = document.URL;
     $scope.unit = url.substr(url.lastIndexOf('/') + 1); 
-    // Add it to text button    
+    // Add it to text button  
+    if(!$scope.unit) { 
+        $scope.unit = 'Length';
+    }else{
+        
+    }
     $scope.unitCustomTexts = {buttonDefaultText:$scope.unit};
     
     $scope.redirectUnit = unitSelectionService.redirectUnit;
@@ -374,13 +380,15 @@
        
     
     $scope.lengthSettings = { 
+        dynamicTitle: false,
         enableSearch: false,
         scrollableHeight: '400px',
         scrollable: true,
         externalIdProp: ''
     }; 
 
-    $scope.lengthCustomTexts = {buttonDefaultText: 'Length'};
+    var defaultButtonText = $scope.defaultButtonText;
+    $scope.lengthCustomTexts = {buttonDefaultText: defaultButtonText};
     
     $scope.unitsTicked = [];
     

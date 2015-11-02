@@ -6,7 +6,7 @@
 
         this.currentSelectedId = 0;
         this.currentSelectedLabel = '';
-
+        this.defaultButtonText = 'Units';
         this.units = [
             {
                 id:1,

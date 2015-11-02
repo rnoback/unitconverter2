@@ -39,6 +39,7 @@ $column-margin: 4% !default; // space between columns
 // Misc
 $global-radius: 5px !default;
 $global-box-shadow: $dark-grey 0px 0px 35px;
+$global-box-shadow-bottom: $dark-grey 0px 2px 1px;
 
 // Functions
 @function grid-column-width($n) {
