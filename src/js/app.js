@@ -1,5 +1,5 @@
 // Module
-var converterApp  = angular.module('converterApp', 
+var converterApp  = angular.module('converterApp',
     ['ngRoute', 'ngResource', 'angularjs-dropdown-multiselect', 'ng-sortable']);
 
 //Routes
@@ -28,6 +28,17 @@ converterApp.config(function ($routeProvider) {
     });
 });
 
+ converterApp.controller('mainCtrl', ['$scope', function($scope) {
+	    			    	
+
+	function resizeBg() {
+					
+	}
+	                   			
+	//theWindow.resize(resizeBg).trigger("resize");
+     
+ }]);
+
 
 converterApp.directive('unitSelector', function($timeout){
      return {
@@ -46,7 +57,6 @@ converterApp.directive('unitWrap', function($timeout){
         link: function(scope, element, attrs){
              $timeout(function(){
                  element.on('focus', function(evt){
-                     console.log(evt.target);
                      evt.target.select();
                  });
              }, 500);

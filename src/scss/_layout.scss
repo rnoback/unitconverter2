@@ -2,29 +2,29 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 
-html {
+html, 
+body, 
+.box-container, 
+.row, {
+    position: relative;
+    height: 100%;
+    top:0;
+    bottom:0;
+    margin:0;
+    background:transparent;
+}
+body .box-row #box-container{
+    z-index:1;
+}
+body #background-container{
+    position: fixed;
+    width: 100%;
+    height: inherit;
+    top:0;
+    bottom:0;
     background: url(../images/bg/bg1.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-
-html, 
-body, 
-.box-container, 
-.box-row, {
-    position: relative;
-    top:0;
-    bottom:0;
-    margin:0;
-}
-.row{
-    margin:0;
-    
-}
-
-#units_select{
-
 }

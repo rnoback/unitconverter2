@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="converterApp" >
+<html lang="en" ng-app="converterApp" ng-controller="mainCtrl">
 <head>
     
     <!-- Basic Page Needs
@@ -11,7 +11,7 @@
 
     <!-- Mobile Specific Metas
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
 
 
     <!-- build:css styles/lib.css -->
@@ -37,14 +37,15 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   
-    <div class="container">
-        <div class="row box-row">
-            
-            <section id="box-container" ng-view>
-            </section>
+
+    <div class="row box-row">
+
+        <section id="box-container" ng-view ondragstart="drag(event)">
+        </section>
+        <section id="background-container"></section>
         
-        </div>
     </div>
+
 
     <!-- build:js js/lib.js -->
     <!-- bower:js -->

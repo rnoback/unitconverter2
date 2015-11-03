@@ -709,31 +709,38 @@ hr {
   max-height: 22px;
   max-width: 22px; }
 
-html {
-  background: url(../images/bg/bg1.jpg) no-repeat center center fixed;
-  background-size: cover; }
-
 html,
 body,
 .box-container,
-.box-row {
+.row {
   position: relative;
+  height: 100%;
   top: 0;
   bottom: 0;
-  margin: 0; }
+  margin: 0;
+  background: transparent; }
 
-.row {
-  margin: 0; }
+body .box-row #box-container {
+  z-index: 1; }
+
+body #background-container {
+  position: fixed;
+  width: 100%;
+  height: inherit;
+  top: 0;
+  bottom: 0;
+  background: url(../images/bg/bg1.jpg) no-repeat center center fixed;
+  background-size: cover; }
 
 #box-container {
-  position: relative;
+  position: absolute;
   /*top: 50%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);*/
-  margin: 5% 0;
+  margin: 20px 20px 20px 20px;
   border-radius: 5px;
   box-shadow: #333 0px 0px 35px;
   border: none; }
@@ -748,7 +755,8 @@ body,
   @media (min-width: 1000px) {
     #box-container {
       width: 100%;
-      max-width: 910px; } }
+      max-width: 910px;
+      margin: 50px; } }
   @media (min-width: 1200px) {
     #box-container {
       width: 100%;
@@ -767,7 +775,7 @@ body,
     z-index: 2; }
     #box-container .box-container__content .box-header {
       width: auto;
-      padding: 20px 20px 0 20px;
+      padding: 10px 20px 0 20px;
       zoom: 1;
       border-bottom: 1px solid #888888; }
       #box-container .box-container__content .box-header:before, #box-container .box-container__content .box-header:after {
@@ -780,13 +788,15 @@ body,
         position: relative;
         z-index: 3; }
         #box-container .box-container__content .box-header .box-content__bg label.units-dropdown {
-          margin: 3px 13px; }
+          margin: 3px 13px;
+          text-shadow: 0px 0px 7px white; }
           @media (min-width: 550px) {
             #box-container .box-container__content .box-header .box-content__bg label.units-dropdown {
               float: left; } }
         #box-container .box-container__content .box-header .box-content__bg .dropdown-toggle {
           background: white;
-          text-transform: capitalize; }
+          text-transform: capitalize;
+          border: 0; }
         #box-container .box-container__content .box-header .box-content__bg .data-multiselect-dropdown {
           float: left;
           text-transform: capitalize; }
@@ -800,8 +810,8 @@ body,
         left: 0;
         width: 100%;
         height: inherit;
-        background: yellow;
-        opacity: 0.5; }
+        background: white;
+        opacity: 0.25; }
     #box-container .box-container__content .box-body {
       padding: 20px;
       overflow: hidden; }

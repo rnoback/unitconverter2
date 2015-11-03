@@ -103,7 +103,7 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                     selectionOf: '/',
                     searchPlaceholder: 'Search...',
                     buttonDefaultText: 'Select',
-                    dynamicButtonTextSuffix: 'dd'
+                    dynamicButtonTextSuffix: 'checked'
                 };
 
                 $scope.searchFilter = $scope.searchFilter || '';
