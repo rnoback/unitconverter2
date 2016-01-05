@@ -17,20 +17,20 @@
     @include box-shadow($global-box-shadow);
     border: none;
     @media (#{$bp-larger-than-phablet}) {
-        width: 100%;
+        width: auto;
         max-width: 470px;      
     }
     @media (#{$bp-larger-than-tablet}) {
-        width: 100%;
+        width: auto;
         max-width: 680px;      
     }
     @media (#{$bp-larger-than-desktop}) {
-        width: 100%;
+        width: auto;
         max-width: 910px;     
         margin: 50px;
     }
     @media (#{$bp-larger-than-desktophd}) {
-        width: 100%;
+        width: auto;
         max-width: 1110px;  
     }
     
@@ -62,9 +62,10 @@
                 z-index: 3;
                 
                 label.units-dropdown{
-                    margin: 3px 13px;
+                    margin: 3px 0px;
                     text-shadow: 0px 0px 7px white;
                     @media (#{$bp-larger-than-phablet}) {
+                        margin: 3px 13px;
                         float:left;
                     }
                 }

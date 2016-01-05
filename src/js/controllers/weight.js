@@ -26,11 +26,6 @@
     
     $scope.redirectUnit = unitSelectionService.redirectUnit;
     
-    // Broken since separate directive needs to fixed
-    $scope.onTextClick = function ( $event ) {
-        $event.target.select();
-    };
-    
     $scope.unit1 = {
         id: 1, 
         label: 'Gram', 

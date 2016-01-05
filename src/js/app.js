@@ -4,7 +4,7 @@ var converterApp  = angular.module('converterApp',
 
 //Routes
 converterApp.config(function ($routeProvider) {
-    
+
     $routeProvider
     
     .when('/', {
@@ -21,6 +21,7 @@ converterApp.config(function ($routeProvider) {
         templateUrl: 'html/pages/weight.html',
         controller: 'weightController'
     })
+
     
     .when('/converter', {
         templateUrl: 'html/pages/converter.html',
@@ -48,18 +49,12 @@ converterApp.directive('unitSelector', function($timeout){
 });
 
 converterApp.directive('unitWrap', function($timeout){
+    
     return {
         templateUrl: 'html/directives/unitwrap.html',
         replace: true,
         scope: {
             unitObject:'='
-        },
-        link: function(scope, element, attrs){
-             $timeout(function(){
-                 element.on('focus', function(evt){
-                     evt.target.select();
-                 });
-             }, 500);
         }
     };
 });
