@@ -14,8 +14,41 @@
             },
             {
                 id:2,
-                label:'weight'
+                label:'area'
+            },
+            {
+                id:3,
+                label:'volume'
+            },
+            {
+                id:4,
+                label:'dry-volume'
+            },
+            {
+                id:5,
+                label:'mass'
+            },
+            {
+                id:6,
+                label:'power'
+            },
+            {
+                id:7,
+                label:'energy'
+            },
+            {
+                id:8,
+                label:'force'
+            },
+            {
+                id:9,
+                label:'temperature'
+            },
+            {
+                id:10,
+                label:'currency'
             }
+
         ];
         
         this.getLabelById = function(id){

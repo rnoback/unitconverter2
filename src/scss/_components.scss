@@ -137,22 +137,27 @@ ul{
     
          @media (#{$bp-larger-than-phablet}) {
             width: 46%;
+            
             max-width: 200px;
+            min-width: 160px;
             margin: 2%;
         }
         @media (#{$bp-larger-than-tablet}) {
             width: 31.33334%;
             max-width: 200px;
+            min-width: 167px;
             margin: 1%;
         }
         @media (#{$bp-larger-than-desktop}) {
             width: 23%;
             max-width: 200px;
+            min-width: 167px;
             margin: 1%;
-        }
+        } 
         @media (#{$bp-larger-than-desktophd}) {
             width: 18%;
             max-width: 200px; 
+            min-width: 167px;
             margin: 1%;
         }
 

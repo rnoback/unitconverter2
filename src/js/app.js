@@ -1,3 +1,6 @@
+(function (){
+
+
 // Module
 var converterApp  = angular.module('converterApp',
     ['ngRoute', 'ngResource', 'angularjs-dropdown-multiselect', 'ng-sortable']);
@@ -8,23 +11,54 @@ converterApp.config(function ($routeProvider) {
     $routeProvider
     
     .when('/', {
-        templateUrl: 'html/pages/length.html',
+        templateUrl: 'html/pages/default.html',
         controller: 'lengthController'
     })
     
     .when('/length', {
-        templateUrl: 'html/pages/length.html',
+        templateUrl: 'html/pages/default.html',
         controller: 'lengthController'
     })
-    
-    .when('/weight', {
-        templateUrl: 'html/pages/weight.html',
-        controller: 'weightController'
+    .when('/area', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'areaController'
     })
-
+    .when('/volume', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'volumeController'
+    })
+     .when('/dry-volume', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'dryVolumeController'
+    })
+    .when('/mass', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'massController'
+    })
+    .when('/power', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'powerController'
+    })
+    .when('/energy', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'energyController'
+    })
+    .when('/force', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'forceController'
+    })
+    .when('/temperature', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'temperatureController'
+    })
+    
+    .when('/currency', {
+        templateUrl: 'html/pages/currency.html',
+        controller: 'currencyController'
+    })
     
     .when('/converter', {
-        templateUrl: 'html/pages/converter.html',
+        templateUrl: 'html/pages/default.html',
         controller: 'converterController'
     });
 });
@@ -49,12 +83,23 @@ converterApp.directive('unitSelector', function($timeout){
 });
 
 converterApp.directive('unitWrap', function($timeout){
-    
     return {
         templateUrl: 'html/directives/unitwrap.html',
         replace: true,
         scope: {
-            unitObject:'='
-        }
+            unitObject:'=',
+            calculateUnits: "&"
+        },
+        link: function (scope, element, attrs){
+          scope.clickMe = function(obj){
+
+            var v = element.find('.uc-input').val();
+            console.log("v "+v);
+            scope.calculateUnits( {aunit:obj, avalue:v} );  
+          }
+        } 
+       
     };
 });
+
+}());

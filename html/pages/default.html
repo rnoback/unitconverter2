@@ -3,7 +3,7 @@
         <div class="box-content__bg">
             
             <label class="units-dropdown">Convert</label>
-
+            
             <div ng-dropdown-multiselect="" 
                  options="unitsCollection" 
                  selected-model="unitsModel" 
@@ -24,7 +24,6 @@
                             onDeselectAll: removeAllUnits
                          }"
                  class="data-multiselect-dropdown">
-
             </div>
             
         </div>
@@ -33,8 +32,8 @@
 
     <div class="row box-body">
         <ul class="sortable" ng-sortable="{animation:250}">
-            <unit-wrap unit-object="dataUnit" ng-repeat="dataUnit in unitsTicked"></unit-wrap>
-         </ul>   
+            <unit-wrap unit-object="dataUnit" calculate-units="calculateUnits(aunit, avalue)" ng-repeat="dataUnit in unitsTicked"></unit-wrap>
+         </ul> 
     </div>
     
     <div class="row box-footer">

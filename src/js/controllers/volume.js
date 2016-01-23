@@ -3,13 +3,13 @@
     'use strict';
     var converterApp = angular.module('converterApp');
     
-    converterApp.controller('weightController', 
-        ['$scope', '$filter', 'unitSelectionService', 
-        function($scope, $filter, unitSelectionService) {
+    converterApp.controller('volumeController', 
+        ['$scope', '$filter', '$location', 'unitSelectionService', 
+        function($scope, $filter, $location, unitSelectionService) {
 
     $scope.unitsCollection = unitSelectionService.units;
     $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
-    
+
     $scope.unitsModel = {};
     $scope.unitsSettings = { 
         selectionLimit: 1,
@@ -19,18 +19,18 @@
             
         
     // Get last segment of URL
-    var url = document.URL;
-    $scope.unit = url.substr(url.lastIndexOf('/') + 1); 
+    var url = $location.path();
+    $scope.selectedUnit = url.substr(url.lastIndexOf('/') + 1); 
     // Add it to text button    
-    $scope.unitCustomTexts = {buttonDefaultText:$scope.unit};
+    $scope.unitCustomTexts = {buttonDefaultText:$scope.selectedUnit};
     
     $scope.redirectUnit = unitSelectionService.redirectUnit;
     
     $scope.unit1 = {
         id: 1, 
-        label: 'Gram', 
-        maker: 'g', 
-        cname: 'unit6', 
+        label: 'Liters', 
+        maker: 'l', 
+        cname: 'unit1', 
         ticked: true,
         value: 0,
         factor: 1,
@@ -38,246 +38,172 @@
     };    
     $scope.unit2 = {
         id: 2, 
-        label: 'Nanograms', 
-        maker: 'ng', 
+        label: 'Milliliters', 
+        marker: 'ml', 
         cname: 'unit2',
         ticked: false,
-        value: 0,
-        factor:1000000000,
-        type: 'Metric'
-    };
-    $scope.unit3 = {
-        id: 3, 
-        label: 'Micrograms', 
-        marker: 'µg', 
-        cname: 'unit3',
-        ticked: false,
-        value: 0,
-        factor: 1000000,
-        type: 'Metric'
-    };
-    $scope.unit4 = {
-        id: 4, 
-        label: 'Milligrams', 
-        marker: 'mg', 
-        cname: 'unit4',
-        ticked: true,
         value: 0,
         factor: 1000,
         type: 'Metric'
     };
-    $scope.unit5 = {
-        id: 5, 
-        label: 'Centigrams', 
-        marker: 'cg', 
-        cname: 'unit5', 
-        ticked: false,
-        value: 0,
-        factor: 100,
-        type: 'Metric'
-    };
-    $scope.unit6 = {
-        id: 6, 
-        label: 'Decigrams', 
-        maker: 'dg', 
-        cname: 'unit6', 
-        ticked: false,
-        value: 0,
-        factor: 10,
-        type: 'Metric'
-    };
-    $scope.unit7 = {
-        id: 7, 
-        label: 'Dekagrams', 
-        maker: 'dag', 
-        cname: 'unit7', 
-        ticked: false,
-        value: 0,
-        factor: 0.1,
-        type: 'Metric'
-    };
-    $scope.unit8 = {
-        id: 8, 
-        label: 'Hectograms', 
-        maker: 'hg', 
-        cname: 'unit8', 
-        ticked: false,
-        value: 0,
-        factor: 0.01,
-        type: 'Metric'
-    };
-    $scope.unit9 = {
-        id: 9, 
-        label: 'Kilograms', 
-        maker: 'kg', 
-        cname: 'unit9', 
+    
+    $scope.unit3 = {
+        id: 3, 
+        label: 'Cubic Meters', 
+        maker: '', 
+        cname: 'unit3', 
         ticked: true,
         value: 0,
         factor: 0.001,
         type: 'Metric'
     };
-    $scope.unit10 = {
-        id: 10, 
-        label: 'Tonnes', 
-        maker: 't', 
-        cname: 'unit10', 
+
+     $scope.unit4 = {
+        id: 4, 
+        label: 'Cubic Centimeters', 
+        maker: 'cc', 
+        cname: 'unit4', 
         ticked: true,
         value: 0,
-        factor: 0.000001,
+        factor: 1000,
         type: 'Metric'
+    };
+    
+     $scope.unit5 = {
+        id: 5, 
+        label: 'Cubic Millimeters',
+        maker: '',
+        cname: 'unit5',
+        ticked: false,
+        value: 0,
+        factor: 1000000,
+        type: 'Metric'
+    };
+
+    $scope.unit6 = {
+        id: 6, 
+        label: 'Cubic Inches (ci)',
+        maker: '',
+        cname: 'unit6',
+        ticked: true,
+        value: 0,
+        factor: 61.02374409 ,
+        type: 'Imperial'
+    };
+    $scope.unit7 = {
+        id: 7, 
+        label: 'Cubic Feet',
+        maker: '',
+        cname: 'unit7',
+        ticked: true,
+        value: 0,
+        factor: 0.035314667,
+        type: 'Imperial'
+    };
+    
+    $scope.unit8 = {
+        id: 8, 
+        label: 'Cubic Yards',
+        maker: '',
+        cname: 'unit8',
+        ticked: false,
+        value: 0,
+        factor: 0.001307951,
+        type: 'Imperial'
+    };
+    $scope.unit9 = {
+        id: 9, 
+        label: 'Teaspoon',
+        maker: 'tsp',
+        cname: 'unit9',
+        ticked: false,
+        value: 0,
+        factor: 202.88413662,
+        type: 'Imperial Fluid'
+    };
+    
+    $scope.unit10 = {
+        id: 10, 
+        label: 'tablespoon',
+        maker: 'tbsp',
+        cname: 'unit10',
+        ticked: false,
+        value: 0,
+        factor: 67.6280454,
+        type: 'Imperial Fluid'
     };
     $scope.unit11 = {
         id: 11, 
-        label: 'Kilotonnes', 
-        maker: 'kt', 
-        cname: 'unit11', 
+        label: 'Fluid Ounce',
+        maker: '',
+        cname: 'unit11',
         ticked: false,
         value: 0,
-        factor: 0.000000001,
-        type: 'Metric'
+        factor: 33.8140227,
+        type: 'Imperial Fluid'
     };
     $scope.unit12 = {
         id: 12, 
-        label: 'Megatonnes',
+        label: 'Cup',
         maker: '',
         cname: 'unit12',
         ticked: false,
         value: 0,
-        factor: 0.000000000001,
-        type: 'Metric'
+        factor: 4.226752838,
+        type: 'Imperial Fluid'
     };
     $scope.unit13 = {
         id: 13, 
-        label: 'Ounces',
-        maker: 'oz',
+        label: 'Pint (liquid)',
+        maker: '',
         cname: 'unit13',
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 0.035273962,
-        type: 'Imperial'
+        factor: 2.113376419,
+        type: 'Imperial Fluid'
     };
     $scope.unit14 = {
         id: 14, 
-        label: 'Pounds',
-        maker: 'lb',
+        label: 'Quart (liquid)',
+        maker: '',
         cname: 'unit14',
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 0.002204623,
-        type: 'Imperial'
+        factor: 1.056688209,
+        type: 'Imperial Fluid'
     };
     $scope.unit15 = {
         id: 15, 
-        label: 'Stones (UK)', 
+        label: 'Gallon',
         maker: '',
         cname: 'unit15',
         ticked: false,
         value: 0,
-        factor: 0.000157473,
-        type: ''
+        factor: 0.264172052,
+        type: 'Imperial Fluid'
     };
     $scope.unit16 = {
         id: 16, 
-        label: 'Cental',
+        label: 'Barrel',
         maker: '',
         cname: 'unit16',
         ticked: false,
         value: 0,
-        factor: 0.000022046226218487758,
-        type: ''
+        factor: 0.006289811,
+        type: 'Imperial Fluid'
     };
     $scope.unit17 = {
         id: 17, 
-        label: 'Tons (US)',
+        label: 'Arce Feet',
         maker: '',
         cname: 'unit17',
         ticked: false,
         value: 0,
-        factor: 0.000001102,
-        type: 'Imperial'
-    };
-    $scope.unit18 = {
-        id: 18, 
-        label: 'Tons (UK)',
-        maker: '',
-        cname: 'unit18',
-        ticked: false,
-        value: 0,
-        factor: 0.000000984,
-        type: ''
-    };
-    $scope.unit19 = {
-        id: 19, 
-        label: 'Grains',
-        maker: '',
-        cname: 'unit19',
-        ticked: false,
-        value: 0,
-        factor: 15.4323583529,
-        type: 'Imperial'
-    };
-    $scope.unit20 = {
-        id: 20, 
-        label: 'Carats',
-        maker: 'ct',
-        cname: 'unit20',
-        ticked: false,
-        value: 0,
-        factor: 0.771617918,
-        type: ''
-    };
-    $scope.unit21 = {
-        id: 21, 
-        label: 'Ounces Troy',
-        maker: '',
-        cname: 'unit21',
-        ticked: false,
-        value: 0,
-        factor: 0.032150747,
-        type: 'Troy'
-    };
-    $scope.unit22 = {
-        id: 22, 
-        label: 'Pounds Troy',
-        maker: '',
-        cname: 'unit22',
-        ticked: false,
-        value: 0,
-        factor: 0.002679229,
-        type: 'Troy'
+        factor: 0.0000000810708,
+        type: 'Imperial Fluid'
     };
     
-    $scope.unit23 = {
-        id: 23, 
-        label: 'Slugs',
-        maker: '',
-        cname: 'unit23',
-        ticked: false,
-        value: 0,
-        factor: 0.000068522,
-        type: ''
-    };
-    $scope.unit24 = {
-        id: 24, 
-        label: 'Earth Mass',
-        maker: '',
-        cname: 'unit24',
-        ticked: false,
-        value: 0,
-        factor: 0.0000000000000000000000000001673360107,
-        type: ''
-    };
-    
-    $scope.unit25 = {
-        id: 25, 
-        label: 'Solar Mass',
-        maker: '',
-        cname: 'unit25',
-        ticked: false,
-        value: 0,
-        factor: 0.0000000000000000000000000000000005,
-        type: ''
-    };
+   
     
     $scope.dataCollection = 
     [
@@ -297,15 +223,7 @@
         $scope.unit14,
         $scope.unit15,
         $scope.unit16,
-        $scope.unit17,
-        $scope.unit18,
-        $scope.unit19,
-        $scope.unit20,
-        $scope.unit21,
-        $scope.unit22,
-        $scope.unit23,
-        $scope.unit24,
-        $scope.unit25
+        $scope.unit17
     ];
     
     
@@ -429,32 +347,7 @@
     $scope.$watch('unit17.value', function(){
         $scope.unit1.value = formatFloat($scope.unit17.value / $scope.unit17.factor);
     });
-    $scope.$watch('unit18.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit18.value / $scope.unit18.factor);
-    });
-    $scope.$watch('unit19.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit19.value / $scope.unit19.factor);
-    });
-    $scope.$watch('unit20.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit20.value / $scope.unit20.factor);
-    });
-    $scope.$watch('unit21.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit21.value / $scope.unit21.factor);
-    });
-    $scope.$watch('unit22.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit22.value / $scope.unit22.factor);
-    });  
-    $scope.$watch('unit23.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit23.value / $scope.unit23.factor);
-    });
-    $scope.$watch('unit24.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit24.value / $scope.unit24.factor);
-    });
-    $scope.$watch('unit25.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit25.value / $scope.unit25.factor);
-    });
     
-   
     
     
      // MAIN unit
@@ -473,23 +366,19 @@
         $scope.unit13.value = formatFloat($scope.unit1.value * $scope.unit13.factor);
         $scope.unit14.value = formatFloat($scope.unit1.value * $scope.unit14.factor);
         $scope.unit15.value = formatFloat($scope.unit1.value * $scope.unit15.factor);
-        $scope.unit16.value = formatFloat($scope.unit1.value * $scope.unit16.factor); 
+        $scope.unit16.value = formatFloat($scope.unit1.value * $scope.unit16.factor);
         $scope.unit17.value = formatFloat($scope.unit1.value * $scope.unit17.factor);
-        $scope.unit18.value = formatFloat($scope.unit1.value * $scope.unit18.factor);
-        $scope.unit19.value = formatFloat($scope.unit1.value * $scope.unit19.factor);
-        $scope.unit20.value = formatFloat($scope.unit1.value * $scope.unit20.factor);
-        $scope.unit21.value = formatFloat($scope.unit1.value * $scope.unit21.factor);
-        $scope.unit22.value = formatFloat($scope.unit1.value * $scope.unit22.factor);
-        $scope.unit23.value = formatFloat($scope.unit1.value * $scope.unit23.factor);
-        $scope.unit24.value = formatFloat($scope.unit1.value * $scope.unit24.factor);
-        $scope.unit25.value = formatFloat($scope.unit1.value * $scope.unit25.factor);
     });
     
      // helper function for rounding
     function formatFloat(aFloat) {
   // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
-        //return parseFloat(aFloat.toFixed(6));
+       // return parseFloat(aFloat.toFixed(6));
+      //  console.log(typeof aFloat);
+       // var aFloat = parseFloat($filter('number')(aFloat, 20));
+        //console.log("3 "+typeof aFloat);
         return aFloat;
+       // return Math.round(aFloat * Math.pow(10, 6)) / Math.pow(10, 6);
     }
     
 

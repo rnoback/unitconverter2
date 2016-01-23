@@ -1,0 +1,28 @@
+<!-- <option value="#/converter">convert</option>
+ <option value="#/converter">convert</option>
+ <option value="#/converter">convert</option>
+ <option value="#/converter">convert</option>
+ <option value="#/converter">convert</option> -->
+<div>
+	<div ng-dropdown-multiselect="" 
+	     options="unitsCollection" 
+	     selected-model="unitsModel" 
+	     extra-settings="unitsSettings"
+	     translation-texts="unitCustomTexts"
+	     events="{ onItemSelect: redirectUnit }"
+	     class="units-multiselect-dropdown"
+	     >
+	</div>
+	<div ng-dropdown-multiselect="" 
+	     options="dataCollection" 
+	     selected-model="dataModel" 
+	     extra-settings="dataSettings" 
+	     translation-texts="dataCustomTexts"
+	     events="{ onItemSelect: addUnit, 
+	                onItemDeselect: removeUnit,
+	                onSelectAll: addAllUnits,
+	                onDeselectAll: removeAllUnits
+	             }"
+	     class="data-multiselect-dropdown">
+	</div>
+</div>
