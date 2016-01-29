@@ -48,7 +48,7 @@ converterApp.config(function ($routeProvider) {
         controller: 'forceController'
     })
     .when('/temperature', {
-        templateUrl: 'html/pages/default.html',
+        templateUrl: 'html/pages/temperature.html',
         controller: 'temperatureController'
     })
     
@@ -85,6 +85,26 @@ converterApp.directive('unitSelector', function($timeout){
 converterApp.directive('unitWrap', function($timeout){
     return {
         templateUrl: 'html/directives/unitwrap.html',
+        replace: true,
+        scope: {
+            unitObject:'=',
+            calculateUnits: "&"
+        },
+        link: function (scope, element, attrs){
+          scope.clickMe = function(obj){
+
+            var v = element.find('.uc-input').val();
+            console.log("v "+v);
+            scope.calculateUnits( {aunit:obj, avalue:v} );  
+          }
+        } 
+       
+    };
+});
+
+converterApp.directive('unitWrapTemperature', function($timeout){
+    return {
+        templateUrl: 'html/directives/unitwrapTemperature.html',
         replace: true,
         scope: {
             unitObject:'=',

@@ -86,7 +86,8 @@
         }
         return arr;
      })();        
-       
+    
+   
     
     $scope.dataSettings = { 
         dynamicTitle: false,
@@ -140,22 +141,38 @@
         
     };
     
+    $scope.csumk = 273.15;
+    $scope.csumf = 32;
+    
+
     function c2f(c) {
-        return 9/5 * parseFloat(c) + 32;
+        return formatFloat(9/5 * parseFloat(c) + 32);
     }
-    function f2c(f) {
-        return 5/9 * (f - 32);
+    
+
+    function c2k(c) {
+        return formatFloat(parseFloat(c) + $scope.csumk);
     }
 
     function k2c(k) {
-        return k + 273;
-    }
-
-    function c2k(c) {
-        return c + 273;
+        return formatFloat(parseFloat(k) - $scope.csumk);
     }
 
 
+    function k2f(k) {
+        return formatFloat((parseFloat(k) - $scope.csumk) * 1.8000 + $scope.csumf);
+    }
+
+    function f2c(f) {
+        return formatFloat((parseFloat(f) - 32) / 1.8);
+    }
+    function f2k(f) {
+        return formatFloat( ((parseFloat(f) - 32) / 1.8) + $scope.csumk);
+    }
+
+    //init
+    $scope.unit2.value = c2k(0);
+    $scope.unit3.value = c2f(0);
 
     $scope.getTickedUnits();
     
@@ -193,34 +210,38 @@
     */
 
     $scope.calculateUnits = function(selectedUnit, inputValue){
-        //console.log("obje "+obj);
-        //console.log($scope.dataCollection);
-        
-
-       
+        //console.log("selectedUnit "+selectedUnit.value);
+        //console.log($scope.dataCollection)
 
         $.each( $scope.dataCollection, function( index, value ){
 
             console.log($scope.dataCollection[index].factor);
 
             if(selectedUnit.cname === "unit1") {
-                $scope.unit2.value = $scope.unit2.sum + (inputValue * $scope.unit2.factor);
-                $scope.unit3.value = $scope.unit3.sum + (inputValue * $scope.unit3.factor);
-                console.log("its 1");
+                $scope.unit2.value = c2k(inputValue);
+                $scope.unit3.value = c2f(inputValue);
+
             }else if(selectedUnit.cname === "unit2") {
-                $scope.unit1.value = $scope.unit1.sum + (inputValue * $scope.unit1.factor);
-                $scope.unit3.value = $scope.unit3.sum + (inputValue * $scope.unit3.factor);
-                console.log("its 2");
+                $scope.unit1.value = k2c(inputValue);
+                $scope.unit3.value = k2f(inputValue);
+
             }else if(selectedUnit.cname === "unit3") {
-                $scope.unit2.value = $scope.unit2.sum + (inputValue * $scope.unit2.factor);
-                $scope.unit1.value = $scope.unit1.sum + (inputValue * $scope.unit1.factor);
-                console.log("its 3");
+                $scope.unit1.value = f2c(inputValue);
+                $scope.unit2.value = f2k(inputValue);
             }
         });
 
-       
-        console.log("selectedUnit "+selectedUnit.cname);
         return "selectedUnit " + selectedUnit.cname; 
+    }
+
+    function formatFloat(aFloat) {
+  // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
+       // return parseFloat(aFloat.toFixed(6));
+      //  console.log(typeof aFloat);
+       // var aFloat = parseFloat($filter('number')(aFloat, 20));
+        //console.log("3 "+typeof aFloat);
+        //return aFloat;
+        return Math.round(aFloat * Math.pow(10, 6)) / Math.pow(10, 6);
     }
 
 }]);
