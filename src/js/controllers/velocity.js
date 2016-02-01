@@ -3,9 +3,9 @@
     'use strict';
     var converterApp = angular.module('converterApp');
     
-    converterApp.controller('massController', 
-        ['$scope', '$filter', '$location', 'unitSelectionService', 'formatNumberFactory', 
-        function($scope, $filter, $location, unitSelectionService, formatNumberFactory) {
+    converterApp.controller('velocityController', 
+        ['$scope', '$filter', 'unitSelectionService', 'formatNumberFactory',
+        function($scope, $filter, unitSelectionService, formatNumberFactory) {
 
     $scope.unitsCollection = unitSelectionService.units;
     $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -19,17 +19,17 @@
             
         
     // Get last segment of URL
-    var url = $location.path();
-    $scope.selectedUnit = url.substr(url.lastIndexOf('/') + 1); 
+    var url = document.URL;
+    $scope.unit = url.substr(url.lastIndexOf('/') + 1); 
     // Add it to text button    
-    $scope.unitCustomTexts = {buttonDefaultText:$scope.selectedUnit};
+    $scope.unitCustomTexts = {buttonDefaultText:$scope.unit};
     
     $scope.redirectUnit = unitSelectionService.redirectUnit;
     
     $scope.unit1 = {
         id: 1, 
-        label: 'Gram', 
-        maker: 'g', 
+        label: 'kilometers per hour', 
+        maker: 'ips', 
         cname: 'unit1', 
         ticked: true,
         value: 0,
@@ -38,112 +38,94 @@
     };    
     $scope.unit2 = {
         id: 2, 
-        label: 'Milligrams', 
-        marker: 'mg', 
+        label: 'kilometers per second', 
+        maker: '', 
         cname: 'unit2',
-        ticked: true,
-        value: 0,
-        factor: 1000,
-        type: 'Metric'
-    };
-    
-    $scope.unit3 = {
-        id: 3, 
-        label: 'Kilograms', 
-        maker: 'kg', 
-        cname: 'unit3', 
-        ticked: true,
-        value: 0,
-        factor: 0.001,
-        type: 'Metric'
-    };
-
-     $scope.unit4 = {
-        id: 4, 
-        label: 'Tonnes', 
-        maker: 't', 
-        cname: 'unit4', 
-        ticked: true,
-        value: 0,
-        factor: 0.000001,
-        type: 'Metric'
-    };
-    
-     $scope.unit5 = {
-        id: 5, 
-        label: 'Grain',
-        maker: '',
-        cname: 'unit5',
         ticked: false,
         value: 0,
-        factor: 15.43235835,
-        type: 'Imperial'
+        factor:0.000277778,
+        type: 'Metric'
     };
-
-    $scope.unit6 = {
-        id: 6, 
-        label: 'Ounces',
-        maker: 'oz',
-        cname: 'unit6',
+    $scope.unit3 = {
+        id: 3, 
+        label: 'meters per second', 
+        marker: '', 
+        cname: 'unit3',
         ticked: true,
         value: 0,
-        factor: 0.035273962,
+        factor: 0.277777778,
+        type: 'Metric'
+    };
+    $scope.unit4 = {
+        id: 4, 
+        label: 'speed of light', 
+        marker: 'c', 
+        cname: 'unit4',
+        ticked: true,
+        value: 0,
+        factor: 9.26567E-10,
+        type: ''
+    };
+    $scope.unit5 = {
+        id: 5, 
+        label: 'inches per second', 
+        marker: 'ips', 
+        cname: 'unit5', 
+        ticked: false,
+        value: 0,
+        factor: 10.93613298,
+        type: 'Imperial'
+    };
+    $scope.unit6 = {
+        id: 6, 
+        label: 'feet per second (fps)', 
+        maker: '', 
+        cname: 'unit6', 
+        ticked: false,
+        value: 0,
+        factor: 0.911344415,
         type: 'Imperial'
     };
     $scope.unit7 = {
         id: 7, 
-        label: 'Pounds',
-        maker: 'lb',
-        cname: 'unit7',
-        ticked: true,
-        value: 0,
-        factor: 0.002204623,
-        type: 'Imperial'
-    };
-    
-    $scope.unit8 = {
-        id: 8, 
-        label: 'Tons (US)',
-        maker: '',
-        cname: 'unit8',
+        label: 'miles per second', 
+        maker: '', 
+        cname: 'unit7', 
         ticked: false,
         value: 0,
-        factor: 0.000001102,
+        factor: 0.000172603,
+        type: 'Imperial'
+    };
+    $scope.unit8 = {
+        id: 8, 
+        label: 'miles per hour', 
+        maker: 'mph', 
+        cname: 'unit8', 
+        ticked: true,
+        value: 0,
+        factor: 0.621371192,
         type: 'Imperial'
     };
     $scope.unit9 = {
         id: 9, 
-        label: 'Tons (UK)',
-        maker: '',
-        cname: 'unit9',
-        ticked: false,
+        label: 'knot', 
+        maker: '', 
+        cname: 'unit9', 
+        ticked: true,
         value: 0,
-        factor: 0.000000984,
-        type: ''
+        factor: 0.39967066,
+        type: 'Imperial'
     };
-    
     $scope.unit10 = {
         id: 10, 
-        label: 'Ounces Troy',
-        maker: '',
-        cname: 'unit10',
-        ticked: false,
+        label: 'Furlongs per fortnight', 
+        maker: '', 
+        cname: 'unit10', 
+        ticked: true,
         value: 0,
-        factor: 0.032150747,
-        type: 'Troy'
+        factor: 1670.245765,
+        type: 'Imperial'
     };
-    $scope.unit11 = {
-        id: 11, 
-        label: 'Pounds Troy',
-        maker: '',
-        cname: 'unit11',
-        ticked: false,
-        value: 0,
-        factor: 0.002679229,
-        type: 'Troy'
-    };
-    
-   
     
     $scope.dataCollection = 
     [
@@ -156,8 +138,7 @@
         $scope.unit7,
         $scope.unit8,
         $scope.unit9,
-        $scope.unit10,
-        $scope.unit11
+        $scope.unit10
     ];
     
     
@@ -260,12 +241,6 @@
     $scope.$watch('unit10.value', function(){
         $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit10.value / $scope.unit10.factor);
     });
-    $scope.$watch('unit11.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit11.value / $scope.unit11.factor);
-    });
-    
-    
-   
     
     
      // MAIN unit
@@ -279,8 +254,7 @@
         $scope.unit8.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit8.factor);
         $scope.unit9.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit9.factor);
         $scope.unit10.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit10.factor);
-        $scope.unit11.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit11.factor);
-    });    
+    });
 
 }]);
     

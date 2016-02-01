@@ -51,7 +51,27 @@ converterApp.config(function ($routeProvider) {
         templateUrl: 'html/pages/temperature.html',
         controller: 'temperatureController'
     })
-    
+    .when('/velocity', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'velocityController'
+    })
+    .when('/acceleration', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'accelerationController'
+    })    
+    .when('/time', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'timeController'
+    })   
+    .when('/data', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'dataController'
+    })
+    .when('/angle', {
+        templateUrl: 'html/pages/default.html',
+        controller: 'angleController'
+    })    
+
     .when('/currency', {
         templateUrl: 'html/pages/currency.html',
         controller: 'currencyController'

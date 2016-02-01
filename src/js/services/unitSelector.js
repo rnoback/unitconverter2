@@ -46,6 +46,26 @@
             },
             {
                 id:10,
+                label:'velocity'
+            },
+            {
+                id: 11,
+                label:'acceleration',
+            },
+            {
+                id: 12,
+                label:'time',
+            },
+            {
+                id: 13,
+                label:'data',
+            },
+            {
+                id: 14,
+                label:'angle',
+            },
+            {
+                id:15,
                 label:'currency'
             }
 

@@ -3,9 +3,9 @@
     'use strict';
     var converterApp = angular.module('converterApp');
     
-    converterApp.controller('powerController', 
-        ['$scope', '$filter', '$location', 'unitSelectionService', 'formatNumberFactory',
-        function($scope, $filter, $location, unitSelectionService, formatNumberFactory) {
+    converterApp.controller('angleController', 
+        ['$scope', '$filter', 'unitSelectionService', 'formatNumberFactory',
+        function($scope, $filter, unitSelectionService, formatNumberFactory) {
 
     $scope.unitsCollection = unitSelectionService.units;
     $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -19,88 +19,56 @@
             
         
     // Get last segment of URL
-    var url = $location.path();
-    $scope.selectedUnit = url.substr(url.lastIndexOf('/') + 1); 
-
+    var url = document.URL;
+    $scope.unit = url.substr(url.lastIndexOf('/') + 1); 
     // Add it to text button    
-    $scope.unitCustomTexts = {buttonDefaultText:$scope.selectedUnit};
+    $scope.unitCustomTexts = {buttonDefaultText:$scope.unit};
     
     $scope.redirectUnit = unitSelectionService.redirectUnit;
     
     $scope.unit1 = {
         id: 1, 
-        label: 'Watt', 
-        marker: 'W', 
-        cname: 'unit1',
+        label: 'Degrees', 
+        maker: '', 
+        cname: 'unit1', 
         ticked: true,
         value: 0,
-        factor: 1
-    };
-
+        factor: 1,
+        type: ''
+    };    
     $scope.unit2 = {
         id: 2, 
-        label: 'Kilowatt',
-        maker: 'kW', 
-        cname: 'unit2', 
+        label: 'Radians', 
+        maker: '', 
+        cname: 'unit2',
         ticked: true,
         value: 0,
-        factor: 0.001
-    };    
-
+        factor:1,
+        type: ''
+    };
     $scope.unit3 = {
         id: 3, 
-        label: 'Horsepower (550 ft-lb)', 
-        maker: '', 
+        label: 'Hours', 
+        marker: '', 
         cname: 'unit3',
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 0.001341022
+        factor: 1,
+        type: ''
     };
-   
-    $scope.unit4 = {
-        id: 4, 
-        label: 'Horsepower (electric)', 
-        marker: '', 
-        cname: 'unit4',
-        ticked: true,
-        value: 0,
-        factor: 0.001340483
-    };
-    $scope.unit5 = {
-        id: 5, 
-        label: 'BTUs per hour', 
-        marker: '', 
-        cname: 'unit5', 
-        ticked: true,
-        value: 0,
-        factor: 3.412141633,
-    };
-
-    $scope.unit6 = {
-        id: 6, 
-        label: 'Foot-pounds per second', 
-        marker: '', 
-        cname: 'unit6', 
-        ticked: true,
-        value: 0,
-        factor: 0.737562149,
-    };
-   
+    
     
     $scope.dataCollection = 
     [
         $scope.unit1, 
         $scope.unit2, 
-        $scope.unit3, 
-        $scope.unit4,
-        $scope.unit5,
-        $scope.unit6
+        $scope.unit3
     ];
     
     
     
     //Filter Collection
-    $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'id');
+    $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');
     
     // Setup frequently used units
     $scope.dataModel = [];
@@ -146,7 +114,7 @@
         curUnit.ticked = true;
         $scope.unitsTicked.push(curUnit);
     };
-     
+    
     $scope.removeUnit = function(curUnit){ 
         for(var i=0; i<$scope.unitsTicked.length; i++){
             if($scope.unitsTicked[i].id === curUnit.id){
@@ -171,29 +139,18 @@
     
     
     $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / (Math.PI/180));
     });
     $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / $scope.unit3.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / (12/360));
     });
-    $scope.$watch('unit4.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit4.value / $scope.unit4.factor);
-    });
-    $scope.$watch('unit5.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit5.value / $scope.unit5.factor);
-    });
-    $scope.$watch('unit6.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit6.value / $scope.unit6.factor);
-    });
-   
     
-     // Main unit
+    
+    
+     // MAIN unit
     $scope.$watch('unit1.value', function(){
-        $scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit2.factor);
-        $scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit3.factor);
-        $scope.unit4.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit4.factor);
-        $scope.unit5.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit5.factor); 
-        $scope.unit6.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit6.factor); 
+        $scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * (Math.PI/180));
+        $scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * (12/360));
     });
 
 }]);

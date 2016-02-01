@@ -3,9 +3,9 @@
     'use strict';
     var converterApp = angular.module('converterApp');
     
-    converterApp.controller('massController', 
-        ['$scope', '$filter', '$location', 'unitSelectionService', 'formatNumberFactory', 
-        function($scope, $filter, $location, unitSelectionService, formatNumberFactory) {
+    converterApp.controller('timeController', 
+        ['$scope', '$filter', 'unitSelectionService', 'formatNumberFactory',
+        function($scope, $filter, unitSelectionService, formatNumberFactory) {
 
     $scope.unitsCollection = unitSelectionService.units;
     $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -19,131 +19,153 @@
             
         
     // Get last segment of URL
-    var url = $location.path();
-    $scope.selectedUnit = url.substr(url.lastIndexOf('/') + 1); 
+    var url = document.URL;
+    $scope.unit = url.substr(url.lastIndexOf('/') + 1); 
     // Add it to text button    
-    $scope.unitCustomTexts = {buttonDefaultText:$scope.selectedUnit};
+    $scope.unitCustomTexts = {buttonDefaultText:$scope.unit};
     
     $scope.redirectUnit = unitSelectionService.redirectUnit;
     
     $scope.unit1 = {
         id: 1, 
-        label: 'Gram', 
-        maker: 'g', 
+        label: 'Seconds', 
+        maker: 's', 
         cname: 'unit1', 
         ticked: true,
         value: 0,
         factor: 1,
-        type: 'Metric'
+        type: ''
     };    
     $scope.unit2 = {
         id: 2, 
-        label: 'Milligrams', 
-        marker: 'mg', 
+        label: 'Minutes', 
+        maker: 'm', 
         cname: 'unit2',
         ticked: true,
         value: 0,
-        factor: 1000,
-        type: 'Metric'
+        factor:0.016666667,
+        type: ''
     };
-    
     $scope.unit3 = {
         id: 3, 
-        label: 'Kilograms', 
-        maker: 'kg', 
-        cname: 'unit3', 
+        label: 'Hours', 
+        marker: 'h', 
+        cname: 'unit3',
         ticked: true,
         value: 0,
-        factor: 0.001,
-        type: 'Metric'
+        factor: 0.000277778,
+        type: ''
     };
-
-     $scope.unit4 = {
+    $scope.unit4 = {
         id: 4, 
-        label: 'Tonnes', 
-        maker: 't', 
-        cname: 'unit4', 
+        label: 'Days', 
+        marker: '', 
+        cname: 'unit4',
         ticked: true,
         value: 0,
-        factor: 0.000001,
-        type: 'Metric'
+        factor: 1.15741E-05,
+        type: ''
     };
-    
-     $scope.unit5 = {
+    $scope.unit5 = {
         id: 5, 
-        label: 'Grain',
-        maker: '',
-        cname: 'unit5',
-        ticked: false,
+        label: 'Weeks', 
+        marker: '', 
+        cname: 'unit5', 
+        ticked: true,
         value: 0,
-        factor: 15.43235835,
-        type: 'Imperial'
+        factor: 1.65344E-06,
+        type: ''
     };
-
     $scope.unit6 = {
         id: 6, 
-        label: 'Ounces',
-        maker: 'oz',
-        cname: 'unit6',
-        ticked: true,
+        label: 'Fortnight', 
+        maker: '', 
+        cname: 'unit6', 
+        ticked: false,
         value: 0,
-        factor: 0.035273962,
-        type: 'Imperial'
+        factor: 8.2672E-07,
+        type: ''
     };
     $scope.unit7 = {
         id: 7, 
-        label: 'Pounds',
-        maker: 'lb',
-        cname: 'unit7',
+        label: 'Months (1/12th yr)', 
+        maker: '(365 day, except for last 2)', 
+        cname: 'unit7', 
         ticked: true,
         value: 0,
-        factor: 0.002204623,
-        type: 'Imperial'
+        factor: 3.80518E-07,
+        type: ''
     };
-    
     $scope.unit8 = {
         id: 8, 
-        label: 'Tons (US)',
-        maker: '',
-        cname: 'unit8',
-        ticked: false,
+        label: 'Year (365 day)', 
+        maker: '', 
+        cname: 'unit8', 
+        ticked: true,
         value: 0,
-        factor: 0.000001102,
-        type: 'Imperial'
+        factor: 3.17098E-08,
+        type: ''
     };
     $scope.unit9 = {
         id: 9, 
-        label: 'Tons (UK)',
-        maker: '',
-        cname: 'unit9',
-        ticked: false,
+        label: 'Year (leap)', 
+        maker: '', 
+        cname: 'unit9', 
+        ticked: true,
         value: 0,
-        factor: 0.000000984,
+        factor: 3.16232E-08,
         type: ''
     };
-    
     $scope.unit10 = {
         id: 10, 
-        label: 'Ounces Troy',
-        maker: '',
-        cname: 'unit10',
-        ticked: false,
+        label: 'Year (mean)', 
+        maker: '', 
+        cname: 'unit10', 
+        ticked: true,
         value: 0,
-        factor: 0.032150747,
-        type: 'Troy'
+        factor: 3.16888E-08,
+        type: ''
     };
     $scope.unit11 = {
         id: 11, 
-        label: 'Pounds Troy',
-        maker: '',
+        label: 'Picosecond',
+        maker: 'ps',
         cname: 'unit11',
         ticked: false,
         value: 0,
-        factor: 0.002679229,
-        type: 'Troy'
+        factor: 1E+12,
+        type: ''
     };
-    
-   
+    $scope.unit12 = {
+        id: 12, 
+        label: 'Nanosecond',
+        maker: 'ns',
+        cname: 'unit12',
+        ticked: false,
+        value: 0,
+        factor: 1000000000,
+        type: ''
+    };
+    $scope.unit13 = {
+        id: 13, 
+        label: 'Microsecond',
+        maker: 'us',
+        cname: 'unit13',
+        ticked: false,
+        value: 0,
+        factor: 1000000,
+        type: ''
+    };
+    $scope.unit14 = {
+        id: 14, 
+        label: 'Millisecond', 
+        maker: '',
+        cname: 'unit14',
+        ticked: true,
+        value: 0,
+        factor: 1.000,
+        type: ''
+    };
     
     $scope.dataCollection = 
     [
@@ -157,7 +179,10 @@
         $scope.unit8,
         $scope.unit9,
         $scope.unit10,
-        $scope.unit11
+        $scope.unit11,
+        $scope.unit12,
+        $scope.unit13,
+        $scope.unit14
     ];
     
     
@@ -263,9 +288,15 @@
     $scope.$watch('unit11.value', function(){
         $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit11.value / $scope.unit11.factor);
     });
-    
-    
-   
+    $scope.$watch('unit12.value', function(){
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit12.value / $scope.unit12.factor);
+    });
+    $scope.$watch('unit13.value', function(){
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit13.value / $scope.unit13.factor);
+    });
+    $scope.$watch('unit14.value', function(){
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit14.value / $scope.unit14.factor);
+    });
     
     
      // MAIN unit
@@ -280,7 +311,10 @@
         $scope.unit9.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit9.factor);
         $scope.unit10.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit10.factor);
         $scope.unit11.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit11.factor);
-    });    
+        $scope.unit12.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit12.factor);
+        $scope.unit13.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit13.factor);
+        $scope.unit14.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit14.factor);
+    });
 
 }]);
     

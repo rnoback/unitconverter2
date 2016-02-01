@@ -4,8 +4,8 @@
     var converterApp = angular.module('converterApp');
     
     converterApp.controller('temperatureController', 
-        ['$scope', '$filter', '$location', 'unitSelectionService', 
-        function($scope, $filter, $location, unitSelectionService) {
+        ['$scope', '$filter', '$location', 'unitSelectionService', 'formatNumberFactory',
+        function($scope, $filter, $location, unitSelectionService, formatNumberFactory) {
 
     $scope.unitsCollection = unitSelectionService.units;
     $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -146,28 +146,28 @@
     
 
     function c2f(c) {
-        return formatFloat(9/5 * parseFloat(c) + 32);
+        return formatNumberFactory.formatNumber(9/5 * parseFloat(c) + 32);
     }
     
 
     function c2k(c) {
-        return formatFloat(parseFloat(c) + $scope.csumk);
+        return formatNumberFactory.formatNumber(parseFloat(c) + $scope.csumk);
     }
 
     function k2c(k) {
-        return formatFloat(parseFloat(k) - $scope.csumk);
+        return formatNumberFactory.formatNumber(parseFloat(k) - $scope.csumk);
     }
 
 
     function k2f(k) {
-        return formatFloat((parseFloat(k) - $scope.csumk) * 1.8000 + $scope.csumf);
+        return formatNumberFactory.formatNumber((parseFloat(k) - $scope.csumk) * 1.8000 + $scope.csumf);
     }
 
     function f2c(f) {
-        return formatFloat((parseFloat(f) - 32) / 1.8);
+        return formatNumberFactory.formatNumber((parseFloat(f) - 32) / 1.8);
     }
     function f2k(f) {
-        return formatFloat( ((parseFloat(f) - 32) / 1.8) + $scope.csumk);
+        return formatNumberFactory.formatNumber( ((parseFloat(f) - 32) / 1.8) + $scope.csumk);
     }
 
     //init
@@ -179,30 +179,30 @@
     /*
     
     $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatFloat(($scope.unit2.value / $scope.unit2.factor));
+        $scope.unit1.value = formatNumberFactory.formatNumber(($scope.unit2.value / $scope.unit2.factor));
 
 
     });
     $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatFloat(($scope.unit3.value / $scope.unit3.factor) - $scope.unit3.sum);
+        $scope.unit1.value = formatNumberFactory.formatNumber(($scope.unit3.value / $scope.unit3.factor) - $scope.unit3.sum);
          //var c = f2c($scope.unit3.value);
-         //$scope.unit1.value = formatFloat(c); 
+         //$scope.unit1.value = formatNumberFactory.formatNumber(c); 
          //console.log(c);
     });
      // Main unit
     $scope.$watch('unit1.value', function(){
        // var f = ($scope.unit1 + $scope.unit2.sum);
        // var k = ($scope.unit1.value * $scope.unit3.factor) + $scope.unit3.sum;
-        //$scope.unit2.value = formatFloat(f);
+        //$scope.unit2.value = formatNumberFactory.formatNumber(f);
         //var f = c2f($scope.unit1.value);
-        //$scope.unit3.value = formatFloat(f); 
+        //$scope.unit3.value = formatNumberFactory.formatNumber(f); 
 
         // var k = $scope.unit1.value + $scope.unit2.sum;
-        // $scope.unit2.value = formatFloat(k); 
+        // $scope.unit2.value = formatNumberFactory.formatNumber(k); 
     });
     
      // helper function for rounding
-    function formatFloat(aFloat) {
+    function formatNumberFactory.formatNumber(aFloat) {
         // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
        // return parseFloat(aFloat.toFixed(6));
         return aFloat;
@@ -232,16 +232,6 @@
         });
 
         return "selectedUnit " + selectedUnit.cname; 
-    }
-
-    function formatFloat(aFloat) {
-  // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
-       // return parseFloat(aFloat.toFixed(6));
-      //  console.log(typeof aFloat);
-       // var aFloat = parseFloat($filter('number')(aFloat, 20));
-        //console.log("3 "+typeof aFloat);
-        //return aFloat;
-        return Math.round(aFloat * Math.pow(10, 6)) / Math.pow(10, 6);
     }
 
 }]);

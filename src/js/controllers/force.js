@@ -4,8 +4,8 @@
     var converterApp = angular.module('converterApp');
     
     converterApp.controller('forceController', 
-        ['$scope', '$filter', '$location', 'unitSelectionService', 
-        function($scope, $filter, $location, unitSelectionService) {
+        ['$scope', '$filter', '$location', 'unitSelectionService', 'formatNumberFactory',
+        function($scope, $filter, $location, unitSelectionService, formatNumberFactory) {
 
     $scope.unitsCollection = unitSelectionService.units;
     $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -162,32 +162,25 @@
     
     
     $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit2.value / $scope.unit2.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
     });
     $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit3.value / $scope.unit3.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / $scope.unit3.factor);
     });
     $scope.$watch('unit4.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit4.value / $scope.unit4.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit4.value / $scope.unit4.factor);
     });
     $scope.$watch('unit5.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit5.value / $scope.unit5.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit5.value / $scope.unit5.factor);
     });
     
      // Main unit
     $scope.$watch('unit1.value', function(){
-        $scope.unit2.value = formatFloat($scope.unit1.value * $scope.unit2.factor);
-        $scope.unit3.value = formatFloat($scope.unit1.value * $scope.unit3.factor);
-        $scope.unit4.value = formatFloat($scope.unit1.value * $scope.unit4.factor);
-        $scope.unit5.value = formatFloat($scope.unit1.value * $scope.unit5.factor); 
+        $scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit2.factor);
+        $scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit3.factor);
+        $scope.unit4.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit4.factor);
+        $scope.unit5.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit5.factor); 
     });
-    
-     // helper function for rounding
-    function formatFloat(aFloat) {
-        // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
-       // return parseFloat(aFloat.toFixed(6));
-        return aFloat;
-    }
     
 
 }]);

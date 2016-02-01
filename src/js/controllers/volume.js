@@ -4,8 +4,8 @@
     var converterApp = angular.module('converterApp');
     
     converterApp.controller('volumeController', 
-        ['$scope', '$filter', '$location', 'unitSelectionService', 
-        function($scope, $filter, $location, unitSelectionService) {
+        ['$scope', '$filter', '$location', 'unitSelectionService', 'formatNumberFactory',
+        function($scope, $filter, $location, unitSelectionService, formatNumberFactory) {
 
     $scope.unitsCollection = unitSelectionService.units;
     $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -300,87 +300,75 @@
     
     
     $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit2.value / $scope.unit2.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
     });
     $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit3.value / $scope.unit3.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / $scope.unit3.factor);
     });
     $scope.$watch('unit4.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit4.value / $scope.unit4.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit4.value / $scope.unit4.factor);
     });
     $scope.$watch('unit5.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit5.value / $scope.unit5.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit5.value / $scope.unit5.factor);
     });
     $scope.$watch('unit6.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit6.value / $scope.unit6.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit6.value / $scope.unit6.factor);
     });
     $scope.$watch('unit7.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit7.value / $scope.unit7.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit7.value / $scope.unit7.factor);
     });
     $scope.$watch('unit8.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit8.value / $scope.unit8.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit8.value / $scope.unit8.factor);
     });
     $scope.$watch('unit9.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit9.value / $scope.unit9.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit9.value / $scope.unit9.factor);
     });
     $scope.$watch('unit10.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit10.value / $scope.unit10.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit10.value / $scope.unit10.factor);
     });
     $scope.$watch('unit11.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit11.value / $scope.unit11.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit11.value / $scope.unit11.factor);
     });
     $scope.$watch('unit12.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit12.value / $scope.unit12.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit12.value / $scope.unit12.factor);
     });
     $scope.$watch('unit13.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit13.value / $scope.unit13.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit13.value / $scope.unit13.factor);
     });
     $scope.$watch('unit14.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit14.value / $scope.unit14.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit14.value / $scope.unit14.factor);
     });
     $scope.$watch('unit15.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit15.value / $scope.unit15.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit15.value / $scope.unit15.factor);
     });
     $scope.$watch('unit16.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit16.value / $scope.unit16.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit16.value / $scope.unit16.factor);
     });
     $scope.$watch('unit17.value', function(){
-        $scope.unit1.value = formatFloat($scope.unit17.value / $scope.unit17.factor);
+        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit17.value / $scope.unit17.factor);
     });
     
     
     
      // MAIN unit
     $scope.$watch('unit1.value', function(){
-        $scope.unit2.value = formatFloat($scope.unit1.value * $scope.unit2.factor);
-        $scope.unit3.value = formatFloat($scope.unit1.value * $scope.unit3.factor);
-        $scope.unit4.value = formatFloat($scope.unit1.value * $scope.unit4.factor);
-        $scope.unit5.value = formatFloat($scope.unit1.value * $scope.unit5.factor);
-        $scope.unit6.value = formatFloat($scope.unit1.value * $scope.unit6.factor);
-        $scope.unit7.value = formatFloat($scope.unit1.value * $scope.unit7.factor);
-        $scope.unit8.value = formatFloat($scope.unit1.value * $scope.unit8.factor);
-        $scope.unit9.value = formatFloat($scope.unit1.value * $scope.unit9.factor);
-        $scope.unit10.value = formatFloat($scope.unit1.value * $scope.unit10.factor);
-        $scope.unit11.value = formatFloat($scope.unit1.value * $scope.unit11.factor);
-        $scope.unit12.value = formatFloat($scope.unit1.value * $scope.unit12.factor);
-        $scope.unit13.value = formatFloat($scope.unit1.value * $scope.unit13.factor);
-        $scope.unit14.value = formatFloat($scope.unit1.value * $scope.unit14.factor);
-        $scope.unit15.value = formatFloat($scope.unit1.value * $scope.unit15.factor);
-        $scope.unit16.value = formatFloat($scope.unit1.value * $scope.unit16.factor);
-        $scope.unit17.value = formatFloat($scope.unit1.value * $scope.unit17.factor);
+        $scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit2.factor);
+        $scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit3.factor);
+        $scope.unit4.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit4.factor);
+        $scope.unit5.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit5.factor);
+        $scope.unit6.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit6.factor);
+        $scope.unit7.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit7.factor);
+        $scope.unit8.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit8.factor);
+        $scope.unit9.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit9.factor);
+        $scope.unit10.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit10.factor);
+        $scope.unit11.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit11.factor);
+        $scope.unit12.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit12.factor);
+        $scope.unit13.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit13.factor);
+        $scope.unit14.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit14.factor);
+        $scope.unit15.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit15.factor);
+        $scope.unit16.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit16.factor);
+        $scope.unit17.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit17.factor);
     });
-    
-     // helper function for rounding
-    function formatFloat(aFloat) {
-  // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
-       // return parseFloat(aFloat.toFixed(6));
-      //  console.log(typeof aFloat);
-       // var aFloat = parseFloat($filter('number')(aFloat, 20));
-        //console.log("3 "+typeof aFloat);
-        return aFloat;
-       // return Math.round(aFloat * Math.pow(10, 6)) / Math.pow(10, 6);
-    }
-    
 
 }]);
     
