@@ -61,7 +61,7 @@
         label: 'speed of light', 
         marker: 'c', 
         cname: 'unit4',
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 9.26567E-10,
         type: ''
@@ -81,7 +81,7 @@
         label: 'feet per second (fps)', 
         maker: '', 
         cname: 'unit6', 
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 0.911344415,
         type: 'Imperial'
@@ -111,7 +111,7 @@
         label: 'knot', 
         maker: '', 
         cname: 'unit9', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 0.39967066,
         type: 'Imperial'
@@ -121,7 +121,7 @@
         label: 'Furlongs per fortnight', 
         maker: '', 
         cname: 'unit10', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 1670.245765,
         type: 'Imperial'
@@ -143,6 +143,36 @@
     
     
     
+
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
+    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
+
+
+
+
+
+
+
+
+
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');
     

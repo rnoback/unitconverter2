@@ -2,8 +2,8 @@
 
 var directiveModule = angular.module('angularjs-dropdown-multiselect', []);
 
-directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$compile', '$parse',
-    function ($filter, $document, $compile, $parse) {
+directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$compile', '$parse','$route',
+    function ($filter, $document, $compile, $parse, $route) {
 
         return {
             restrict: 'AE',
@@ -25,6 +25,7 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                 template += '<ul class="dropdown-menu dropdown-menu-form" ng-style="{display: open ? \'block\' : \'none\', height : settings.scrollable ? settings.scrollableHeight : \'auto\' }"  >';
                 template += '<li ng-hide="!settings.showCheckAll || settings.selectionLimit > 0"><a data-ng-click="selectAll()"><span class="fa fa-check-circle"></span>  {{texts.checkAll}}</a>';
                 template += '<li ng-show="settings.showUncheckAll"><a data-ng-click="deselectAll();"><span class="fa fa-times-circle"></span>   {{texts.uncheckAll}}</a></li>';
+                template += '<li ng-show="settings.showUncheckAll"><a data-ng-click="setFreqUsedUnit();"><span class="fa fa-circle"></span> {{texts.freqUsed}}</a></li>';
                 template += '<li ng-hide="(!settings.showCheckAll || settings.selectionLimit > 0) && !settings.showUncheckAll" class="divider"></li>';
                 template += '<li ng-show="settings.enableSearch"><div class="dropdown-header"><input type="text" class="form-control" style="width: 100%;" ng-model="searchFilter" placeholder="{{texts.searchPlaceholder}}" /></li>';
                 template += '<li ng-show="settings.enableSearch" class="divider"></li>';
@@ -103,7 +104,8 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                     selectionOf: '/',
                     searchPlaceholder: 'Search...',
                     buttonDefaultText: 'Select',
-                    dynamicButtonTextSuffix: 'checked'
+                    dynamicButtonTextSuffix: 'checked',
+                    freqUsed: 'Frequently Used'
                 };
 
                 $scope.searchFilter = $scope.searchFilter || '';
@@ -245,6 +247,15 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                     } else {
                         $scope.selectedModel.splice(0, $scope.selectedModel.length);
                     }
+                };
+                $scope.setFreqUsedUnit = function () {
+                    // Quick and dirty reload
+                    //location.reload();
+                    /*var str = window.location.href;
+                    var n = str.lastIndexOf('/');
+                    var result = str.substring(n + 1);
+                    window.location.href='#/' + result;*/
+                    $route.reload();
                 };
 
                 $scope.setSelectedItem = function (id, dontRemove) {

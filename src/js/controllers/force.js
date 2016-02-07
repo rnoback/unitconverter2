@@ -34,7 +34,8 @@
         cname: 'unit1',
         ticked: true,
         value: 0,
-        factor: 1
+        factor: 1,
+        type: ''
     };
 
     $scope.unit2 = {
@@ -44,7 +45,8 @@
         cname: 'unit2', 
         ticked: true,
         value: 0,
-        factor: 3.59694309
+        factor: 3.59694309,
+        type: ''
     };    
 
     $scope.unit3 = {
@@ -54,7 +56,8 @@
         cname: 'unit3',
         ticked: true,
         value: 0,
-        factor: 0.224808943
+        factor: 0.224808943,
+        type: ''
     };
    
     $scope.unit4 = {
@@ -64,7 +67,8 @@
         cname: 'unit4',
         ticked: true,
         value: 0,
-        factor: 100000
+        factor: 100000,
+        type: ''
     };
     $scope.unit5 = {
         id: 5, 
@@ -73,7 +77,8 @@
         cname: 'unit5', 
         ticked: true,
         value: 0,
-        factor: 0.101971621
+        factor: 0.101971621,
+        type: ''
     };
 
     
@@ -89,6 +94,30 @@
     ];
     
     
+
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
+    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
+    
+
+
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'id');

@@ -71,7 +71,7 @@
         label: 'Weeks', 
         marker: '', 
         cname: 'unit5', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 1.65344E-06,
         type: ''
@@ -91,7 +91,7 @@
         label: 'Months (1/12th yr)', 
         maker: '(365 day, except for last 2)', 
         cname: 'unit7', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 3.80518E-07,
         type: ''
@@ -101,7 +101,7 @@
         label: 'Year (365 day)', 
         maker: '', 
         cname: 'unit8', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 3.17098E-08,
         type: ''
@@ -111,7 +111,7 @@
         label: 'Year (leap)', 
         maker: '', 
         cname: 'unit9', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 3.16232E-08,
         type: ''
@@ -121,7 +121,7 @@
         label: 'Year (mean)', 
         maker: '', 
         cname: 'unit10', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 3.16888E-08,
         type: ''
@@ -161,7 +161,7 @@
         label: 'Millisecond', 
         maker: '',
         cname: 'unit14',
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 1.000,
         type: ''
@@ -186,6 +186,37 @@
     ];
     
     
+
+
+
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
+    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
+
+
+
+
+
+
+
+
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');

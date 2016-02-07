@@ -805,6 +805,16 @@ body #background-container {
           float: left;
           text-transform: capitalize;
           margin-right: 10px; }
+      #box-container .box-container__content .box-header .btn-collapse-window {
+        height: 30px;
+        padding: 0 10px;
+        background: #ffffff;
+        font-weight: 600;
+        line-height: 30px;
+        border-radius: 5px;
+        float: right;
+        cursor: pointer;
+        margin: 0 10px 10px 0; }
       #box-container .box-container__content .box-header .box-header__bg {
         position: absolute;
         top: 0;
@@ -822,6 +832,8 @@ body #background-container {
       @media (min-width: 550px) {
         #box-container .box-container__content .box-body {
           padding: 20px; } }
+    #box-container .box-container__content .box-body.disabled {
+      display: none; }
 
 ul {
   list-style: none; }
@@ -929,3 +941,9 @@ ul.dropdown-menu {
       display: block; }
     ul.dropdown-menu > li > a:hover, ul.dropdown-menu > li a:focus {
       background: #e1e1e1; }
+  ul.dropdown-menu .dropdown-header {
+    display: block;
+    padding: 3px 20px 3px 10px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #999; }

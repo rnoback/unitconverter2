@@ -41,7 +41,7 @@
         label: 'Milligrams', 
         marker: 'mg', 
         cname: 'unit2',
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 1000,
         type: 'Metric'
@@ -63,7 +63,7 @@
         label: 'Tonnes', 
         maker: 't', 
         cname: 'unit4', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 0.000001,
         type: 'Metric'
@@ -106,7 +106,7 @@
         label: 'Tons (US)',
         maker: '',
         cname: 'unit8',
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 0.000001102,
         type: 'Imperial'
@@ -116,7 +116,7 @@
         label: 'Tons (UK)',
         maker: '',
         cname: 'unit9',
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 0.000000984,
         type: ''
@@ -161,6 +161,34 @@
     ];
     
     
+
+
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
+    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
+
+
+
+
+
+
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');

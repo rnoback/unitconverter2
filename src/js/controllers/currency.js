@@ -90,7 +90,7 @@
             label: 'Canadian Dollar',
             maker: 'CAD',
             cname: 'unit5',
-            ticked: false,
+            ticked: true,
             value: 0,
             factor: 1,
             type: ''
@@ -143,7 +143,7 @@
             label: 'UK Pound Sterling',
             maker: 'GBP',
             cname: 'unit10',
-            ticked: false,
+            ticked: true,
             value: 0,
             factor: 1,
             type: ''
@@ -213,7 +213,7 @@
             label: 'Japanese Yen',
             maker: 'JPY',
             cname: 'unit17',
-            ticked: false,
+            ticked: true,
             value: 0,
             factor: 1,
             type: ''
@@ -407,6 +407,27 @@
             $scope.unit31,
             $scope.unit32
         ];
+
+        // collapse window => needs to go in a directive
+        $scope.windowOpen = true;
+        
+        $('.btn-collapse-window').on('click', function(){
+            if($scope.windowOpen) {
+                $(this).find('span').removeClass('fa-chevron-down');
+                $(this).find('span').addClass('fa-chevron-up');
+                $('.box-body').hide();
+                $('.units-dropdown').hide();
+                $('.dropdown-multiselect').hide();
+                $scope.windowOpen = false;
+            }else{
+                $(this).find('span').addClass('fa-chevron-down');
+                $(this).find('span').removeClass('fa-chevron-up');
+                $('.box-body').show();
+                $('.units-dropdown').show();
+                $('.dropdown-multiselect').show();
+                $scope.windowOpen = true;
+            }
+        });
         
         // Add (3-th party) values to units
         $.each($scope.dataCollection, function(key, val) {

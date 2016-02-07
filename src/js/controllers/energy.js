@@ -34,7 +34,8 @@
         cname: 'unit1',
         ticked: true,
         value: 0,
-        factor: 1
+        factor: 1,
+        type: ''
     };
 
     $scope.unit2 = {
@@ -42,9 +43,10 @@
         label: 'Erg',
         maker: 'kW', 
         cname: 'unit2', 
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 36000000000
+        factor: 36000000000,
+        type: ''
     };    
 
     $scope.unit3 = {
@@ -54,7 +56,8 @@
         cname: 'unit3',
         ticked: true,
         value: 0,
-        factor: 3600
+        factor: 3600,
+        type: ''
     };
    
     $scope.unit4 = {
@@ -64,16 +67,18 @@
         cname: 'unit4',
         ticked: true,
         value: 0,
-        factor: 0.001
+        factor: 0.001,
+        type: ''
     };
     $scope.unit5 = {
         id: 5, 
         label: 'BTU', 
         marker: '', 
         cname: 'unit5', 
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 3.412141633
+        factor: 3.412141633,
+        type: ''
     };
 
     $scope.unit6 = {
@@ -81,36 +86,40 @@
         label: 'Therm (US)', 
         marker: '', 
         cname: 'unit6', 
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 3.41296E-05
+        factor: 3.41296E-05,
+        type: ''
     };
     $scope.unit7 = {
         id: 7, 
         label: 'Foot-pounds ', 
         marker: '', 
         cname: 'unit7', 
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 2655.223737
+        factor: 2655.223737,
+        type: ''
     };
     $scope.unit8 = {
         id: 8, 
         label: 'Calorie (heat)', 
         marker: '', 
         cname: 'unit8', 
-        ticked: true,
+        ticked: false,
         value: 0,
-        factor: 859.8452279
+        factor: 859.8452279,
+        type: ''
     };
     $scope.unit9 = {
         id: 9, 
         label: 'Calorie (food)', 
         marker: '', 
         cname: 'unit9', 
-        ticked: false,
+        ticked: true,
         value: 0,
-        factor: 0.859845228
+        factor: 0.859845228,
+        type: ''
     };
    
     
@@ -128,6 +137,29 @@
     ];
     
     
+
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
+    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
+
+
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'id');

@@ -36,4 +36,11 @@ ul.dropdown-menu{
             background:   $light-grey;
         }
     }
+    .dropdown-header{
+        display: block;
+        padding: 3px 20px 3px 10px;
+        font-size: 12px;
+        line-height: 1.42857143;
+        color: #999;
+    }
 }

@@ -89,7 +89,8 @@ converterApp.config(function ($routeProvider) {
 	function resizeBg() {
 					
 	}
-	                   			
+
+    
 	//theWindow.resize(resizeBg).trigger("resize");
      
  }]);
@@ -114,11 +115,9 @@ converterApp.directive('unitWrap', function($timeout){
           scope.clickMe = function(obj){
 
             var v = element.find('.uc-input').val();
-            console.log("v "+v);
             scope.calculateUnits( {aunit:obj, avalue:v} );  
           }
         } 
-       
     };
 });
 
@@ -134,11 +133,10 @@ converterApp.directive('unitWrapTemperature', function($timeout){
           scope.clickMe = function(obj){
 
             var v = element.find('.uc-input').val();
-            console.log("v "+v);
+           
             scope.calculateUnits( {aunit:obj, avalue:v} );  
           }
-        } 
-       
+        }  
     };
 });
 

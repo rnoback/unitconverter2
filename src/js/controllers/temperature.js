@@ -35,7 +35,8 @@
         ticked: true,
         value: 0,
         factor: 1,
-        sum: 0
+        sum: 0,
+        type: ''
     };
 
     $scope.unit2 = {
@@ -46,7 +47,8 @@
         ticked: true,
         value: 0,
         factor: 1,
-        sum: 273.16
+        sum: 273.16,
+        type: ''
     };    
 
     $scope.unit3 = {
@@ -57,7 +59,8 @@
         ticked: true,
         value: 0,
         factor: 1.8,
-        sum: 32
+        sum: 32,
+        type: ''
     };
    
     
@@ -71,6 +74,34 @@
     ];
     
     
+
+
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
+    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
+
+
+
+
+
+
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'id');
@@ -176,46 +207,11 @@
 
     $scope.getTickedUnits();
     
-    /*
     
-    $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber(($scope.unit2.value / $scope.unit2.factor));
-
-
-    });
-    $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber(($scope.unit3.value / $scope.unit3.factor) - $scope.unit3.sum);
-         //var c = f2c($scope.unit3.value);
-         //$scope.unit1.value = formatNumberFactory.formatNumber(c); 
-         //console.log(c);
-    });
-     // Main unit
-    $scope.$watch('unit1.value', function(){
-       // var f = ($scope.unit1 + $scope.unit2.sum);
-       // var k = ($scope.unit1.value * $scope.unit3.factor) + $scope.unit3.sum;
-        //$scope.unit2.value = formatNumberFactory.formatNumber(f);
-        //var f = c2f($scope.unit1.value);
-        //$scope.unit3.value = formatNumberFactory.formatNumber(f); 
-
-        // var k = $scope.unit1.value + $scope.unit2.sum;
-        // $scope.unit2.value = formatNumberFactory.formatNumber(k); 
-    });
-    
-     // helper function for rounding
-    function formatNumberFactory.formatNumber(aFloat) {
-        // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
-       // return parseFloat(aFloat.toFixed(6));
-        return aFloat;
-    }
-    */
 
     $scope.calculateUnits = function(selectedUnit, inputValue){
-        //console.log("selectedUnit "+selectedUnit.value);
-        //console.log($scope.dataCollection)
 
         $.each( $scope.dataCollection, function( index, value ){
-
-            console.log($scope.dataCollection[index].factor);
 
             if(selectedUnit.cname === "unit1") {
                 $scope.unit2.value = c2k(inputValue);

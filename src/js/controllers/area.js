@@ -32,7 +32,7 @@
         label: 'Sq Meters',
         maker: '', 
         cname: 'unit1', 
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 1,
         type: 'Metric'
@@ -72,7 +72,7 @@
         label: 'Sq Kilometers', 
         marker: '', 
         cname: 'unit5', 
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 0.000001,
         type: 'Metric'
@@ -82,7 +82,7 @@
         label: 'Hectares', 
         maker: '', 
         cname: 'unit6', 
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 0.0001,
         type: 'Metric'
@@ -122,7 +122,7 @@
         label: 'Sq Yards', 
         maker: '', 
         cname: 'unit10', 
-        ticked: true,
+        ticked: false,
         value: 0,
         factor: 1.195990046,
         type: 'Imperial'
@@ -132,7 +132,7 @@
         label: 'Sq Miles', 
         maker: '', 
         cname: 'unit11', 
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 0.0000000386102,
         type: 'Imperial'
@@ -142,7 +142,7 @@
         label: 'Acre',
         maker: '',
         cname: 'unit12',
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 0.000247104,
         type: 'Imperial'
@@ -164,9 +164,28 @@
         $scope.unit11,
         $scope.unit12
     ];
+
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
     
-    
-    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
+   
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');
     

@@ -81,7 +81,7 @@
         label: 'feet per second per second', 
         maker: 'fss', 
         cname: 'unit6', 
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 3.280839895,
         type: 'English'
@@ -91,7 +91,7 @@
         label: 'miles per hour per second', 
         maker: 'mhs', 
         cname: 'unit7', 
-        ticked: false,
+        ticked: true,
         value: 0,
         factor: 2.236936292,
         type: 'English'
@@ -109,7 +109,26 @@
         $scope.unit7
     ];
     
+   // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
     
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).find('span').addClass('fa-chevron-up');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');
