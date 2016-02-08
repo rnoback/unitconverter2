@@ -48,7 +48,7 @@ converterApp.config(function ($routeProvider) {
         controller: 'forceController'
     })
     .when('/temperature', {
-        templateUrl: 'html/pages/temperature.html',
+        templateUrl: 'html/pages/default.html',
         controller: 'temperatureController'
     })
     .when('/velocity', {

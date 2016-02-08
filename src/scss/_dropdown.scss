@@ -1,7 +1,7 @@
 .dropdown-toggle{
     letter-spacing: 0;
     text-transform: none;
-    font-size: 14px;
+    font-size: 12px;
 }
 ul.dropdown-menu{
     background: $white;
@@ -30,7 +30,9 @@ ul.dropdown-menu{
         margin-bottom:0;
         >a{
             padding: 5px 10px;
+          
             display: block;
+            font-size: 12px;
         }
         >a:hover, a:focus{
             background:   $light-grey;

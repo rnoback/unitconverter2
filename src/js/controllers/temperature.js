@@ -72,8 +72,6 @@
         $scope.unit2, 
         $scope.unit3
     ];
-    
-    
 
 
     // collapse window => needs to go in a directive
@@ -83,6 +81,7 @@
         if($scope.windowOpen) {
             $(this).find('span').removeClass('fa-chevron-down');
             $(this).find('span').addClass('fa-chevron-up');
+            $(this).addClass('collapsed');
             $('.box-body').hide();
             $('.units-dropdown').hide();
             $('.dropdown-multiselect').hide();
@@ -90,6 +89,7 @@
         }else{
             $(this).find('span').addClass('fa-chevron-down');
             $(this).find('span').removeClass('fa-chevron-up');
+            $(this).removeClass('collapsed');
             $('.box-body').show();
             $('.units-dropdown').show();
             $('.dropdown-multiselect').show();
@@ -100,8 +100,7 @@
 
 
 
-
-
+    
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'id');
@@ -117,8 +116,7 @@
         }
         return arr;
      })();        
-    
-   
+       
     
     $scope.dataSettings = { 
         dynamicTitle: false,
@@ -172,6 +170,9 @@
         
     };
     
+    $scope.getTickedUnits();
+    
+
     $scope.csumk = 273.15;
     $scope.csumf = 32;
     
@@ -201,35 +202,19 @@
         return formatNumberFactory.formatNumber( ((parseFloat(f) - 32) / 1.8) + $scope.csumk);
     }
 
-    //init
-    $scope.unit2.value = c2k(0);
-    $scope.unit3.value = c2f(0);
 
-    $scope.getTickedUnits();
+    $scope.$watch('unit2.value', function(){
+        $scope.unit1.value = k2c($scope.unit2.value);
+    });
+    $scope.$watch('unit3.value', function(){
+        $scope.unit1.value = f2c($scope.unit3.value);
+    });
     
-    
-
-    $scope.calculateUnits = function(selectedUnit, inputValue){
-
-        $.each( $scope.dataCollection, function( index, value ){
-
-            if(selectedUnit.cname === "unit1") {
-                $scope.unit2.value = c2k(inputValue);
-                $scope.unit3.value = c2f(inputValue);
-
-            }else if(selectedUnit.cname === "unit2") {
-                $scope.unit1.value = k2c(inputValue);
-                $scope.unit3.value = k2f(inputValue);
-
-            }else if(selectedUnit.cname === "unit3") {
-                $scope.unit1.value = f2c(inputValue);
-                $scope.unit2.value = f2k(inputValue);
-            }
-        });
-
-        return "selectedUnit " + selectedUnit.cname; 
-    }
-
+     // Main unit
+    $scope.$watch('unit1.value', function(){
+        $scope.unit2.value = c2k($scope.unit1.value);
+        $scope.unit3.value = c2f($scope.unit1.value);
+    });
 }]);
     
     

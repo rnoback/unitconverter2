@@ -91,10 +91,11 @@
     // collapse window => needs to go in a directive
     $scope.windowOpen = true;
     
-    $('.btn-collapse-window').on('click', function(){
+   $('.btn-collapse-window').on('click', function(){
         if($scope.windowOpen) {
             $(this).find('span').removeClass('fa-chevron-down');
             $(this).find('span').addClass('fa-chevron-up');
+            $(this).addClass('collapsed');
             $('.box-body').hide();
             $('.units-dropdown').hide();
             $('.dropdown-multiselect').hide();
@@ -102,6 +103,7 @@
         }else{
             $(this).find('span').addClass('fa-chevron-down');
             $(this).find('span').removeClass('fa-chevron-up');
+            $(this).removeClass('collapsed');
             $('.box-body').show();
             $('.units-dropdown').show();
             $('.dropdown-multiselect').show();

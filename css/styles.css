@@ -192,10 +192,10 @@ a {
 button {
   display: inline-block;
   height: 30px;
-  padding: 0 22px;
+  padding: 0 12px;
   color: #555555;
   text-align: center;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   line-height: 30px;
   letter-spacing: .1rem;
@@ -788,11 +788,12 @@ body #background-container {
         position: relative;
         z-index: 3; }
         #box-container .box-container__content .box-header .box-content__bg label.units-dropdown {
-          margin: 3px 0px;
-          text-shadow: 0px 0px 7px white; }
+          margin: 5px 0px;
+          text-shadow: 0px 0px 7px white;
+          font-size: 13px; }
           @media (min-width: 550px) {
             #box-container .box-container__content .box-header .box-content__bg label.units-dropdown {
-              margin: 3px 13px;
+              margin: 5px 13px;
               float: left; } }
         #box-container .box-container__content .box-header .box-content__bg .dropdown-toggle {
           background: white;
@@ -814,6 +815,11 @@ body #background-container {
         border-radius: 5px;
         float: right;
         cursor: pointer;
+        font-size: 12px; }
+        @media (min-width: 400px) {
+          #box-container .box-container__content .box-header .btn-collapse-window {
+            margin: 0 10px 10px 0; } }
+      #box-container .box-container__content .box-header .btn-collapse-window.collapsed {
         margin: 0 10px 10px 0; }
       #box-container .box-container__content .box-header .box-header__bg {
         position: absolute;
@@ -884,14 +890,15 @@ ul {
         margin: 0 0 0 .5rem;
         text-align: left;
         font-weight: normal;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: bold;
         text-shadow: 0px 0px 7px white;
         line-height: 22px;
         padding-bottom: 4px; }
       ul li.input-wrap .input-wrap__content input {
         width: 100%;
-        border: 0; }
+        border: 0;
+        font-size: 12px; }
     ul li.input-wrap .input-wrap__bg {
       position: absolute;
       top: 0;
@@ -911,7 +918,7 @@ input.uc-input {
 .dropdown-toggle {
   letter-spacing: 0;
   text-transform: none;
-  font-size: 14px; }
+  font-size: 12px; }
 
 ul.dropdown-menu {
   background: #ffffff;
@@ -938,7 +945,8 @@ ul.dropdown-menu {
     margin-bottom: 0; }
     ul.dropdown-menu > li > a {
       padding: 5px 10px;
-      display: block; }
+      display: block;
+      font-size: 12px; }
     ul.dropdown-menu > li > a:hover, ul.dropdown-menu > li a:focus {
       background: #e1e1e1; }
   ul.dropdown-menu .dropdown-header {
