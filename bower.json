@@ -25,6 +25,10 @@
     "jquery": "~2.1.4",
     "lodash": "~3.10.1",
     "angularjs-dropdown-multiselect": "~1.5.2",
-    "normalize-css": "normalize.css#~3.0.3"
+    "normalize-css": "normalize.css#~3.0.3",
+    "mathjs": "^2.7.0"
+  },
+  "resolutions": {
+    "angular": "~1.4.7"
   }
 }

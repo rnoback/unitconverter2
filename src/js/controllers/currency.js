@@ -528,6 +528,10 @@
         });
         $scope.$watch('unit5.value', function(){
             $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit5.value / $scope.unit5.factor);
+            //var val = math.number($scope.unit5.value);
+           // var fac = parseFloat($scope.unit5.factor);
+           // console.log(fac);
+           // $scope.unit1.value = formatNumberFactory.formatNumber(math.divide(math.bignumber(1), math.bignumber(1)));
         });
         $scope.$watch('unit6.value', function(){
             $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit6.value / $scope.unit6.factor);
