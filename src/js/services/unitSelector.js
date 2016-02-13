@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    angular.module('converterApp').service('unitSelectionService', function(){
+    angular.module('converterApp').service('unitSelectionService', ['$filter', function($filter){
         var self = this;
 
         this.currentSelectedId = 0;
@@ -70,6 +70,8 @@
             }
 
         ];
+
+        this.units = $filter('orderBy')(this.units, 'label');
         
         this.getLabelById = function(id){
             for(var i=0; i<self.units.length; i++){
@@ -84,6 +86,5 @@
             window.location.href='#/' + self.currentSelectedLabel;
             //self.currentSelectedId = curUnit.id;
         };
-    });
-
+    }]);
 }());
