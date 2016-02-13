@@ -28,7 +28,7 @@
     
     $scope.unit1 = {
         id: 1, 
-        label: 'meters per second per second', 
+        label: 'meters /sec. /sec.', 
         maker: 'mss', 
         cname: 'unit1', 
         ticked: true,
@@ -38,8 +38,8 @@
     };    
     $scope.unit2 = {
         id: 2, 
-        label: 'kilometers per second per second', 
-        maker: 'kmhs', 
+        label: 'kilometers /sec. /sec.', 
+        maker: 'kmss', 
         cname: 'unit2',
         ticked: false,
         value: 0,
@@ -48,7 +48,7 @@
     };
     $scope.unit3 = {
         id: 3, 
-        label: 'kilometers per hour per second', 
+        label: 'kilometers /hr. /sec.', 
         marker: 'kmhs', 
         cname: 'unit3',
         ticked: true,
@@ -68,41 +68,41 @@
     };
     $scope.unit5 = {
         id: 5, 
-        label: 'inches per second per second', 
+        label: 'inches /sec. /sec.', 
         marker: 'iss', 
         cname: 'unit5', 
         ticked: false,
         value: 0,
         factor: 39.37007874,
-        type: 'English'
+        type: 'Imperial'
     };
     $scope.unit6 = {
         id: 6, 
-        label: 'feet per second per second', 
+        label: 'feet /sec. /sec.', 
         maker: 'fss', 
         cname: 'unit6', 
         ticked: true,
         value: 0,
         factor: 3.280839895,
-        type: 'English'
+        type: 'Imperial'
     };
     $scope.unit7 = {
         id: 7, 
-        label: 'miles per hour per second', 
+        label: 'miles /hr. /sec.', 
         maker: 'mhs', 
         cname: 'unit7', 
         ticked: true,
         value: 0,
         factor: 2.236936292,
-        type: 'English'
+        type: 'Imperial'
     };
    
     
     $scope.dataCollection = 
     [
+        $scope.unit3,
         $scope.unit1, 
         $scope.unit2, 
-        $scope.unit3, 
         $scope.unit4,
         $scope.unit5, 
         $scope.unit6,

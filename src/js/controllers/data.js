@@ -99,12 +99,12 @@
     
     $scope.dataCollection = 
     [
+        $scope.unit6,
         $scope.unit1, 
         $scope.unit2, 
         $scope.unit3, 
         $scope.unit4,
         $scope.unit5, 
-        $scope.unit6,
         $scope.unit7
     ];
     
@@ -116,7 +116,7 @@
         if($scope.windowOpen) {
             $(this).find('span').removeClass('fa-chevron-up');
             $(this).find('span').addClass('fa-chevron-down');
-            $(this).addClass('collapsed');
+            $(this).closest('#box-container').addClass('collapsed');
             $('.box-body').hide();
             $('.units-dropdown').hide();
             $('.dropdown-multiselect').hide();
@@ -124,7 +124,7 @@
         }else{
             $(this).find('span').addClass('fa-chevron-up');
             $(this).find('span').removeClass('fa-chevron-down');
-            $(this).removeClass('collapsed');
+            $(this).closest('#box-container').removeClass('collapsed');
             $('.box-body').show();
             $('.units-dropdown').show();
             $('.dropdown-multiselect').show();

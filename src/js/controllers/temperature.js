@@ -35,7 +35,6 @@
         ticked: true,
         value: 0,
         factor: 1,
-        sum: 0,
         type: ''
     };
 
@@ -47,7 +46,6 @@
         ticked: true,
         value: 0,
         factor: 1,
-        sum: 273.16,
         type: ''
     };    
 
@@ -59,7 +57,6 @@
         ticked: true,
         value: 0,
         factor: 1.8,
-        sum: 32,
         type: ''
     };
    
@@ -68,8 +65,8 @@
     
     $scope.dataCollection = 
     [
+        $scope.unit2,
         $scope.unit1, 
-        $scope.unit2, 
         $scope.unit3
     ];
 
@@ -77,11 +74,11 @@
     // collapse window => needs to go in a directive
     $scope.windowOpen = true;
     
-   $('.btn-collapse-window').on('click', function(){
+    $('.btn-collapse-window').on('click', function(){
         if($scope.windowOpen) {
             $(this).find('span').removeClass('fa-chevron-up');
             $(this).find('span').addClass('fa-chevron-down');
-            $(this).addClass('collapsed');
+            $(this).closest('#box-container').addClass('collapsed');
             $('.box-body').hide();
             $('.units-dropdown').hide();
             $('.dropdown-multiselect').hide();
@@ -89,7 +86,7 @@
         }else{
             $(this).find('span').addClass('fa-chevron-up');
             $(this).find('span').removeClass('fa-chevron-down');
-            $(this).removeClass('collapsed');
+            $(this).closest('#box-container').removeClass('collapsed');
             $('.box-body').show();
             $('.units-dropdown').show();
             $('.dropdown-multiselect').show();
@@ -102,7 +99,7 @@
     
     
     //Filter Collection
-    $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'id');
+    $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');
     
     // Setup frequently used units
     $scope.dataModel = [];
@@ -214,6 +211,7 @@
         $scope.unit2.value = c2k($scope.unit1.value);
         $scope.unit3.value = c2f($scope.unit1.value);
     });
+
 }]);
     
     

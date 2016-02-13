@@ -41,8 +41,10 @@ ul.dropdown-menu{
     .dropdown-header{
         display: block;
         padding: 3px 20px 3px 10px;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 1.42857143;
-        color: #999;
+        color: #000;
+        font-weight: bold;
+        border-top: solid 1px #ddd;
     }
 }

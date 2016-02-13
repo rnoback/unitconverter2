@@ -34,7 +34,8 @@
         cname: 'unit1',
         ticked: true,
         value: 0,
-        factor: 1
+        factor: 1,
+        type: ''
     };
 
     $scope.unit2 = {
@@ -44,7 +45,8 @@
         cname: 'unit2', 
         ticked: true,
         value: 0,
-        factor: 1.816165874
+        factor: 1.816165874,
+        type: ''
     };    
 
     $scope.unit3 = {
@@ -54,7 +56,8 @@
         cname: 'unit3',
         ticked: true,
         value: 0,
-        factor: 0.908082937
+        factor: 0.908082937,
+        type: ''
     };
    
     $scope.unit4 = {
@@ -64,7 +67,8 @@
         cname: 'unit4',
         ticked: true,
         value: 0,
-        factor: 0.113510367
+        factor: 0.113510367,
+        type: ''
     };
     $scope.unit5 = {
         id: 5, 
@@ -74,13 +78,14 @@
         ticked: true,
         value: 0,
         factor: 0.028377592,
+        type: ''
     };
    
     
     $scope.dataCollection = 
     [
-        $scope.unit1, 
         $scope.unit2, 
+        $scope.unit1, 
         $scope.unit3, 
         $scope.unit4,
         $scope.unit5
@@ -91,11 +96,11 @@
     // collapse window => needs to go in a directive
     $scope.windowOpen = true;
     
-   $('.btn-collapse-window').on('click', function(){
+    $('.btn-collapse-window').on('click', function(){
         if($scope.windowOpen) {
             $(this).find('span').removeClass('fa-chevron-up');
             $(this).find('span').addClass('fa-chevron-down');
-            $(this).addClass('collapsed');
+            $(this).closest('#box-container').addClass('collapsed');
             $('.box-body').hide();
             $('.units-dropdown').hide();
             $('.dropdown-multiselect').hide();
@@ -103,7 +108,7 @@
         }else{
             $(this).find('span').addClass('fa-chevron-up');
             $(this).find('span').removeClass('fa-chevron-down');
-            $(this).removeClass('collapsed');
+            $(this).closest('#box-container').removeClass('collapsed');
             $('.box-body').show();
             $('.units-dropdown').show();
             $('.dropdown-multiselect').show();
@@ -114,7 +119,7 @@
     
     
     //Filter Collection
-    $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'label');
+    $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');
     
     // Setup frequently used units
     $scope.dataModel = [];

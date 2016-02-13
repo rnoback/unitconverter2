@@ -316,22 +316,21 @@
     
     $('.btn-collapse-window').on('click', function(){
         if($scope.windowOpen) {
-            $(this).find('span').removeClass('fa-chevron-down');
-            $(this).find('span').addClass('fa-chevron-up');
-            $(this).addClass('collapsed');
+            $(this).find('span').removeClass('fa-chevron-up');
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).closest('#box-container').addClass('collapsed');
             $('.box-body').hide();
             $('.units-dropdown').hide();
             $('.dropdown-multiselect').hide();
             $scope.windowOpen = false;
         }else{
-            $(this).find('span').addClass('fa-chevron-down');
-            $(this).find('span').removeClass('fa-chevron-up');
-            $(this).removeClass('collapsed');
+            $(this).find('span').addClass('fa-chevron-up');
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).closest('#box-container').removeClass('collapsed');
             $('.box-body').show();
             $('.units-dropdown').show();
             $('.dropdown-multiselect').show();
             $scope.windowOpen = true;
-            
         }
     });
 
