@@ -73,7 +73,7 @@ converterApp.config(function ($routeProvider) {
     })    
 
     .when('/currency', {
-        templateUrl: 'html/pages/currency.html',
+        templateUrl: 'html/pages/default.html',
         controller: 'currencyController'
     })
     

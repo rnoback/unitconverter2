@@ -408,28 +408,8 @@
             $scope.unit32
         ];
 
-        // collapse window => needs to go in a directive
-        $scope.windowOpen = true;
-        
-        $('.btn-collapse-window').on('click', function(){
-            if($scope.windowOpen) {
-                $(this).find('span').removeClass('fa-chevron-down');
-                $(this).find('span').addClass('fa-chevron-up');
-                $(this).addClass('collapsed');
-                $('.box-body').hide();
-                $('.units-dropdown').hide();
-                $('.dropdown-multiselect').hide();
-                $scope.windowOpen = false;
-            }else{
-                $(this).find('span').addClass('fa-chevron-down');
-                $(this).find('span').removeClass('fa-chevron-up');
-                $(this).removeClass('collapsed');
-                $('.box-body').show();
-                $('.units-dropdown').show();
-                $('.dropdown-multiselect').show();
-                $scope.windowOpen = true;
-            }
-        });
+
+    
         
         // Add (3-th party) values to units
         $.each($scope.dataCollection, function(key, val) {
@@ -655,7 +635,28 @@
     
     }
     parseData($scope.currencyValues);
-
+    // collapse window => needs to go in a directive
+    $scope.windowOpen = true;
+    
+    $('.btn-collapse-window').on('click', function(){
+        if($scope.windowOpen) {
+            $(this).find('span').removeClass('fa-chevron-up');
+            $(this).find('span').addClass('fa-chevron-down');
+            $(this).addClass('collapsed');
+            $('.box-body').hide();
+            $('.units-dropdown').hide();
+            $('.dropdown-multiselect').hide();
+            $scope.windowOpen = false;
+        }else{
+            $(this).find('span').addClass('fa-chevron-up');
+            $(this).find('span').removeClass('fa-chevron-down');
+            $(this).removeClass('collapsed');
+            $('.box-body').show();
+            $('.units-dropdown').show();
+            $('.dropdown-multiselect').show();
+            $scope.windowOpen = true;
+        }
+    });
 }]);
     
     
