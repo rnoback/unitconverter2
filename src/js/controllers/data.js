@@ -205,35 +205,57 @@
     
     
     $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
+        //$scope.unit1.value = math.divide(math.bignumber($scope.unit2.value), math.bignumber($scope.unit2.factor));
+        //$scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
+        if($scope.unit2.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit2.value) / math.bignumber($scope.unit2.factor));
+        }
     });
     $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / $scope.unit3.factor);
+       // var val = formatNumberFactory.formatNumber($scope.unit3.value);
+        //$scope.unit1.value = math.divide(math.bignumber($scope.unit3.value), math.bignumber($scope.unit3.factor));
+        if($scope.unit3.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit3.value) / math.bignumber($scope.unit3.factor));
+        }
     });
     $scope.$watch('unit4.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit4.value / $scope.unit4.factor);
+        //$scope.unit1.value = formatNumberFactory.formatNumber($scope.unit4.value / $scope.unit4.factor);
+        if($scope.unit4.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit4.value) / math.bignumber($scope.unit4.factor));
+        }
     });
     $scope.$watch('unit5.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit5.value / $scope.unit5.factor);
+       // $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit5.value / $scope.unit5.factor);
+        if($scope.unit5.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit5.value) / math.bignumber($scope.unit5.factor));
+        }
     });
     $scope.$watch('unit6.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit6.value / $scope.unit6.factor);
+        //$scope.unit1.value = formatNumberFactory.formatNumber($scope.unit6.value / $scope.unit6.factor);
+        if($scope.unit6.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit6.value) / math.bignumber($scope.unit6.factor));
+        }
     });
     $scope.$watch('unit7.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit7.value / $scope.unit7.factor);
+       // $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit7.value / $scope.unit7.factor);
+        if($scope.unit7.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit7.value) / math.bignumber($scope.unit7.factor));
+        }
     });
     
     
      // MAIN unit
     $scope.$watch('unit1.value', function(){
-        $scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit2.factor);
-        $scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit3.factor);
-        $scope.unit4.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit4.factor);
-        $scope.unit5.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit5.factor);
-        $scope.unit6.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit6.factor);
-        $scope.unit7.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit7.factor);
+        //$scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit2.factor);
+        if($scope.unit1.value){
+            $scope.unit2.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber($scope.unit2.factor));
+            $scope.unit3.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber($scope.unit3.factor));
+            $scope.unit4.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber($scope.unit4.factor));
+            $scope.unit5.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber($scope.unit5.factor));
+            $scope.unit6.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber($scope.unit6.factor));
+            $scope.unit7.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber($scope.unit7.factor));
+        }
     });
-
 }]);
     
     

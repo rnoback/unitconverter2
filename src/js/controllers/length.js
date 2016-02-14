@@ -196,7 +196,6 @@
         ];
 
 
-
         // collapse window => needs to go in a directive
         $scope.windowOpen = true;
         
@@ -293,9 +292,9 @@
         $scope.$watch('unit2.value', function(){
             $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
             /*
-            var val1 = math.bignumber($scope.unit2.value);
-           $scope.unit1.value = math.divide(math.number(math.bignumber($scope.unit2.value)), math.bignumber($scope.unit2.factor));
-           */
+            var val1 = math.bignumber($scope.unit2.value); */
+           //$scope.unit1.value = math.divide(math.bignumber($scope.unit2.value), math.bignumber($scope.unit2.factor));
+          
         });
         $scope.$watch('unit3.value', function(){
             $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / $scope.unit3.factor);
