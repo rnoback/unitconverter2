@@ -112,6 +112,14 @@ converterApp.directive('unitWrap', function($timeout){
             calculateUnits: "&"
         },
         link: function (scope, element, attrs){
+           /* console.log("scope "+scope.unitObject.id);
+
+            if(scope.unitObject.id === 15){
+                element.find('.subfield1').css('display','block');
+                //element.finsd('.subfield2').css('display','block');
+            }
+            */
+
           scope.clickMe = function(obj){
 
             var v = element.find('.uc-input').val();
@@ -130,12 +138,15 @@ converterApp.directive('unitWrapTemperature', function($timeout){
             calculateUnits: "&"
         },
         link: function (scope, element, attrs){
+
           scope.clickMe = function(obj){
 
             var v = element.find('.uc-input').val();
            
             scope.calculateUnits( {aunit:obj, avalue:v} );  
           }
+
+
         }  
     };
 });

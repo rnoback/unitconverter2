@@ -176,6 +176,17 @@
             type: ''
         };
 
+        $scope.unit15 = {
+            id: 15, 
+            label: 'Feet/Inches',
+            maker: '',
+            cname: 'unit15',
+            ticked: true,
+            value: 0,
+            factor: 1,
+            type: 'Imperial'
+        };
+
         
         $scope.dataCollection = 
         [
@@ -287,6 +298,8 @@
         };
         
         $scope.getTickedUnits();
+
+
         
 
         $scope.$watch('unit2.value', function(){

@@ -160,18 +160,30 @@
     
     
     $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / (Math.PI/180));
+        if($scope.unit2.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit2.value) / math.bignumber(Math.PI/180));
+        }
+        //$scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / (Math.PI/180));
     });
     $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / (12/360));
+        if($scope.unit3.value){
+            $scope.unit1.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit3.value) / math.bignumber(12/360));
+        }
+        //$scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / (12/360));
     });
     
     
     
      // MAIN unit
     $scope.$watch('unit1.value', function(){
-        $scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * (Math.PI/180));
-        $scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * (12/360));
+        //$scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * (Math.PI/180));
+        //$scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * (12/360));
+
+
+        if($scope.unit1.value){
+            $scope.unit2.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber(Math.PI/180));
+            $scope.unit3.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber(12/360));
+        }
     });
 
 }]);
