@@ -920,6 +920,23 @@ ul {
         font-size: 13px; }
       ul li.input-wrap .input-wrap__content input.subfield1, ul li.input-wrap .input-wrap__content input.subfield2 {
         display: none; }
+      ul li.input-wrap .input-wrap__content .btn-calc {
+        display: none;
+        margin: 0 0 0 3%;
+        color: red;
+        font-size: 1.2em;
+        height: 28px;
+        line-height: 1.4em;
+        color: #ffffff;
+        cursor: pointer;
+        text-shadow: 0px 0px 4px #333; }
+        ul li.input-wrap .input-wrap__content .btn-calc:hover {
+          color: red;
+          text-shadow: 0px 0px 4px #e1e1e1; }
+    ul li.input-wrap .input-wrap__content.active input {
+      width: 82%; }
+    ul li.input-wrap .input-wrap__content.active .btn-calc {
+      display: inline; }
     ul li.input-wrap .input-wrap__bg {
       position: absolute;
       top: 0;

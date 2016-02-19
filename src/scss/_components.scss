@@ -239,6 +239,35 @@ ul{
             input.subfield1, input.subfield2{
                 display: none;
             }
+
+            .btn-calc{
+                display: none;
+                margin: 0 0 0 3%;
+                color: red;
+                font-size: 1.2em;
+                height: 28px;
+                line-height: 1.4em;
+                color: $white;
+                cursor: pointer;
+                text-shadow: 0px 0px 4px $dark-grey;
+                
+                span{
+
+                }
+                &:hover{
+                    color:red;
+                    text-shadow: 0px 0px 4px $light-grey;
+                }
+            }
+        }
+        .input-wrap__content.active{
+            input{
+                width: 82%;
+            }
+            .btn-calc{
+                display: inline;
+                
+            }
         }
         .input-wrap__bg{
             position: absolute;

@@ -109,7 +109,8 @@ converterApp.directive('unitWrap', function($timeout){
         replace: true,
         scope: {
             unitObject:'=',
-            calculateUnits: "&"
+            calculateUnits: "&",
+            calcHandler: '&'
         },
         link: function (scope, element, attrs){
            /* console.log("scope "+scope.unitObject.id);
@@ -119,6 +120,36 @@ converterApp.directive('unitWrap', function($timeout){
                 //element.finsd('.subfield2').css('display','block');
             }
             */
+
+
+            var input = element.find('.uc-input');
+            input.on('focus', function(evt){
+                target = $(evt.target);
+                $('.input-wrap__content').removeClass('active');
+                target.parent().addClass('active');
+            });
+
+            
+
+            var calcBtn = element.find('.btn-calc');
+            calcBtn.on('click ', function(evt){
+
+                var target = $(evt.target).parent().parent();
+
+                var value = target.find('.uc-input').val();
+
+                var id = scope.unitObject.id; 
+               
+                console.log(value);
+
+                //scope.$apply(attrs.calcHandler);
+
+                var fooValue= scope.calcHandler({aid:id, avalue:value});
+            });
+
+            var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+            if (keycode == '13') {
+
 
           scope.clickMe = function(obj){
 

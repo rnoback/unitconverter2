@@ -16,7 +16,9 @@
         showUncheckAll: false,
         showCheckAll: false
     }; 
-            
+    
+
+   
         
     // Get last segment of URL
     var url = document.URL;
@@ -202,6 +204,8 @@
     
     $scope.getTickedUnits();
     
+
+
     
     $scope.$watch('unit2.value', function(){
         if($scope.unit2.value){
@@ -253,6 +257,12 @@
             $scope.unit7.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber($scope.unit7.factor));
         }
     });
+
+
+     $scope.calcHandler = function(id, value){
+        console.log("id " + id);
+        console.log("value " + value);
+    }
 
 }]);
     

@@ -1,11 +1,12 @@
 <li class="input-wrap {{unitObject.cname}}">
     <div class="input-wrap__content">
         <label for="unit-{{unitObject.cname}}">{{unitObject.label}}</label>
-        <input ng-cancel-drag id="unit-{{unitObject.cname}}" type="number" step="any" name="unit-{{unitObject.cname}}" class="uc-input" ng-model="unitObject.value" required onclick="this.select()">
+        <input ng-cancel-drag id="unit-{{unitObject.cname}}" type="number" step="any" name="unit-{{unitObject.cname}}" class="uc-input" ng-model="unitObject.value" required>
         <label for="unitSub1-{{unitObject.cname}}" class="subfield1">{{unitObject.label}}</label>
         <input ng-cancel-drag id="unitSub1-{{unitObject.cname}}" type="number" step="any" name="unitSub-{{unitObject.cname}}" class="uc-input subfield1" ng-model="unitObject.value" required onclick="this.select()">
         <label for="unitSub2-{{unitObject.cname}}" class="subfield2">{{unitObject.label}}</label>
         <input ng-cancel-drag id="unitSub2-{{unitObject.cname}}" type="number" step="any" name="unitSub-{{unitObject.cname}}" class="uc-input subfield2" ng-model="unitObject.value" required onclick="this.select()">
+        <div class="btn-calc"><span class="fa fa-calculator"></span></div>
     </div>
     <div class="input-wrap__bg"></div>
 </li>
