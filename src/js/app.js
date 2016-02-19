@@ -131,31 +131,42 @@ converterApp.directive('unitWrap', function($timeout){
 
             
 
-            var calcBtn = element.find('.btn-calc');
-            calcBtn.on('click ', function(evt){
+            scope.clickCalc = function(obj){
+                var v = element.find('.uc-input').val();
+                console.log("obj " + obj);
+                scope.calcHandler( {aunit:obj, avalue:v} ); 
+            }
+
+            $('.uc-input').on('keypress', function(evt){
+                var code = (evt.keyCode ? evt.keyCode : evt.which);
+                if(code == 13) { //Enter keycode
+                    var target = $(evt.target);
+                    var v = target.val();
+                    var obj = scope.unitObject;
+                    console.log("obj.cname "+obj.cname)
+                    scope.calcHandler( {aunit:obj, avalue:v} ); 
+                }
+
+            });
+           /* calcBtn.on('click ', function(evt){
 
                 var target = $(evt.target).parent().parent();
 
                 var value = target.find('.uc-input').val();
 
                 var id = scope.unitObject.id; 
-               
-                console.log(value);
 
                 //scope.$apply(attrs.calcHandler);
-
-                var fooValue= scope.calcHandler({aid:id, avalue:value});
+                // call calculation function on scope
+                scope.calcHandler({aid:id, avalue:value});
             });
 
-            var keycode = (ev.keyCode ? ev.keyCode : ev.which);
-            if (keycode == '13') {
+            
 
-
-          scope.clickMe = function(obj){
-
-            var v = element.find('.uc-input').val();
-            scope.calculateUnits( {aunit:obj, avalue:v} );  
-          }
+            scope.clickMe = function(obj){
+                var v = element.find('.uc-input').val();
+                scope.calculateUnits( {aunit:obj, avalue:v} );  
+            }*/
         } 
     };
 });

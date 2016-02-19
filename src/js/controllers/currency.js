@@ -493,7 +493,7 @@
 
 
 
-
+        /*
 
         
         
@@ -632,6 +632,57 @@
             $scope.unit31.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit31.factor);
             $scope.unit32.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit32.factor);
         });
+
+        */
+        $scope.calcHandler = function(obj, inputValue){
+            //hack, to get EUR a factor. Euro is not in feed and manually added, probably causes this bug.
+            if(obj.factor === undefined){
+                obj.factor = 1;
+            }
+            var baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+            $scope.convertUnitsFromBase( baseValue );
+        }
+
+        $scope.convertToBaseUnit = function(value, factor){
+            return value/factor; 
+        }
+
+        $scope.convertUnitsFromBase = function(baseUnitValue){
+            $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
+            $scope.unit2.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit2.factor);
+            $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
+            $scope.unit4.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit4.factor);
+            $scope.unit5.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit5.factor);
+            $scope.unit6.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit6.factor);
+            $scope.unit7.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit7.factor);
+            $scope.unit8.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit8.factor);
+            $scope.unit9.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit9.factor);
+            $scope.unit10.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit10.factor);
+            $scope.unit11.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit11.factor);
+            $scope.unit12.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
+
+            $scope.unit13.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit13.factor);
+            $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
+            $scope.unit15.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
+            $scope.unit16.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit16.factor);
+            $scope.unit17.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit17.factor);
+            $scope.unit18.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit18.factor);
+            $scope.unit19.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit19.factor);
+            $scope.unit20.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit10.factor);
+            $scope.unit21.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit11.factor);
+            $scope.unit22.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
+
+            $scope.unit23.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit23.factor);
+            $scope.unit24.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit24.factor);
+            $scope.unit25.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit25.factor);
+            $scope.unit26.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit26.factor);
+            $scope.unit27.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit27.factor);
+            $scope.unit28.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit28.factor);
+            $scope.unit29.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit29.factor);
+            $scope.unit30.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit30.factor);
+            $scope.unit31.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit31.factor);
+            $scope.unit32.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit32.factor);
+        }
     
     }
     parseData($scope.currencyValues);

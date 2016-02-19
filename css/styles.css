@@ -252,13 +252,13 @@ input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focu
 .button.button-primary,
 button.button-primary {
   color: #fff;
-  background-color: #33c3f0;
-  border-color: #33c3f0; }
+  background-color: #ff0000;
+  border-color: #ff0000; }
 
 input[type="submit"].button-primary, input[type="reset"].button-primary, input[type="button"].button-primary {
   color: #fff;
-  background-color: #33c3f0;
-  border-color: #33c3f0; }
+  background-color: #ff0000;
+  border-color: #ff0000; }
 
 .button.button-primary:hover,
 button.button-primary:hover {
@@ -315,12 +315,12 @@ textarea {
   padding-bottom: 6px; }
 
 input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus {
-  border: 1px solid #33c3f0;
+  border: 1px solid #ff0000;
   outline: 0; }
 
 textarea:focus,
 select:focus {
-  border: 1px solid #33c3f0;
+  border: 1px solid #ff0000;
   outline: 0; }
 
 label,
@@ -899,7 +899,9 @@ ul {
     ul li.input-wrap .input-wrap__content {
       position: relative;
       z-index: 1;
-      padding: 4px 6px 6px; }
+      padding: 4px 6px 6px;
+      border-radius: 5px;
+      border: 1px solid transparent; }
       ul li.input-wrap .input-wrap__content label {
         cursor: move;
         cursor: -webkit-grab;
@@ -923,20 +925,21 @@ ul {
       ul li.input-wrap .input-wrap__content .btn-calc {
         display: none;
         margin: 0 0 0 3%;
-        color: red;
+        color: #ff0000;
         font-size: 1.2em;
         height: 28px;
-        line-height: 1.4em;
-        color: #ffffff;
+        line-height: 1em;
         cursor: pointer;
         text-shadow: 0px 0px 4px #333; }
         ul li.input-wrap .input-wrap__content .btn-calc:hover {
-          color: red;
-          text-shadow: 0px 0px 4px #e1e1e1; }
-    ul li.input-wrap .input-wrap__content.active input {
-      width: 82%; }
-    ul li.input-wrap .input-wrap__content.active .btn-calc {
-      display: inline; }
+          color: #ffffff;
+          text-shadow: 0px 0px 4px #ff0000; }
+    ul li.input-wrap .input-wrap__content.active {
+      border: 1px solid #ffffff; }
+      ul li.input-wrap .input-wrap__content.active input {
+        width: 82%; }
+      ul li.input-wrap .input-wrap__content.active .btn-calc {
+        display: inline; }
     ul li.input-wrap .input-wrap__bg {
       position: absolute;
       top: 0;

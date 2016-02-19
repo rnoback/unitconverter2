@@ -26,6 +26,7 @@
     
     $scope.redirectUnit = unitSelectionService.redirectUnit;
     
+
     $scope.unit1 = {
         id: 1, 
         label: 'Degrees', 
@@ -43,7 +44,7 @@
         cname: 'unit2',
         ticked: true,
         value: 0,
-        factor:1,
+        factor: 0.017453292519943295, // (Math.PI/180)
         type: ''
     };
     $scope.unit3 = {
@@ -53,11 +54,11 @@
         cname: 'unit3',
         ticked: true,
         value: 0,
-        factor: 1,
+        factor: 0.03333333333333333, // (12/360)
         type: ''
     };
     
-    
+   
     $scope.dataCollection = 
     [
         $scope.unit1, 
@@ -158,6 +159,7 @@
     
     $scope.getTickedUnits();
     
+    /*
     
     $scope.$watch('unit2.value', function(){
         if($scope.unit2.value){
@@ -185,6 +187,22 @@
             $scope.unit3.value = formatNumberFactory.formatNumber(math.bignumber($scope.unit1.value) * math.bignumber(12/360));
         }
     });
+    */
+
+    $scope.calcHandler = function(obj, inputValue){
+        var baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+        $scope.convertUnitsFromBase( baseValue );
+    }
+
+    $scope.convertToBaseUnit = function(value, factor){
+        return value/factor;
+    }
+
+    $scope.convertUnitsFromBase = function(baseUnitValue){
+        $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
+        $scope.unit2.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit2.factor);
+        $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
+    }
 
 }]);
     

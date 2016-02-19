@@ -3,7 +3,7 @@
     
     angular.module('converterApp').service('formatNumberFactory', function(){       
         var self = this;
-        this.precision = 4;
+        this.precision = 10;
 
         this.setPrecision = function (number) {
             if(number){
