@@ -290,7 +290,7 @@
     
     $scope.getTickedUnits();
     
-    
+    /*
     $scope.$watch('unit2.value', function(){
         $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
     });
@@ -348,7 +348,37 @@
         $scope.unit13.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit13.factor);
         $scope.unit14.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit14.factor);
     });
+    */
 
+
+    $scope.calcHandler = function(obj, inputValue){
+
+        var baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+        $scope.convertUnitsFromBase( baseValue );
+    }
+
+    $scope.convertToBaseUnit = function(value, factor){
+        (math.bignumber($scope.unit5.value) / math.bignumber($scope.unit5.factor));
+
+        return value/factor;
+    }
+
+    $scope.convertUnitsFromBase = function(baseUnitValue){
+        $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
+        $scope.unit2.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit2.factor);
+        $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
+        $scope.unit4.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit4.factor);
+        $scope.unit5.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit5.factor);
+        $scope.unit6.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit6.factor);
+        $scope.unit7.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit7.factor);
+        $scope.unit8.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit8.factor);
+        $scope.unit9.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit9.factor);
+        $scope.unit10.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit10.factor);
+        $scope.unit11.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit11.factor);
+        $scope.unit12.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
+        $scope.unit13.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit13.factor);
+        $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
+    }
 }]);
     
     

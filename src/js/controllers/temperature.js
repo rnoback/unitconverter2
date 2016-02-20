@@ -176,21 +176,15 @@
     function c2f(c) {
         return formatNumberFactory.formatNumber(9/5 * parseFloat(c) + 32);
     }
-    
-
     function c2k(c) {
         return formatNumberFactory.formatNumber(parseFloat(c) + $scope.csumk);
     }
-
     function k2c(k) {
         return formatNumberFactory.formatNumber(parseFloat(k) - $scope.csumk);
     }
-
-
     function k2f(k) {
         return formatNumberFactory.formatNumber((parseFloat(k) - $scope.csumk) * 1.8000 + $scope.csumf);
     }
-
     function f2c(f) {
         return formatNumberFactory.formatNumber((parseFloat(f) - 32) / 1.8);
     }
@@ -198,7 +192,7 @@
         return formatNumberFactory.formatNumber( ((parseFloat(f) - 32) / 1.8) + $scope.csumk);
     }
 
-
+    /*
     $scope.$watch('unit2.value', function(){
         $scope.unit1.value = k2c($scope.unit2.value);
     });
@@ -211,7 +205,27 @@
         $scope.unit2.value = c2k($scope.unit1.value);
         $scope.unit3.value = c2f($scope.unit1.value);
     });
+*/
 
+
+    $scope.calcHandler = function(obj, inputValue){
+
+        console.log(obj.id);
+
+        if(obj.id === 1){
+            $scope.unit2.value = c2k(inputValue);
+            $scope.unit3.value = c2f(inputValue);
+        }else if(obj.id === 2){
+            
+            $scope.unit1.value = k2c(inputValue);
+            $scope.unit3.value = k2f(inputValue);
+        }else if(obj.id === 3){
+            $scope.unit1.value = f2c(inputValue);
+            $scope.unit2.value = f2k(inputValue);
+        }
+    }
+
+    
 }]);
     
     
