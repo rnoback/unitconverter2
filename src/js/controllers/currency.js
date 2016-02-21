@@ -634,6 +634,7 @@
         });
 
         */
+        formatNumberFactory.precision = 10;
         $scope.calcHandler = function(obj, inputValue){
             //hack, to get EUR a factor. Euro is not in feed and manually added, probably causes this bug.
             if(obj.factor === undefined){

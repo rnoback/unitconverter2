@@ -362,16 +362,13 @@
             $scope.unit14.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit14.factor);
         });
         */
+        formatNumberFactory.precision = 10;
         $scope.calcHandler = function(obj, inputValue, inputValue1){
 
-            console.log("inputValue1 "+inputValue1);
-            console.log("inputValue "+inputValue);
             var baseValue;
             if(obj.special){
                 var toFeet = formatNumberFactory.formatNumber(inputValue1/12);
-                console.log("toFeet "+toFeet);
                 var totalFeet = toFeet + parseInt(inputValue);
-                console.log("totalFeet "+totalFeet);
                 baseValue = $scope.convertToBaseUnit(totalFeet, obj.factor);
             }else{
                 baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
@@ -402,14 +399,9 @@
             $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
 
             // feet/inch exception
-
-
             var newVal = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
-            console.log('newVal ' + newVal);
             var rest =  newVal % 1;
-
             $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(newVal));
-            console.log('rest ' + rest);
             $scope.unit15.value1 = formatNumberFactory.formatNumber(rest * 12);
 
         }               

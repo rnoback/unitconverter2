@@ -84,8 +84,8 @@ converterApp.config(function ($routeProvider) {
 });
 
  converterApp.controller('mainCtrl', ['$scope', function($scope) {
-	    			    	
-
+	    			        
+    //$('.box-container__content ').startDrag();                                                      
 	function resizeBg() {
 					
 	}

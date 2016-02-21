@@ -214,6 +214,7 @@
         $scope.unit5.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit5.factor); 
     });
     */
+    formatNumberFactory.precision = 10;
 
     $scope.calcHandler = function(obj, inputValue){
 

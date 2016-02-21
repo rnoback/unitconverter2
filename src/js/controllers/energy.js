@@ -272,7 +272,7 @@
         $scope.unit9.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit9.factor); 
     });
     */
-
+    formatNumberFactory.precision = 10;
     $scope.calcHandler = function(obj, inputValue){
 
         var baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);

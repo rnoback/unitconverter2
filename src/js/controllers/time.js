@@ -365,29 +365,18 @@
     });
     */
 
-
+    formatNumberFactory.precision = 5;
     $scope.calcHandler = function(obj, inputValue, inputValue1, inputValue2){
-
-        console.log("inputValue "+inputValue);
-        console.log("inputValue1 "+inputValue1);
-        console.log("inputValue2 "+inputValue2);
 
         var baseValue;
         if(obj.special){
             var minToHour = formatNumberFactory.formatNumber(inputValue1/60);
-            console.log("minToHour "+minToHour);
-
             var secToHour = formatNumberFactory.formatNumber(inputValue2/3600);
-            console.log("secToHour "+secToHour);
-
-
             var totalFeet = formatNumberFactory.formatNumber (parseInt(inputValue) + minToHour + secToHour);
-            console.log("totalFeet "+totalFeet);
             baseValue = $scope.convertToBaseUnit(totalFeet, obj.factor);
         }else{
             baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
         }
-
 
         $scope.convertUnitsFromBase( baseValue );
     }

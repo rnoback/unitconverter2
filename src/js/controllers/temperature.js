@@ -207,7 +207,7 @@
     });
 */
 
-
+    formatNumberFactory.precision = 10;
     $scope.calcHandler = function(obj, inputValue){
 
         console.log(obj.id);
