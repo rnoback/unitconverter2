@@ -183,7 +183,9 @@
             cname: 'unit15',
             ticked: true,
             value: 0,
-            factor: 1,
+            value1: 0,
+            factor: 3.280839895, //feet
+            special: 'double',
             type: 'Imperial'
         };
 
@@ -197,6 +199,7 @@
             $scope.unit3, 
             $scope.unit6,
             $scope.unit7,
+            $scope.unit15,
             $scope.unit8,
             $scope.unit9,
             $scope.unit10,
@@ -359,34 +362,57 @@
             $scope.unit14.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit14.factor);
         });
         */
-        $scope.calcHandler = function(obj, inputValue){
+        $scope.calcHandler = function(obj, inputValue, inputValue1){
 
-        var baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
-        $scope.convertUnitsFromBase( baseValue );
-    }
+            console.log("inputValue1 "+inputValue1);
+            console.log("inputValue "+inputValue);
+            var baseValue;
+            if(obj.special){
+                var toFeet = formatNumberFactory.formatNumber(inputValue1/12);
+                console.log("toFeet "+toFeet);
+                var totalFeet = toFeet + parseInt(inputValue);
+                console.log("totalFeet "+totalFeet);
+                baseValue = $scope.convertToBaseUnit(totalFeet, obj.factor);
+            }else{
+                baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+            }
 
-    $scope.convertToBaseUnit = function(value, factor){
-        (math.bignumber($scope.unit5.value) / math.bignumber($scope.unit5.factor));
+        
+            $scope.convertUnitsFromBase( baseValue );
+        }
 
-        return value/factor;
-    }
+        $scope.convertToBaseUnit = function(value, factor){
+            return value/factor;
+        }
 
-    $scope.convertUnitsFromBase = function(baseUnitValue){
-        $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
-        $scope.unit2.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit2.factor);
-        $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
-        $scope.unit4.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit4.factor);
-        $scope.unit5.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit5.factor);
-        $scope.unit6.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit6.factor);
-        $scope.unit7.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit7.factor);
-        $scope.unit8.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit8.factor);
-        $scope.unit9.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit9.factor);
-        $scope.unit10.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit10.factor);
-        $scope.unit11.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit11.factor);
-        $scope.unit12.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
-        $scope.unit13.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit13.factor);
-        $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
-    }
+        $scope.convertUnitsFromBase = function(baseUnitValue){
+            $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
+            $scope.unit2.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit2.factor);
+            $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
+            $scope.unit4.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit4.factor);
+            $scope.unit5.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit5.factor);
+            $scope.unit6.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit6.factor);
+            $scope.unit7.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit7.factor);
+            $scope.unit8.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit8.factor);
+            $scope.unit9.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit9.factor);
+            $scope.unit10.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit10.factor);
+            $scope.unit11.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit11.factor);
+            $scope.unit12.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
+            $scope.unit13.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit13.factor);
+            $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
+
+            // feet/inch exception
+
+
+            var newVal = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
+            console.log('newVal ' + newVal);
+            var rest =  newVal % 1;
+
+            $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(newVal));
+            console.log('rest ' + rest);
+            $scope.unit15.value1 = formatNumberFactory.formatNumber(rest * 12);
+
+        }               
    
     }]);    
     

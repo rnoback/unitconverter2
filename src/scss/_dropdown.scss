@@ -33,6 +33,7 @@ ul.dropdown-menu{
           
             display: block;
             font-size: 13px;
+            cursor: pointer;
         }
         >a:hover, a:focus{
             background:   $light-grey;

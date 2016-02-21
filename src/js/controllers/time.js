@@ -43,7 +43,7 @@
         cname: 'unit2',
         ticked: true,
         value: 0,
-        factor:0.016666667,
+        factor:0.0166666666666667,
         type: ''
     };
     $scope.unit3 = {
@@ -53,7 +53,7 @@
         cname: 'unit3',
         ticked: true,
         value: 0,
-        factor: 0.000277778,
+        factor: 2.777777777777778e-4,
         type: ''
     };
     $scope.unit4 = {
@@ -166,6 +166,20 @@
         factor: 1.000,
         type: ''
     };
+
+    $scope.unit15 = {
+        id: 15, 
+        label: 'Hr/Min/Sec', 
+        maker: '',
+        cname: 'unit15',
+        ticked: true,
+        value: 0,
+        value1: 0,
+        value2: 0,
+        factor: 2.777777777777778e-4,
+        type: '',
+        special: 'triple',
+    };
     
     $scope.dataCollection = 
     [
@@ -176,6 +190,7 @@
         $scope.unit1, 
         $scope.unit2, 
         $scope.unit3, 
+        $scope.unit15,
         $scope.unit4,
         $scope.unit5, 
         $scope.unit6,
@@ -351,15 +366,33 @@
     */
 
 
-    $scope.calcHandler = function(obj, inputValue){
+    $scope.calcHandler = function(obj, inputValue, inputValue1, inputValue2){
 
-        var baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+        console.log("inputValue "+inputValue);
+        console.log("inputValue1 "+inputValue1);
+        console.log("inputValue2 "+inputValue2);
+
+        var baseValue;
+        if(obj.special){
+            var minToHour = formatNumberFactory.formatNumber(inputValue1/60);
+            console.log("minToHour "+minToHour);
+
+            var secToHour = formatNumberFactory.formatNumber(inputValue2/3600);
+            console.log("secToHour "+secToHour);
+
+
+            var totalFeet = formatNumberFactory.formatNumber (parseInt(inputValue) + minToHour + secToHour);
+            console.log("totalFeet "+totalFeet);
+            baseValue = $scope.convertToBaseUnit(totalFeet, obj.factor);
+        }else{
+            baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+        }
+
+
         $scope.convertUnitsFromBase( baseValue );
     }
 
     $scope.convertToBaseUnit = function(value, factor){
-        (math.bignumber($scope.unit5.value) / math.bignumber($scope.unit5.factor));
-
         return value/factor;
     }
 
@@ -378,6 +411,24 @@
         $scope.unit12.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
         $scope.unit13.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit13.factor);
         $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
+
+        // to hours
+        var toHours = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
+
+        console.log('toHours ' + toHours);
+        var restHours =  toHours % 1;
+        console.log('restHours ' + restHours);
+        $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(toHours));
+        
+        var toMinutes = parseFloat(restHours * 60);
+        $scope.unit15.value1 = formatNumberFactory.formatNumber(Math.floor(toMinutes));
+        
+        var restMinutes =  toMinutes % 1;
+        console.log('restMinutes ' + restMinutes);
+
+        var toSeconds = restMinutes * 60;
+        $scope.unit15.value2 = formatNumberFactory.formatNumber(toSeconds);
+        
     }
 }]);
     

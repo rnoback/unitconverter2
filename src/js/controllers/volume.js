@@ -433,7 +433,6 @@
         $scope.unit16.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit16.factor);
         $scope.unit17.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit17.factor);
     }
-
 }]);
     
     

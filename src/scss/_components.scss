@@ -230,9 +230,7 @@ ul{
                 line-height: 22px;
                 padding-bottom: 4px;
             }
-            label.subfield1, label.subfield2{
-                display: none;
-            }
+            
             input{
                 width: 100%;
                 border: 0;
@@ -261,16 +259,67 @@ ul{
                     text-shadow: 0px 0px 4px $primary-color;
                 }
             }
-        }   
-        .input-wrap__content.active{
-            border: 1px solid $white;
+            &.active{
+                border: 1px solid $white;
 
-            input{
-                width: 82%;
+                input{
+                    width: 82%;
+                }
+                .btn-calc{
+                    display: inline;
+                    
+                }
             }
-            .btn-calc{
+        }   
+
+        .input-wrap__content.double{
+           label{
+                width:100%;
+            }
+            
+            input{
+                width: 48%;
+            }
+
+            input.subfield1{
                 display: inline;
-                
+            }
+            &.active{
+                input{
+                    width: 41%;
+                }
+            }
+        }
+
+        .input-wrap__bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            opacity: 0.5;
+            @include border-radius($global-radius);
+        }
+
+        .input-wrap__content.triple{
+           label{
+                width:100%;
+            }
+            label.subfield1, label.subfield2{
+                display: none;
+            }
+            input{
+                width: 31%;
+            }
+
+            input.subfield1, input.subfield2{
+                display: inline;
+            }
+            &.active{
+                input{
+                    width: 26%;
+                }
             }
         }
         .input-wrap__bg{

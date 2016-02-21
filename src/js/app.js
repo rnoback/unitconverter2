@@ -127,16 +127,30 @@ converterApp.directive('unitWrap', function($timeout){
                 target = $(evt.target);
                 $('.input-wrap__content').removeClass('active');
                 target.parent().addClass('active');
-            });
-
-            
+            });         
 
             scope.clickCalc = function(obj){
                 var v = element.find('.uc-input').val();
-                console.log("obj " + obj);
-                scope.calcHandler( {aunit:obj, avalue:v} ); 
+                var v1 = element.find('.subfield1').val();
+                var v2 = element.find('.subfield2').val();
+                scope.calcHandler( {aunit:obj, avalue:v, avalue1:v1, avalue2:v2} ); 
             }
 
+
+           
+            if(scope.unitObject.special) {
+                element.find('.input-wrap__content').addClass(scope.unitObject.special);
+                element.find('.subfield1').css('display','inline');
+                //element.finsd('.subfield2').css('display','block');
+                return;
+            }else{
+                element.find('.input-wrap__content').removeClass(scope.unitObject.special);
+                element.find('.subfield1').css('display','none');
+                // $('.input-wrap__content').removeClass('double');
+                //element.find('.subfield1').css('display','none');
+            }
+
+            /*
             $('.uc-input').on('keypress', function(evt){
                 var code = (evt.keyCode ? evt.keyCode : evt.which);
                 if(code == 13) { //Enter keycode
@@ -146,8 +160,8 @@ converterApp.directive('unitWrap', function($timeout){
                     console.log("obj.cname "+obj.cname)
                     scope.calcHandler( {aunit:obj, avalue:v} ); 
                 }
-
             });
+            */
            /* calcBtn.on('click ', function(evt){
 
                 var target = $(evt.target).parent().parent();
