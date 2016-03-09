@@ -76,10 +76,13 @@ converterApp.config(function ($routeProvider) {
         templateUrl: 'html/pages/default.html',
         controller: 'currencyController'
     })
-    
     .when('/converter', {
         templateUrl: 'html/pages/default.html',
         controller: 'converterController'
+    })
+    .when('/comment', {
+        templateUrl: 'html/pages/comment.html',
+        controller: 'commentController'
     });
 });
 
