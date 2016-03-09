@@ -11,6 +11,13 @@
             }
         }
 
+        this.round_extra_sf = function(f){
+            var s=f.toPrecision(10);
+            s=s.replace(/^([\+\-0-9\\.]*[1-9\.])0+((?:e[0-9\+\-]+)?)$/g,'$1$2');
+            s=s.replace(/\.((?:e[0-9\+\-]+)?)$/g,'$1');
+            return s;
+        }
+
 
 
         this.formatNumber = function(inputNum) {
