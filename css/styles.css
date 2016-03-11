@@ -733,6 +733,14 @@ body #background-container {
   background-size: cover !important;
   background-attachment: fixed; }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input[type="number"] {
+  -moz-appearance: textfield; }
+
 #box-container {
   position: absolute;
   /*top: 50%;
@@ -935,18 +943,14 @@ ul {
           text-shadow: 0px 0px 4px #ff0000; }
       ul li.input-wrap .input-wrap__content.active {
         border: 1px solid #ffffff; }
-        ul li.input-wrap .input-wrap__content.active input {
-          width: 82%; }
         ul li.input-wrap .input-wrap__content.active .btn-calc {
-          display: inline; }
+          display: none; }
     ul li.input-wrap .input-wrap__content.double label {
       width: 100%; }
     ul li.input-wrap .input-wrap__content.double input {
       width: 48%; }
     ul li.input-wrap .input-wrap__content.double input.subfield1 {
       display: inline; }
-    ul li.input-wrap .input-wrap__content.double.active input {
-      width: 41%; }
     ul li.input-wrap .input-wrap__bg {
       position: absolute;
       top: 0;
@@ -964,8 +968,6 @@ ul {
       width: 31%; }
     ul li.input-wrap .input-wrap__content.triple input.subfield1, ul li.input-wrap .input-wrap__content.triple input.subfield2 {
       display: inline; }
-    ul li.input-wrap .input-wrap__content.triple.active input {
-      width: 26%; }
     ul li.input-wrap .input-wrap__bg {
       position: absolute;
       top: 0;

@@ -1,6 +1,15 @@
 // Components
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 #box-container{
     position: absolute;
 	/*top: 50%;
@@ -263,11 +272,11 @@ ul{
                 border: 1px solid $white;
 
                 input{
-                    width: 82%;
+                    //width: 82%;
                 }
                 .btn-calc{
-                    display: inline;
-                    
+                    //display: inline;
+                    display: none;
                 }
             }
         }   
@@ -286,7 +295,7 @@ ul{
             }
             &.active{
                 input{
-                    width: 41%;
+                    //width: 41%;
                 }
             }
         }
@@ -315,10 +324,11 @@ ul{
 
             input.subfield1, input.subfield2{
                 display: inline;
+                //display: none;
             }
             &.active{
                 input{
-                    width: 26%;
+                    //width: 26%;
                 }
             }
         }

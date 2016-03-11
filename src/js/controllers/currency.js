@@ -634,7 +634,7 @@
         });
 
         */
-        formatNumberFactory.precision = 10;
+        formatNumberFactory.precision = 5;
         $scope.calcHandler = function(obj, inputValue){
             //hack, to get EUR a factor. Euro is not in feed and manually added, probably causes this bug.
             if(obj.factor === undefined){
@@ -669,9 +669,9 @@
             $scope.unit17.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit17.factor);
             $scope.unit18.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit18.factor);
             $scope.unit19.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit19.factor);
-            $scope.unit20.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit10.factor);
-            $scope.unit21.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit11.factor);
-            $scope.unit22.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
+            $scope.unit20.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit20.factor);
+            $scope.unit21.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit21.factor);
+            $scope.unit22.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit22.factor);
 
             $scope.unit23.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit23.factor);
             $scope.unit24.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit24.factor);

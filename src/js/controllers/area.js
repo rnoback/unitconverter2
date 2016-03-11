@@ -311,7 +311,7 @@
  
     }); */
     
-    formatNumberFactory.precision = 10;
+    formatNumberFactory.precision = 6;
     $scope.calcHandler = function(obj, inputValue){
         var baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
         $scope.convertUnitsFromBase( baseValue );
