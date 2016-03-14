@@ -21,14 +21,14 @@
 
 
         this.formatNumber = function(inputNum) {
-            //var aFloat = inputNum.toPrecision(self.precision);
+            var aFloat = inputNum.toPrecision(self.precision);
             
             //var aFloat = new Decimal(x);
             //var aFloat = inputNum.toPrecision(self.precision);
-           // Math.round10(aFloat, -1);   // 55.6
+            // Math.round10(aFloat, -1);   // 55.6
             //aFloat = aFloat.toFixed(self.precision);
             //aFloat = aFloat.toFixed(self.precision);
-            var aFloat = math.format(inputNum, {precision: self.precision});
+            //var aFloat = math.format(inputNum, {precision: self.precision});
             // aFloatStr = aFloat.toString();
             return parseFloat(aFloat);
 

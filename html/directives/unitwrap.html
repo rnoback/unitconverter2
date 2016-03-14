@@ -1,5 +1,5 @@
 <li class="input-wrap {{unitObject.cname}}">
-    <div class="input-wrap__content" ng-keyup="clickCalc(unitObject)">
+    <div class="input-wrap__content" ng-keyup="keyCalc(unitObject)">
         <label for="unit-{{unitObject.cname}}">{{unitObject.label}}</label>
         <input ng-cancel-drag id="unit-{{unitObject.cname}}" type="number" step="any" name="unit-{{unitObject.cname}}" class="uc-input" ng-model="unitObject.value" required onclick="this.select()">
         <input ng-cancel-drag id="unitSub1-{{unitObject.cname}}" type="number" step="any" name="unitSub1-{{unitObject.cname}}" class="uc-input subfield1" ng-model="unitObject.value1" required onclick="this.select()">

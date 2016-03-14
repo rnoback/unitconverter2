@@ -12,42 +12,44 @@
                  events="{ onItemSelect: redirectUnit }"
                  class="units-multiselect-dropdown"
                  >
-            </div>
-            <div ng-dropdown-multiselect="" 
-                 options="dataCollection" 
-                 selected-model="dataModel" 
-                 extra-settings="dataSettings" 
-                 translation-texts="dataCustomTexts"
-                 events="{ onItemSelect: addUnit, 
-                            onItemDeselect: removeUnit,
-                            onSelectAll: addAllUnits,
-                            onDeselectAll: removeAllUnits
-                         }"
-                 class="data-multiselect-dropdown",
-                 group-by="type">
-            </div>
+            </div>            
 
             <div class="btn-collapse-window">
                 <span class="fa fa-chevron-up"></span>
             </div>
             <div class="btn-write-comment">
                 <span class="fa fa-pencil"></span>
+                <!-- <i class="fa fa-envelope-o"></i> -->
             </div>
         </div>
         <div class="box-header__bg"></div>
     </div>
 
     <div class="row box-body">
-        <form action="#" class="comment-form">
-            <label></label>
-            <textarea></textarea>
+        <form action="php/send_form_email.php" class="comment-form">
+            <div class="input-wrap">
+                <label>Your Name</label>
+                <input type="text" name="name" id="input-name" placeholder=""></input>
+                <div class="input-wrap__bg"></div>
+            </div>
+            <div class="input-wrap">
+                <label>Your Email</label>
+                <input type="email" name="email" id="input-email" placeholder="Your Email"></input>
+                <div class="input-wrap__bg"></div>
+            </div>
+            <div class="input-wrap">
+                <label>Your Email</label>
+                <textarea id="comment-field" placeholder="Let us know what's on your mind"></textarea>
+                <div class="input-wrap__bg"></div>
+            </div>
+            
+            <input type="reset" value="Reset!">
             <input type="submit" value="Submit">
-            <input type="reset" value="Reset!"><br>
         </form>
     </div>
     
     <div class="row box-footer">
         
     </div>
-</div>
+</div>  
 <div class="box-container__bg"></div>

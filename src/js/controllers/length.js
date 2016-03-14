@@ -373,8 +373,6 @@
             }else{
                 baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
             }
-
-        
             $scope.convertUnitsFromBase( baseValue );
         }
 

@@ -373,16 +373,16 @@
             var minToHour = formatNumberFactory.formatNumber(inputValue1/60);
             var secToHour = formatNumberFactory.formatNumber(inputValue2/3600);
             var totalFeet = formatNumberFactory.formatNumber (parseInt(inputValue) + minToHour + secToHour);
-            baseValue = $scope.convertToBaseUnit(totalFeet, obj.factor);
+            baseValue = parseFloat($scope.convertToBaseUnit(totalFeet, obj.factor));
         }else{
-            baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+            baseValue = parseFloat($scope.convertToBaseUnit(inputValue, obj.factor));
         }
 
         $scope.convertUnitsFromBase( baseValue );
     }
 
     $scope.convertToBaseUnit = function(value, factor){
-        return value/factor;
+        return parseFloat(value/factor);
     }
 
     $scope.convertUnitsFromBase = function(baseUnitValue){
@@ -404,20 +404,16 @@
         // to hours
         var toHours = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
 
-        console.log('toHours ' + toHours);
         var restHours =  toHours % 1;
-        console.log('restHours ' + restHours);
         $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(toHours));
         
         var toMinutes = parseFloat(restHours * 60);
-        $scope.unit15.value1 = formatNumberFactory.formatNumber(Math.floor(toMinutes));
+        $scope.unit15.value1 = parseFloat(formatNumberFactory.formatNumber(Math.floor(toMinutes)));
         
         var restMinutes =  toMinutes % 1;
-        console.log('restMinutes ' + restMinutes);
 
         var toSeconds = restMinutes * 60;
-        $scope.unit15.value2 = formatNumberFactory.formatNumber(toSeconds);
-        
+        $scope.unit15.value2 = parseFloat(formatNumberFactory.formatNumber(toSeconds));   
     }
 }]);
     

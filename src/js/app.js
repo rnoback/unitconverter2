@@ -134,20 +134,21 @@ converterApp.directive('unitWrap', function($timeout){
 
             scope.clickCalc = function(obj){
                 var v = element.find('.uc-input').val();
+
                 var v1 = element.find('.subfield1').val();
                 var v2 = element.find('.subfield2').val();
                 scope.calcHandler( {aunit:obj, avalue:v, avalue1:v1, avalue2:v2} ); 
             }
 
-            scope.keyPressed = function(obj){
-
-                var v = element.find('.uc-input').val();
-                console.log("key " + v);
+            scope.keyCalc = function(obj){
+                var v = parseFloat(element.find('.uc-input').val());
+                //v = (v);
+                //console.log("v "+v);
+                //element.find('.uc-input').val(v);
                 var v1 = element.find('.subfield1').val();
                 var v2 = element.find('.subfield2').val();
                 scope.calcHandler( {aunit:obj, avalue:v, avalue1:v1, avalue2:v2} ); 
             }
-
 
             if(scope.unitObject.special) {
                 element.find('.input-wrap__content').addClass(scope.unitObject.special);
