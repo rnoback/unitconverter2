@@ -17,16 +17,13 @@
             <div class="btn-collapse-window">
                 <span class="fa fa-chevron-up"></span>
             </div>
-            <div class="btn-write-comment">
-                <span class="fa fa-pencil"></span>
-                <!-- <i class="fa fa-envelope-o"></i> -->
-            </div>
+            
         </div>
         <div class="box-header__bg"></div>
     </div>
 
     <div class="row box-body">
-        <form action="php/send_form_email.php" class="comment-form">
+        <form action="php/submit_form.php" class="comment-form" method="post">
             <div class="input-wrap">
                 <label>Your Name</label>
                 <input type="text" name="name" id="input-name" placeholder=""></input>
@@ -34,17 +31,18 @@
             </div>
             <div class="input-wrap">
                 <label>Your Email</label>
-                <input type="email" name="email" id="input-email" placeholder="Your Email"></input>
+                <input type="email" name="email" id="input-email" placeholder=""></input>
                 <div class="input-wrap__bg"></div>
             </div>
             <div class="input-wrap">
-                <label>Your Email</label>
-                <textarea id="comment-field" placeholder="Let us know what's on your mind"></textarea>
+                <label>Let us know what's on your mind</label>
+                <textarea name="comments" id="comment-field" placeholder=""></textarea>
                 <div class="input-wrap__bg"></div>
             </div>
-            
-            <input type="reset" value="Reset!">
-            <input type="submit" value="Submit">
+            <div class="input-wrap last">
+                <input class="btn-submit" type="reset" value="Reset">
+                <input class="btn-clear" type="submit" value="Submit">
+            </div>
         </form>
     </div>
     

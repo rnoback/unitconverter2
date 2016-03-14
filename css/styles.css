@@ -848,54 +848,62 @@ input[type="number"] {
       @media (min-width: 550px) {
         #box-container .box-container__content .box-body {
           padding: 20px; } }
-      #box-container .box-container__content .box-body .comment-form .input-wrap {
-        position: relative;
-        z-index: 1;
-        padding: 4px 6px 6px;
-        border-radius: 5px;
-        border: 1px solid transparent;
-        margin: 0 13px 13px 13px; }
-        #box-container .box-container__content .box-body .comment-form .input-wrap .input-wrap__bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: #ffffff;
-          opacity: 0.5;
-          border-radius: 5px; }
-        #box-container .box-container__content .box-body .comment-form .input-wrap label {
+      #box-container .box-container__content .box-body .comment-form {
+        margin: 0; }
+        #box-container .box-container__content .box-body .comment-form .input-wrap {
           position: relative;
-          cursor: move;
-          margin: 0 0 0 .5rem;
-          text-align: left;
-          font-weight: normal;
-          font-size: 13px;
-          font-weight: bold;
-          text-shadow: 0px 0px 7px white;
-          line-height: 22px;
-          padding-bottom: 4px;
           z-index: 1;
-          color: #000000; }
-        #box-container .box-container__content .box-body .comment-form .input-wrap input {
-          position: relative;
-          margin: 0;
-          display: block;
-          margin-bottom: 5px;
-          z-index: 1;
-          width: 100%; }
-        #box-container .box-container__content .box-body .comment-form .input-wrap textarea {
-          position: relative;
-          display: block;
-          min-width: 210px;
-          margin-bottom: 5px;
-          width: 100%;
-          z-index: 1; }
-        #box-container .box-container__content .box-body .comment-form .input-wrap input[type="submit"], #box-container .box-container__content .box-body .comment-form .input-wrap input[type="reset"] {
-          width: 49%;
-          display: inline; }
-        #box-container .box-container__content .box-body .comment-form .input-wrap input:active, #box-container .box-container__content .box-body .comment-form .input-wrap input:focus, #box-container .box-container__content .box-body .comment-form .input-wrap textarea:active, #box-container .box-container__content .box-body .comment-form .input-wrap textarea:focus {
-          border: 1px solid #e1e1e1; }
+          padding: 4px 6px 6px;
+          border-radius: 5px;
+          border: 1px solid transparent;
+          margin: 0 13px 13px 13px; }
+          #box-container .box-container__content .box-body .comment-form .input-wrap .input-wrap__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            opacity: 0.5;
+            border-radius: 5px; }
+          #box-container .box-container__content .box-body .comment-form .input-wrap label {
+            position: relative;
+            cursor: move;
+            margin: 0 0 0 .5rem;
+            text-align: left;
+            font-weight: normal;
+            font-size: 13px;
+            font-weight: bold;
+            text-shadow: 0px 0px 7px white;
+            line-height: 22px;
+            padding-bottom: 4px;
+            z-index: 1;
+            color: #000000; }
+          #box-container .box-container__content .box-body .comment-form .input-wrap input {
+            position: relative;
+            margin: 0;
+            display: block;
+            margin-bottom: 5px;
+            z-index: 1;
+            width: 100%; }
+          #box-container .box-container__content .box-body .comment-form .input-wrap textarea {
+            position: relative;
+            display: block;
+            min-width: 210px;
+            margin-bottom: 5px;
+            width: 100%;
+            z-index: 1;
+            resize: none;
+            height: 10em; }
+          #box-container .box-container__content .box-body .comment-form .input-wrap input[type="submit"], #box-container .box-container__content .box-body .comment-form .input-wrap input[type="reset"] {
+            width: 49%;
+            display: inline;
+            background: #ffffff; }
+          #box-container .box-container__content .box-body .comment-form .input-wrap input:active, #box-container .box-container__content .box-body .comment-form .input-wrap input:focus, #box-container .box-container__content .box-body .comment-form .input-wrap textarea:active, #box-container .box-container__content .box-body .comment-form .input-wrap textarea:focus {
+            border: 1px solid #e1e1e1; }
+          #box-container .box-container__content .box-body .comment-form .input-wrap.last {
+            margin-bottom: 0;
+            padding: 0; }
     #box-container .box-container__content .box-body.disabled {
       display: none; }
 

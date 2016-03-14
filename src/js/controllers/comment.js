@@ -16,7 +16,8 @@
                 showUncheckAll: false,
                 showCheckAll: false
             }; 
-                    
+            
+
                 
             // Get last segment of URL
             var url = document.URL;
@@ -28,6 +29,8 @@
 
             // collapse window => needs to go in a directive
             $scope.windowOpen = true;
+
+            
             
             $('.btn-collapse-window').on('click', function(){
                 if($scope.windowOpen) {

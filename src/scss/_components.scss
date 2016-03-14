@@ -145,6 +145,7 @@ input[type="number"] {
             }
 
             .comment-form{
+                margin:0;
                 .input-wrap{
                     position: relative;
                     z-index: 1;
@@ -194,17 +195,23 @@ input[type="number"] {
                         margin-bottom: 5px;
                         width: 100%;
                         z-index: 1;
+                        resize: none;
+                        height: 10em;
                     }
 
                     input[type="submit"],input[type="reset"]{
                         width: 49%;
                         display: inline;
+                        background: $white;
                     }
                     input:active, input:focus,textarea:active, textarea:focus{
                         border: 1px solid $light-grey;      
                     }
-                }
-                
+                    &.last{
+                        margin-bottom: 0;
+                        padding: 0;
+                    }
+                }               
             }
         }
         .box-body.disabled{
