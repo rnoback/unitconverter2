@@ -4,8 +4,8 @@
     var converterApp = angular.module('converterApp');
     
     converterApp.controller('commentController', 
-        ['$scope', '$filter', '$location', 'unitSelectionService', 'formatNumberFactory',
-        function($scope, $filter, $location, unitSelectionService, formatNumberFactory) {
+        ['$scope', '$http', '$location', 'unitSelectionService',
+        function($scope, $http, $location, unitSelectionService) {
 
             $scope.unitsCollection = unitSelectionService.units;
             $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -29,6 +29,38 @@
 
             // collapse window => needs to go in a directive
             $scope.windowOpen = true;
+
+
+            $scope.formData = {};
+
+
+            $scope.processForm = function(){
+
+                console.log("formData " + $.param($scope.formData));
+
+                // JS validation goes here
+
+                $http({
+                    method  : 'POST',
+                    url     : 'php/submit_form.php',
+                    data    : $.param($scope.formData),  // pass in data as strings
+                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+                })
+                .success(function(data) {
+                    console.log("Response " + data);
+
+                    if (!data.success) {
+                      // if not successful, bind errors to error variables
+                      $scope.errorName = data.errors.name;
+
+                      console.log(data.errors);
+                    } else {
+                      // if successful, bind success message to message
+                      $scope.message = data.message;
+                    }
+                });
+            
+            } 
 
             
             
