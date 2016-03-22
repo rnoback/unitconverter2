@@ -397,9 +397,10 @@
             $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
 
             // feet/inch exception
-            var newVal = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
-            var rest = formatNumberFactory.formatNumber2( newVal % 1 );
-            console.log(rest);
+            //var newVal = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
+
+            var newVal = math.multiply(baseUnitValue,  $scope.unit15.factor);
+            var rest = math.mod( newVal, 1 );
             $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(newVal));
             $scope.unit15.value1 = formatNumberFactory.formatNumber(rest * 12);
 
