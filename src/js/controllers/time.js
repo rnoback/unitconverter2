@@ -404,13 +404,13 @@
         // to hours
         var toHours = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit15.factor);
 
-        var restHours =  toHours % 1;
+        var restHours =  formatNumberFactory.formatNumber2(toHours % 1);
         $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(toHours));
         
         var toMinutes = parseFloat(restHours * 60);
         $scope.unit15.value1 = parseFloat(formatNumberFactory.formatNumber(Math.floor(toMinutes)));
         
-        var restMinutes =  toMinutes % 1;
+        var restMinutes =  formatNumberFactory.formatNumber2(toMinutes % 1);
 
         var toSeconds = restMinutes * 60;
         $scope.unit15.value2 = parseFloat(formatNumberFactory.formatNumber(toSeconds));   

@@ -885,7 +885,10 @@ input[type="number"] {
             display: block;
             margin-bottom: 5px;
             z-index: 1;
-            width: 100%; }
+            width: 100%;
+            font-size: 13px; }
+            #box-container .box-container__content .box-body .comment-form .input-wrap input.error {
+              border: 1px solid #ff0000; }
           #box-container .box-container__content .box-body .comment-form .input-wrap textarea {
             position: relative;
             display: block;
@@ -894,16 +897,24 @@ input[type="number"] {
             width: 100%;
             z-index: 1;
             resize: none;
-            height: 10em; }
+            height: 10em;
+            font-size: 12px; }
+            #box-container .box-container__content .box-body .comment-form .input-wrap textarea.error {
+              border: 1px solid #ff0000; }
           #box-container .box-container__content .box-body .comment-form .input-wrap input[type="submit"], #box-container .box-container__content .box-body .comment-form .input-wrap input[type="reset"] {
             width: 49%;
             display: inline;
-            background: #ffffff; }
+            background: #ffffff;
+            font-size: 12px; }
           #box-container .box-container__content .box-body .comment-form .input-wrap input:active, #box-container .box-container__content .box-body .comment-form .input-wrap input:focus, #box-container .box-container__content .box-body .comment-form .input-wrap textarea:active, #box-container .box-container__content .box-body .comment-form .input-wrap textarea:focus {
             border: 1px solid #e1e1e1; }
           #box-container .box-container__content .box-body .comment-form .input-wrap.last {
             margin-bottom: 0;
             padding: 0; }
+        #box-container .box-container__content .box-body .comment-form #response-field {
+          margin: 5px 13px;
+          text-align: center;
+          display: block; }
     #box-container .box-container__content .box-body.disabled {
       display: none; }
 

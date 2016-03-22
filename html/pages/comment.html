@@ -38,17 +38,17 @@
             </div>
             <div class="input-wrap">
                 <label>Let us know what's on your mind</label>
-                <textarea name="comments" id="comment-field" placeholder="" ng-model="formData.comment"></textarea>
+                <textarea name="comments" id="comment-field" placeholder="" ng-model="formData.comments"></textarea>
+                <span class="help-block" ng-show="errorEmail">{{ errorComments }}</span> 
                 <div class="input-wrap__bg"></div>
             </div>
             <div class="input-wrap last">
                 <input class="btn-submit" type="reset" value="Reset">
                 <input class="btn-clear" type="submit" value="Submit">
+
             </div>
-           
-        </form>
-         <p id="success__para"></p>
-        
+           <span class="help-block" id="response-field" ng-show="dataResponseField">{{ dataResponseField }}</span> 
+        </form>        
     </div>
     
     <div class="row box-footer">

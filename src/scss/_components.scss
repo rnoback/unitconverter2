@@ -186,6 +186,10 @@ input[type="number"] {
                         margin-bottom: 5px;
                         z-index: 1;
                         width: 100%;
+                        font-size: 13px;
+                        &.error{
+                            border: 1px solid $red;
+                        }
                     }
 
                     textarea{
@@ -197,12 +201,18 @@ input[type="number"] {
                         z-index: 1;
                         resize: none;
                         height: 10em;
+                        font-size: 12px;
+                        &.error{
+                            border: 1px solid $red;
+                        }
                     }
+
 
                     input[type="submit"],input[type="reset"]{
                         width: 49%;
                         display: inline;
                         background: $white;
+                        font-size: 12px;
                     }
                     input:active, input:focus,textarea:active, textarea:focus{
                         border: 1px solid $light-grey;      
@@ -211,7 +221,12 @@ input[type="number"] {
                         margin-bottom: 0;
                         padding: 0;
                     }
-                }               
+                }   
+                 #response-field{
+                    margin: 5px 13px;
+                    text-align: center;
+                    display: block;
+                }            
             }
         }
         .box-body.disabled{
