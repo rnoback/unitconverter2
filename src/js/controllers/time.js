@@ -370,12 +370,12 @@
 
         var baseValue;
         if(obj.special){
-            var minToHour = formatNumberFactory.formatNumber(inputValue1/60);
-            var secToHour = formatNumberFactory.formatNumber(inputValue2/3600);
-            var totalFeet = formatNumberFactory.formatNumber (parseInt(inputValue) + minToHour + secToHour);
-            baseValue = parseFloat($scope.convertToBaseUnit(totalFeet, obj.factor));
+            var minToHour = math.divide(inputValue1, 60);
+            var secToHour = math.divide(inputValue2, 3600);
+            var totalHour = formatNumberFactory.formatNumber (parseInt(inputValue) + minToHour + secToHour);
+            baseValue = $scope.convertToBaseUnit(totalHour, obj.factor);
         }else{
-            baseValue = parseFloat($scope.convertToBaseUnit(inputValue, obj.factor));
+            baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
         }
 
         $scope.convertUnitsFromBase( baseValue );
@@ -404,20 +404,30 @@
         // to hours
         var toHours = math.multiply(baseUnitValue, $scope.unit15.factor);
 
-         // var newVal = math.multiply(baseUnitValue,  $scope.unit15.factor);
-           // var rest = math.mod( newVal, 1 );
-
-
+       // console.log("toHours " + toHours);
         var restHours =  math.mod(toHours, 1);
+
+       // console.log("restHours " + restHours);
         $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(toHours));
         
         var toMinutes = math.multiply(restHours, 60);
-        $scope.unit15.value1 = formatNumberFactory.formatNumber(Math.floor(toMinutes));
 
+        // console.log("toMinutes " + toMinutes);
         var restMinutes =   math.mod(toMinutes, 1);
-
+      
+       console.log("restMinutes " + restMinutes);
         var toSeconds = math.multiply(restMinutes, 60);
-        $scope.unit15.value2 = formatNumberFactory.formatNumber(toSeconds);   
+        var hack = 1 - restMinutes;
+
+       console.log("hack " + hack);
+
+        if(hack < 0.000001){
+            $scope.unit15.value1 = formatNumberFactory.formatNumber(Math.ceil(toMinutes));
+            $scope.unit15.value2 = 0;  
+        }else{
+             $scope.unit15.value1 = formatNumberFactory.formatNumber(Math.floor(toMinutes));
+            $scope.unit15.value2 = formatNumberFactory.formatNumber(toSeconds); 
+        } 
     }
 }]);
     

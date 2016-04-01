@@ -3,7 +3,7 @@
 
 // Module
 var converterApp  = angular.module('converterApp',
-    ['ngRoute', 'ngResource', 'angularjs-dropdown-multiselect', 'ng-sortable']);
+    ['ngRoute', 'ngResource', 'angularjs-dropdown-multiselect', 'ng-sortable', 'angular-draggable']);
 
 //Routes
 converterApp.config(function ($routeProvider) {
@@ -88,11 +88,38 @@ converterApp.config(function ($routeProvider) {
 
  converterApp.controller('mainCtrl', ['$scope', function($scope) {
 	    			        
-    //$('.box-container__content ').startDrag();                                                      
+    //$('.box-container__content ').startDrag();
+    //$('#box-container').draggable({});
+   // draggable($('#box-container'));
+
 	function resizeBg() {
 					
 	}
 
+    /*$('#box-container').on('drag', function(evt){
+        //$( this ).css({
+           // top: event.offsetY,
+           // left: event.offsetX
+           // });
+        //});
+        console.log("dragger");
+    });
+    */
+    //$scope.dragging = null;
+    /*$('body').on('mousedown', function(evt){
+
+        console.log("DOWN");
+        $this = $(evt.target);
+
+        if($this === $('#box-container')){
+            console.log("ON TARGET");
+            $this.offset({
+                top:evt.pageY,
+                left:evt.pageX
+            });
+        }
+    });
+    */
     
 	//theWindow.resize(resizeBg).trigger("resize");
      

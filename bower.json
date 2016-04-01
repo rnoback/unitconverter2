@@ -26,7 +26,8 @@
     "lodash": "~3.10.1",
     "angularjs-dropdown-multiselect": "~1.5.2",
     "normalize-css": "normalize.css#~3.0.3",
-    "mathjs": "^2.7.0"
+    "mathjs": "^2.7.0",
+    "angular-draggable": "^0.1.1"
   },
   "resolutions": {
     "angular": "1.5.0"
