@@ -255,6 +255,10 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                     var n = str.lastIndexOf('/');
                     var result = str.substring(n + 1);
                     window.location.href='#/' + result;*/
+
+                    
+                    // TEST, how to get this dataCollection??: console.log("HOI! :: " + $scope.dataCollectionInit);
+                    
                     $route.reload();
                 };
 

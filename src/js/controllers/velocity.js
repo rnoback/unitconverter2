@@ -28,7 +28,7 @@
     
     $scope.unit1 = {
         id: 1, 
-        label: 'kilometers per hour', 
+        label: 'Kilometers / Hour', 
         maker: 'ips', 
         cname: 'unit1', 
         ticked: true,
@@ -38,7 +38,7 @@
     };    
     $scope.unit2 = {
         id: 2, 
-        label: 'kilometers per second', 
+        label: 'Kilometers / Second', 
         maker: '', 
         cname: 'unit2',
         ticked: false,
@@ -48,7 +48,7 @@
     };
     $scope.unit3 = {
         id: 3, 
-        label: 'meters per second', 
+        label: 'Meters / Second', 
         marker: '', 
         cname: 'unit3',
         ticked: true,
@@ -58,7 +58,7 @@
     };
     $scope.unit4 = {
         id: 4, 
-        label: 'speed of light', 
+        label: 'Speed of light', 
         marker: 'c', 
         cname: 'unit4',
         ticked: false,
@@ -68,7 +68,7 @@
     };
     $scope.unit5 = {
         id: 5, 
-        label: 'inches per second', 
+        label: 'Inches / Second', 
         marker: 'ips', 
         cname: 'unit5', 
         ticked: false,
@@ -78,7 +78,7 @@
     };
     $scope.unit6 = {
         id: 6, 
-        label: 'feet per second (fps)', 
+        label: 'Feet / Second (fps)', 
         maker: '', 
         cname: 'unit6', 
         ticked: true,
@@ -88,7 +88,7 @@
     };
     $scope.unit7 = {
         id: 7, 
-        label: 'miles per second', 
+        label: 'Miles / Second', 
         maker: '', 
         cname: 'unit7', 
         ticked: false,
@@ -98,7 +98,7 @@
     };
     $scope.unit8 = {
         id: 8, 
-        label: 'miles per hour', 
+        label: 'Miles / Hour', 
         maker: 'mph', 
         cname: 'unit8', 
         ticked: true,
@@ -108,7 +108,7 @@
     };
     $scope.unit9 = {
         id: 9, 
-        label: 'knot', 
+        label: 'Knot', 
         maker: '', 
         cname: 'unit9', 
         ticked: false,
@@ -118,7 +118,7 @@
     };
     $scope.unit10 = {
         id: 10, 
-        label: 'Furlongs per fortnight', 
+        label: 'Furlongs / Fortnight', 
         maker: '', 
         cname: 'unit10', 
         ticked: false,
@@ -127,7 +127,7 @@
         type: 'Imperial'
     };
     
-    $scope.dataCollection = 
+    $scope.dataCollection = $scope.dataCollectionInit =
     [
         $scope.unit1, 
         $scope.unit3,

@@ -868,7 +868,6 @@ input[type="number"] {
             border-radius: 5px; }
           #box-container .box-container__content .box-body .comment-form .input-wrap label {
             position: relative;
-            cursor: move;
             margin: 0 0 0 .5rem;
             text-align: left;
             font-weight: normal;

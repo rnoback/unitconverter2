@@ -154,6 +154,8 @@ input[type="number"] {
                     border: 1px solid transparent;
                     margin: 0 13px 13px 13px;
 
+
+
                     .input-wrap__bg{
                         position: absolute;
                         top: 0;
@@ -166,7 +168,6 @@ input[type="number"] {
                     }
                     label{
                         position: relative;
-                        cursor: move;
                         margin: 0 0 0 .5rem;
                         text-align: left;
                         font-weight: normal;
@@ -177,6 +178,7 @@ input[type="number"] {
                         padding-bottom: 4px;
                         z-index: 1;
                         color:$black;
+                       
                     }
 
                     input{

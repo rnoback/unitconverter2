@@ -169,7 +169,7 @@
 
     $scope.unit15 = {
         id: 15, 
-        label: 'Hr/Min/Sec', 
+        label: 'Hr:Min:Sec', 
         maker: '',
         cname: 'unit15',
         ticked: true,

@@ -178,7 +178,7 @@
 
         $scope.unit15 = {
             id: 15, 
-            label: 'Feet/Inches',
+            label: 'Feet:Inches',
             maker: '',
             cname: 'unit15',
             ticked: true,
