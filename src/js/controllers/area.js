@@ -15,7 +15,8 @@
     $scope.unitsSettings = { 
         selectionLimit: 1,
         showUncheckAll: false,
-        showCheckAll: false
+        showCheckAll: false,
+        closeOnSelect: true
     }; 
         
     // Get last segment of URL

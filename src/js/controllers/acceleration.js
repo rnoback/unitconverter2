@@ -15,7 +15,7 @@
         selectionLimit: 1,
         showUncheckAll: false,
         showCheckAll: false,
-        
+        closeOnSelect: true
     }; 
     
 

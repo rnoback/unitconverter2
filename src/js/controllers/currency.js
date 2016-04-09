@@ -16,7 +16,8 @@
     $scope.unitsSettings = { 
         selectionLimit: 1,
         showUncheckAll: false,
-        showCheckAll: false
+        showCheckAll: false,
+        closeOnSelect: true
     }; 
             
     // get current selected unit    

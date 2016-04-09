@@ -31,6 +31,7 @@
             //var aFloat = math.format(inputNum, {precision: self.precision});
             // aFloatStr = aFloat.toString();
             return parseFloat(aFloat);
+            //parseFloat(number).toPrecision(12)
 
         }
 

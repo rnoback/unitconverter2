@@ -88,11 +88,19 @@ input[type="number"] {
                     float:left;
                     text-transform: capitalize;
                 }
+
                 
                 .units-multiselect-dropdown{
                     float:left; 
                     text-transform: capitalize;
                     margin-right: 10px;
+                }
+                .units-multiselect-dropdown.no-icons{
+                    .dropdown-menu{
+                        span{
+                            display:none;
+                        }
+                    }
                 }
             }
 

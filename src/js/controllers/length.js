@@ -15,7 +15,7 @@
             selectionLimit: 1,
             showUncheckAll: false,
             showCheckAll: false,
-            groupByTextProvider: function(groupValue) { if (groupValue === 'M') { return 'Male'; } else { return 'Female'; } } 
+            closeOnSelect: true
         }; 
             
         // Get last segment of URL
@@ -24,12 +24,12 @@
         // Add it to text button  
         if(!$scope.selectedUnit) { 
             $scope.selectedUnit = 'Length';
-        }else{
-            
         }
+        $scope.selectedUnitID =  unitSelectionService.getIdByLabel($scope.selectedUnit);
+
         $scope.unitCustomTexts = {buttonDefaultText:$scope.selectedUnit};
         $scope.redirectUnit = unitSelectionService.redirectUnit;
-                
+  
         $scope.unit1 = {
             id: 1, 
             label: 'Meters',
@@ -415,7 +415,7 @@
 
             $scope.unit15.value = (Math.floor(newVal));
             $scope.unit15.value1 = formatNumberFactory.formatNumber(rest * 12);
-   
+            //parseFloat(number).toPrecision(12)
         }               
     }]);    
     

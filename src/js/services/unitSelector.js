@@ -72,10 +72,22 @@
         ];
 
         this.units = $filter('orderBy')(this.units, 'label');
+
+       
         
+        this.getIdByLabel = function(label){
+            for(var i=0; i<self.units.length; i++){
+                if(self.units[i].label === label){
+                   self.currentSelectedId = self.units[i].id;
+                    return self.units[i].id;
+                }
+            }
+        };
+
         this.getLabelById = function(id){
             for(var i=0; i<self.units.length; i++){
                 if(self.units[i].id === id){
+                   
                     return self.units[i].label;
                 }
             }
@@ -84,7 +96,7 @@
         this.redirectUnit = function(curUnit){
             self.currentSelectedLabel = self.getLabelById(curUnit.id);
             window.location.href='#/' + self.currentSelectedLabel;
-            //self.currentSelectedId = curUnit.id;
+            self.currentSelectedId = curUnit.id;
         };
     }]);
 }());
