@@ -31,7 +31,7 @@
     // return all our data to an AJAX call
     echo json_encode($data);
 
-    $email_to = 'noback@xs4all.nl';
+    $email_to = 'joseph.jutras@gmail.com';
     $email_subject = 'Comment From Unit Converter App';
     //$email_message = htmlentities($_POST['result'], ENT_COMPAT, "UTF-8");
     $email_message = $_POST['comments'];     

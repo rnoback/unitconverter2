@@ -387,6 +387,7 @@
 
         $scope.convertUnitsFromBase = function(baseUnitValue){
             $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
+
             $scope.unit2.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit2.factor);
             $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
             $scope.unit4.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit4.factor);
@@ -404,14 +405,18 @@
             // feet/inch exception
             // var newVal = baseUnitValue * $scope.unit15.factor;
 
-            //baseUnitValue = formatNumberFactory.formatNumber(baseUnitValue, {precision: 2});
+            baseUnitValue = formatNumberFactory.formatNumber(baseUnitValue);
 
-            var newVal = math.multiply(baseUnitValue,  $scope.unit15.factor);
+            //baseUnitValue = new Big(baseUnitValue)
+
+            var newVal = formatNumberFactory.formatNumber2(math.multiply(baseUnitValue,  $scope.unit15.factor));
+
             var rest = math.mod( newVal, 1 );
             
+            var hack = 1 - rest;
             console.log("baseUnitValue " + baseUnitValue);
             console.log("newVal " + newVal);
-            console.log("rest " + rest);
+            console.log("hack " + hack);
 
             $scope.unit15.value = (Math.floor(newVal));
             $scope.unit15.value1 = formatNumberFactory.formatNumber(rest * 12);

@@ -403,7 +403,7 @@
         $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
 
         // to hours
-        var toHours = math.multiply(baseUnitValue, $scope.unit15.factor);
+        var toHours = formatNumberFactory.formatNumber2(math.multiply(baseUnitValue, $scope.unit15.factor));
 
        // console.log("toHours " + toHours);
         var restHours =  math.mod(toHours, 1);
@@ -411,18 +411,18 @@
        // console.log("restHours " + restHours);
         $scope.unit15.value = formatNumberFactory.formatNumber(Math.floor(toHours));
         
-        var toMinutes = math.multiply(restHours, 60);
+        var toMinutes = formatNumberFactory.formatNumber2(math.multiply(restHours, 60));
 
         // console.log("toMinutes " + toMinutes);
         var restMinutes =   math.mod(toMinutes, 1);
       
-       console.log("restMinutes " + restMinutes);
-        var toSeconds = math.multiply(restMinutes, 60);
+       // console.log("restMinutes " + restMinutes);
+        var toSeconds = formatNumberFactory.formatNumber2(math.multiply(restMinutes, 60));
         var hack = 1 - restMinutes;
 
-       console.log("hack " + hack);
+       //console.log("hack " + hack);
 
-        if(hack < 0.000001){
+        if(hack < 0.0001){
             $scope.unit15.value1 = formatNumberFactory.formatNumber(Math.ceil(toMinutes));
             $scope.unit15.value2 = 0;  
         }else{

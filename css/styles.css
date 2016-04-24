@@ -724,6 +724,7 @@ body .box-row #box-container {
   z-index: 1; }
 
 body #background-container {
+  display: block;
   position: fixed;
   width: 100%;
   height: inherit;
@@ -817,7 +818,7 @@ input[type="number"] {
           margin-right: 10px; }
         #box-container .box-container__content .box-header .box-content__bg .units-multiselect-dropdown.no-icons .dropdown-menu span {
           display: none; }
-      #box-container .box-container__content .box-header .btn-collapse-window, #box-container .box-container__content .box-header .btn-write-comment {
+      #box-container .box-container__content .box-header .btn-collapse-window, #box-container .box-container__content .box-header .btn-write-comment, #box-container .box-container__content .box-header .btn-cancel-comment {
         height: 30px;
         padding: 0 10px;
         background: transparent;
@@ -829,10 +830,12 @@ input[type="number"] {
         font-size: 12px;
         display: block; }
         @media (min-width: 400px) {
-          #box-container .box-container__content .box-header .btn-collapse-window, #box-container .box-container__content .box-header .btn-write-comment {
+          #box-container .box-container__content .box-header .btn-collapse-window, #box-container .box-container__content .box-header .btn-write-comment, #box-container .box-container__content .box-header .btn-cancel-comment {
             margin: 0 10px 10px 0; } }
       #box-container .box-container__content .box-header .btn-write-comment {
         font-size: 1em; }
+      #box-container .box-container__content .box-header .btn-cancel-comment {
+        padding-left: 0; }
       #box-container .box-container__content .box-header .box-header__bg {
         position: absolute;
         top: 0;
@@ -902,7 +905,7 @@ input[type="number"] {
             font-size: 12px; }
             #box-container .box-container__content .box-body .comment-form .input-wrap textarea.error {
               border: 1px solid #ff0000; }
-          #box-container .box-container__content .box-body .comment-form .input-wrap input[type="submit"], #box-container .box-container__content .box-body .comment-form .input-wrap input[type="reset"] {
+          #box-container .box-container__content .box-body .comment-form .input-wrap input[type="submit"], #box-container .box-container__content .box-body .comment-form .input-wrap input[type="button"] {
             width: 49%;
             display: inline;
             background: #ffffff;

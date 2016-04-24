@@ -4,8 +4,8 @@
     var converterApp = angular.module('converterApp');
     
     converterApp.controller('commentController', 
-        ['$scope', '$http', '$location', 'unitSelectionService',
-        function($scope, $http, $location, unitSelectionService) {
+        ['$scope', '$http', '$location', 'unitSelectionService', 'formatNumberFactory',
+        function($scope, $http, $location, unitSelectionService, formatNumberFactory) {
 
             $scope.unitsCollection = unitSelectionService.units;
             $scope.defaultButtonText = unitSelectionService.defaultButtonText; 
@@ -39,13 +39,38 @@
                 return pattern.test(emailAddress);
             };
 
+
+           
+
+            $('#input-name').on('keyup', function(){
+                formatNumberFactory.storeName = $('#input-name').val();
+            });
+
+            $('#input-email').on('keyup', function(){
+                formatNumberFactory.storeEmail = $('#input-email').val();
+            });
+
+            $('#comment-field').on('keyup', function(){
+                formatNumberFactory.storeComment = $('#comment-field').val();
+            });
+
+            
+            setTimeout(function(){
+                $('#input-name').val(formatNumberFactory.storeName);
+                $('#input-email').val(formatNumberFactory.storeEmail);
+                $('#comment-field').val(formatNumberFactory.storeComment);
+            }, 5);
+             
+
+
+
             $scope.processForm = function(){
 
-                console.log("formData " + $.param($scope.formData));
+                //console.log("formData " + $.param($scope.formData));
 
                 $('#input-name').removeClass('error');
-                                    $('#input-email').removeClass('error');
-                                    $('#comment-field').removeClass('error');
+                $('#input-email').removeClass('error');
+                $('#comment-field').removeClass('error');
                 // JS validation goes here
 
                 if( $scope.formData.name) {
@@ -73,10 +98,20 @@
                                     $('#input-name').removeClass('error');
                                     $('#input-email').removeClass('error');
                                     $('#comment-field').removeClass('error');
+                                    formatNumberFactory.storeName = "";
+                                    formatNumberFactory.storeEmail = "";
+                                    formatNumberFactory.storeComment = "";
 
-                                    $scope.dataResponseField = "Your message is send, thank you.";
+                                    $scope.dataResponseField = "Thank you! Your message has been sent.";
+                                    $('.comment-form').hide();
                                     $scope.formData.email = "";
                                     $scope.formData = {};
+                                    setTimeout(function(){
+                                        $('.comment-form').show();
+                                        $scope.dataResponseField = "";
+
+
+                                    }, 3000);
                                 }
                             });
                         }else{
@@ -92,7 +127,11 @@
             
             } 
 
-            
+            $('.btn-cancel-comment').on('click', function(){
+                history.go(-1);
+            });
+
+
             
             $('.btn-collapse-window').on('click', function(){
                 if($scope.windowOpen) {
@@ -102,6 +141,7 @@
                     $('.box-body').hide();
                     $('.units-dropdown').hide();
                     $('.dropdown-multiselect').hide();
+                    $('.btn-cancel-comment').hide();
                     $scope.windowOpen = false;
                 }else{
                     $(this).find('span').addClass('fa-chevron-up');
@@ -110,6 +150,7 @@
                     $('.box-body').show();
                     $('.units-dropdown').show();
                     $('.dropdown-multiselect').show();
+                    $('.btn-cancel-comment').show();
                     $scope.windowOpen = true;
                 }
             });

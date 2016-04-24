@@ -17,6 +17,7 @@ body .box-row #box-container{
     z-index:1;
 }
 body #background-container{
+    display: block;
     position: fixed;
     width: 100%;
     height: inherit;

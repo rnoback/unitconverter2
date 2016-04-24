@@ -4,7 +4,7 @@
             
             <label class="units-dropdown">Comments</label>
             
-            <div ng-dropdown-multiselect="" 
+           <!-- <div ng-dropdown-multiselect="" 
                  options="unitsCollection" 
                  selected-model="unitsModel" 
                  extra-settings="unitsSettings"
@@ -13,10 +13,14 @@
                  class="units-multiselect-dropdown"
                  >
             </div>            
-
+ -->    
+            <a href="#" class="btn-cancel-comment">
+                <span class="fa fa-close"></span>
+            </a>
             <div class="btn-collapse-window">
                 <span class="fa fa-chevron-up"></span>
             </div>
+            
             
         </div>
         <div class="box-header__bg"></div>
@@ -26,7 +30,7 @@
         <form ng-submit="processForm()" class="comment-form" method="post">
             <div class="input-wrap">
                 <label>Your Name</label>
-                <input type="text" name="name" id="input-name" placeholder="" ng-model="formData.name"></input>
+                <input type="text" name="name" id="input-name" placeholder="" value ng-model="formData.name"></input>
                 <span class="help-block" ng-show="errorName">{{ errorName }}</span> 
                 <div class="input-wrap__bg"></div>
             </div>
@@ -43,12 +47,13 @@
                 <div class="input-wrap__bg"></div>
             </div>
             <div class="input-wrap last">
-                <input class="btn-submit" type="reset" value="Reset">
-                <input class="btn-clear" type="submit" value="Submit">
+                <input class="btn-cancel-comment" type="button" value="Cancel">
+                <input class="btn-submit" type="submit" value="Submit">
 
             </div>
-           <span class="help-block" id="response-field" ng-show="dataResponseField">{{ dataResponseField }}</span> 
+           
         </form>        
+        <span class="help-block" id="response-field" ng-show="dataResponseField">{{ dataResponseField }}</span> 
     </div>
     
     <div class="row box-footer">

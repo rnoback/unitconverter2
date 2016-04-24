@@ -24,24 +24,27 @@
             var aFloat = inputNum.toPrecision(self.precision);
             
             //var aFloat = new Decimal(x);
-            //var aFloat = inputNum.toPrecision(self.precision);
+            //var aFloat = inputNum.toFixed(self.precision);
             // Math.round10(aFloat, -1);   // 55.6
             //aFloat = aFloat.toFixed(self.precision);
             //aFloat = aFloat.toFixed(self.precision);
             //var aFloat = math.format(inputNum, {precision: self.precision});
             // aFloatStr = aFloat.toString();
             return parseFloat(aFloat);
-            //parseFloat(number).toPrecision(12)
 
         }
 
         this.formatNumber2 = function(inputNum){
-            var aFloat = math.format(inputNum, {precision: 3});
+            var aFloat = math.format(inputNum, {precision: self.precision});
             //var aFloat = Math.round(inputNum, 2);
-            var aFloatStr = aFloat.toString();
-            return parseFloat(aFloatStr);
+            //var aFloatStr = aFloat.toString();
+            return parseFloat(aFloat);
         }
-        
+
+        this.storeName = "";
+        this.storeEmail = "";
+        this.storeComment = "";
+      
     });
     //http://mathjs.org/docs/datatypes/bignumbers.html
     // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
