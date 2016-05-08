@@ -333,6 +333,7 @@ ul{
             border:1px solid transparent;
             
             label{
+                display: inline-block;
                 cursor:move;
                 cursor:-webkit-grab;
                 cursor:-moz-grab;
@@ -389,7 +390,8 @@ ul{
 
         .input-wrap__content.double{
            label{
-                width:100%;
+                display: inline-block;
+                width:75%;
             }
             
             input{
@@ -419,7 +421,8 @@ ul{
 
         .input-wrap__content.triple{
            label{
-                width:100%;
+            display: inline-block;
+                width:75%;
             }
             label.subfield1, label.subfield2{
                 display: none;

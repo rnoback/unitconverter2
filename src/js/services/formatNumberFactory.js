@@ -18,8 +18,6 @@
             return s;
         }
 
-
-
         this.formatNumber = function(inputNum) {
             var aFloat = inputNum.toPrecision(self.precision);
             
@@ -34,8 +32,17 @@
 
         }
 
+         this.formatNumber3 = function(inputNum) {
+            var aFloat = inputNum.toPrecision(5);
+            return parseFloat(aFloat);
+        }
+         this.formatNumber4 = function(inputNum) {
+            var aFloat = inputNum.toPrecision(10);
+            return parseFloat(aFloat);
+        }
+
         this.formatNumber2 = function(inputNum){
-            var aFloat = math.format(inputNum, {precision: self.precision});
+            var aFloat = math.format(inputNum, {precision: 10});
             //var aFloat = Math.round(inputNum, 2);
             //var aFloatStr = aFloat.toString();
             return parseFloat(aFloat);
@@ -46,6 +53,6 @@
         this.storeComment = "";
       
     });
-    //http://mathjs.org/docs/datatypes/bignumbers.html
+    // http://mathjs.org/docs/datatypes/bignumbers.html
     // http://stackoverflow.com/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros
 }());

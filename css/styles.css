@@ -988,6 +988,7 @@ ul {
       border-radius: 5px;
       border: 1px solid transparent; }
       ul li.input-wrap .input-wrap__content label {
+        display: inline-block;
         cursor: move;
         cursor: -webkit-grab;
         cursor: -moz-grab;
@@ -1022,7 +1023,8 @@ ul {
         ul li.input-wrap .input-wrap__content.active .btn-calc {
           display: none; }
     ul li.input-wrap .input-wrap__content.double label {
-      width: 100%; }
+      display: inline-block;
+      width: 75%; }
     ul li.input-wrap .input-wrap__content.double input {
       width: 48%; }
     ul li.input-wrap .input-wrap__content.double input.subfield1 {
@@ -1037,7 +1039,8 @@ ul {
       opacity: 0.5;
       border-radius: 5px; }
     ul li.input-wrap .input-wrap__content.triple label {
-      width: 100%; }
+      display: inline-block;
+      width: 75%; }
     ul li.input-wrap .input-wrap__content.triple label.subfield1, ul li.input-wrap .input-wrap__content.triple label.subfield2 {
       display: none; }
     ul li.input-wrap .input-wrap__content.triple input {

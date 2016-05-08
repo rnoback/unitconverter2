@@ -363,16 +363,15 @@
         });
         */
         formatNumberFactory.precision = 10;
+        
         $scope.calcHandler = function(obj, inputValue, inputValue1){
-
-            console.log("obj.special " + obj.special);
-            console.log("inputValue " + inputValue);
-            console.log("inputValue1 " + inputValue1);
 
             var baseValue;
             if(obj.special){
-                var toFeet = inputValue1/12;
+                var minToHour = math.divide(inputValue1, 60);
+                var toFeet = math.divide(inputValue1, 12);
                 var totalFeet = toFeet + parseInt(inputValue);
+
                 baseValue = $scope.convertToBaseUnit(totalFeet, obj.factor);
             }else{
                 baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
@@ -384,6 +383,7 @@
         $scope.convertToBaseUnit = function(value, factor){
             return value/factor;
         }
+
 
         $scope.convertUnitsFromBase = function(baseUnitValue){
             $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
@@ -413,13 +413,9 @@
 
             var rest = math.mod( newVal, 1 );
             
-            var hack = 1 - rest;
-            console.log("baseUnitValue " + baseUnitValue);
-            console.log("newVal " + newVal);
-            console.log("hack " + hack);
-
+            //var hack = 1 - rest
             $scope.unit15.value = (Math.floor(newVal));
-            $scope.unit15.value1 = formatNumberFactory.formatNumber(rest * 12);
+            $scope.unit15.value1 = formatNumberFactory.formatNumber3(math.multiply(rest, 12));
             //parseFloat(number).toPrecision(12)
         }               
     }]);    
