@@ -20,6 +20,7 @@ input[type="number"] {
     transform: translateY(-50%);*/
     //border: 1px solid $border-color;
 
+    
     margin: 20px 20px 20px 20px;
     
     @include border-radius($global-radius);
@@ -277,7 +278,6 @@ input[type="number"] {
                 display:none;
             }
         }
-        
     }
 ul{
     list-style: none;

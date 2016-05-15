@@ -87,41 +87,18 @@ converterApp.config(function ($routeProvider) {
 });
 
  converterApp.controller('mainCtrl', ['$scope', function($scope) {
-	    			        
-    //$('.box-container__content ').startDrag();
-    //$('#box-container').draggable({});
-   // draggable($('#box-container'));
 
-	function resizeBg() {
-					
-	}
 
-    /*$('#box-container').on('drag', function(evt){
-        //$( this ).css({
-           // top: event.offsetY,
-           // left: event.offsetX
-           // });
-        //});
-        console.log("dragger");
-    });
-    */
-    //$scope.dragging = null;
-    /*$('body').on('mousedown', function(evt){
-
-        console.log("DOWN");
-        $this = $(evt.target);
-
-        if($this === $('#box-container')){
-            console.log("ON TARGET");
-            $this.offset({
-                top:evt.pageY,
-                left:evt.pageX
-            });
+    $('#background-container').on('click', function(evt){
+        var $dd = $('.dropdown-menu');
+        var $this = $(evt.currentTarget);
+        if( !$dd.is(':visible') ){
+            $('#background-container').css('cursor', 'pointer');           
+            window.open("http://www.institute-of-traditional-architecture.org/","_blank");
+        }else{
+           $('#background-container').css('cursor', 'normal');
         }
     });
-    */
-    
-	//theWindow.resize(resizeBg).trigger("resize");
      
  }]);
 

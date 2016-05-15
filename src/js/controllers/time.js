@@ -231,10 +231,6 @@
 
 
 
-
-
-
-
     
     //Filter Collection
     $scope.dataCollection = $filter('orderBy')($scope.dataCollection, 'type');
@@ -373,17 +369,21 @@
         if(obj.special){
             var minToHour = math.divide(inputValue1, 60);
             var secToHour = math.divide(inputValue2, 3600);
-            var totalHour = formatNumberFactory.formatNumber (parseInt(inputValue) + minToHour + secToHour);
-            baseValue = $scope.convertToBaseUnit(totalHour, obj.factor);
+            var totalHour = parseFloat(inputValue) + minToHour + secToHour;
+           
+            baseValue = formatNumberFactory.formatNumber( $scope.convertToBaseUnit(totalHour, obj.factor) );
+            console.log("baseValue special " + baseValue);
         }else{
-            baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
+            
+            baseValue = formatNumberFactory.formatNumber( $scope.convertToBaseUnit(inputValue, obj.factor) );
+            console.log("baseValue " + baseValue);
         }
 
         $scope.convertUnitsFromBase( baseValue );
     }
 
     $scope.convertToBaseUnit = function(value, factor){
-        return parseFloat(value/factor);
+        return formatNumberFactory.formatNumber(value/factor);
     }
 
     $scope.convertUnitsFromBase = function(baseUnitValue){
@@ -405,32 +405,14 @@
         baseUnitValue = formatNumberFactory.formatNumber(baseUnitValue);
 
         // to hours
-        var toHours = (math.multiply(baseUnitValue, $scope.unit15.factor));
-
-       // console.log("toHours " + toHours);
+        var toHours = formatNumberFactory.formatNumber2(math.multiply(baseUnitValue, $scope.unit15.factor));
         var restHours =  math.mod(toHours, 1);
-
-       // console.log("restHours " + restHours);
-        $scope.unit15.value = (Math.floor(toHours));
-        
-        var toMinutes = (math.multiply(restHours, 60));
-
-        // console.log("toMinutes " + toMinutes);
-        var restMinutes =   math.mod(toMinutes, 1);
-      
-       // console.log("restMinutes " + restMinutes);
-        var toSeconds = (math.multiply(restMinutes, 60));
-        //var hack = 1 - restMinutes;
-
-       //console.log("hack " + hack);
-
-        /*if(hack < 0.0001){
-            $scope.unit15.value1 = formatNumberFactory.formatNumber(Math.ceil(toMinutes));
-            $scope.unit15.value2 = 0;  
-        }else{ */
+        $scope.unit15.value = (Math.floor(toHours));     
+        var toMinutes = formatNumberFactory.formatNumber2(math.multiply(restHours, 60));
+        var restMinutes =   math.mod(toMinutes, 1); 
+        var toSeconds = formatNumberFactory.formatNumber2(math.multiply(restMinutes, 60));
         $scope.unit15.value1 = (Math.floor(toMinutes));
-        $scope.unit15.value2 = formatNumberFactory.formatNumber3(Math.ceil(toSeconds)); 
-        //} 
+        $scope.unit15.value2 = formatNumberFactory.formatNumber3(math.multiply(restMinutes, 60));
     }
 }]);
     

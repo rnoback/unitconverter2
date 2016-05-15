@@ -371,7 +371,6 @@
                 var minToHour = math.divide(inputValue1, 60);
                 var toFeet = math.divide(inputValue1, 12);
                 var totalFeet = toFeet + parseInt(inputValue);
-
                 baseValue = $scope.convertToBaseUnit(totalFeet, obj.factor);
             }else{
                 baseValue = $scope.convertToBaseUnit(inputValue, obj.factor);
@@ -379,11 +378,9 @@
 
             $scope.convertUnitsFromBase( baseValue );
         }
-
         $scope.convertToBaseUnit = function(value, factor){
-            return value/factor;
+            return formatNumberFactory.formatNumber(value/factor);
         }
-
 
         $scope.convertUnitsFromBase = function(baseUnitValue){
             $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
