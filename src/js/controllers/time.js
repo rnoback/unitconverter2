@@ -302,83 +302,22 @@
     
     $scope.getTickedUnits();
     
-    /*
-    $scope.$watch('unit2.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit2.value / $scope.unit2.factor);
-    });
-    $scope.$watch('unit3.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit3.value / $scope.unit3.factor);
-    });
-    $scope.$watch('unit4.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit4.value / $scope.unit4.factor);
-    });
-    $scope.$watch('unit5.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit5.value / $scope.unit5.factor);
-    });
-    $scope.$watch('unit6.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit6.value / $scope.unit6.factor);
-    });
-    $scope.$watch('unit7.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit7.value / $scope.unit7.factor);
-    });
-    $scope.$watch('unit8.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit8.value / $scope.unit8.factor);
-    });
-    $scope.$watch('unit9.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit9.value / $scope.unit9.factor);
-    });
-    $scope.$watch('unit10.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit10.value / $scope.unit10.factor);
-    });
-    $scope.$watch('unit11.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit11.value / $scope.unit11.factor);
-    });
-    $scope.$watch('unit12.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit12.value / $scope.unit12.factor);
-    });
-    $scope.$watch('unit13.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit13.value / $scope.unit13.factor);
-    });
-    $scope.$watch('unit14.value', function(){
-        $scope.unit1.value = formatNumberFactory.formatNumber($scope.unit14.value / $scope.unit14.factor);
-    });
-    
-    
-     // MAIN unit
-    $scope.$watch('unit1.value', function(){
-        $scope.unit2.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit2.factor);
-        $scope.unit3.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit3.factor);
-        $scope.unit4.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit4.factor);
-        $scope.unit5.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit5.factor);
-        $scope.unit6.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit6.factor);
-        $scope.unit7.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit7.factor);
-        $scope.unit8.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit8.factor);
-        $scope.unit9.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit9.factor);
-        $scope.unit10.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit10.factor);
-        $scope.unit11.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit11.factor);
-        $scope.unit12.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit12.factor);
-        $scope.unit13.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit13.factor);
-        $scope.unit14.value = formatNumberFactory.formatNumber($scope.unit1.value * $scope.unit14.factor);
-    });
-    */
 
     formatNumberFactory.precision = 5;
     $scope.calcHandler = function(obj, inputValue, inputValue1, inputValue2){
-
+        $scope.roundHours = false;
+        if(obj.id > 3  && obj.id < 11 ){
+            $scope.roundHours = true;
+        }
         var baseValue;
         if(obj.special){
             var minToHour = math.divide(inputValue1, 60);
             var secToHour = math.divide(inputValue2, 3600);
-            var totalHour = parseFloat(inputValue) + minToHour + secToHour;
-           
-            baseValue = formatNumberFactory.formatNumber( $scope.convertToBaseUnit(totalHour, obj.factor) );
-            console.log("baseValue special " + baseValue);
-        }else{
-            
-            baseValue = formatNumberFactory.formatNumber( $scope.convertToBaseUnit(inputValue, obj.factor) );
-            console.log("baseValue " + baseValue);
+            var totalHour = parseFloat(inputValue) + minToHour + secToHour;           
+            baseValue = ( $scope.convertToBaseUnit(totalHour, obj.factor) );
+        }else{ 
+            baseValue = ( $scope.convertToBaseUnit(inputValue, obj.factor) );
         }
-
         $scope.convertUnitsFromBase( baseValue );
     }
 
@@ -387,9 +326,13 @@
     }
 
     $scope.convertUnitsFromBase = function(baseUnitValue){
-        $scope.unit1.value = formatNumberFactory.formatNumber(baseUnitValue);
-        $scope.unit2.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit2.factor);
-        $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
+        $scope.unit1.value = (baseUnitValue);
+        $scope.unit2.value = formatNumberFactory.formatNumber2(baseUnitValue * $scope.unit2.factor);
+        if($scope.roundHours){
+            $scope.unit3.value = Math.ceil(formatNumberFactory.formatNumber2(baseUnitValue * $scope.unit3.factor));
+        }else{
+            $scope.unit3.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit3.factor);
+        }
         $scope.unit4.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit4.factor);
         $scope.unit5.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit5.factor);
         $scope.unit6.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit6.factor);
@@ -397,22 +340,27 @@
         $scope.unit8.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit8.factor);
         $scope.unit9.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit9.factor);
         $scope.unit10.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit10.factor);
-        $scope.unit11.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit11.factor);
-        $scope.unit12.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit12.factor);
-        $scope.unit13.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit13.factor);
-        $scope.unit14.value = formatNumberFactory.formatNumber(baseUnitValue * $scope.unit14.factor);
+        $scope.unit11.value = (baseUnitValue * $scope.unit11.factor);
+        $scope.unit12.value = (baseUnitValue * $scope.unit12.factor);
+        $scope.unit13.value = (baseUnitValue * $scope.unit13.factor);
+        $scope.unit14.value = (baseUnitValue * $scope.unit14.factor);
 
-        baseUnitValue = formatNumberFactory.formatNumber(baseUnitValue);
+        //aseUnitValue = formatNumberFactory.formatNumber(baseUnitValue);
 
         // to hours
-        var toHours = formatNumberFactory.formatNumber2(math.multiply(baseUnitValue, $scope.unit15.factor));
+        var toHours
+        if($scope.roundHours){
+            toHours = Math.ceil(math.multiply(baseUnitValue, $scope.unit15.factor));
+        }else{
+            toHours = (math.multiply(baseUnitValue, $scope.unit15.factor));
+        }
         var restHours =  math.mod(toHours, 1);
-        $scope.unit15.value = (Math.floor(toHours));     
-        var toMinutes = formatNumberFactory.formatNumber2(math.multiply(restHours, 60));
+        $scope.unit15.value = formatNumberFactory.formatNumber2(Math.floor(toHours));     
+        var toMinutes = (math.multiply(restHours, 60));
         var restMinutes =   math.mod(toMinutes, 1); 
-        var toSeconds = formatNumberFactory.formatNumber2(math.multiply(restMinutes, 60));
-        $scope.unit15.value1 = (Math.floor(toMinutes));
-        $scope.unit15.value2 = formatNumberFactory.formatNumber3(math.multiply(restMinutes, 60));
+        var toSeconds = (math.multiply(restMinutes, 60));
+        $scope.unit15.value1 = formatNumberFactory.formatNumber2(Math.floor(toMinutes));
+        $scope.unit15.value2 = formatNumberFactory.formatNumber3(toSeconds);
     }
 }]);
     

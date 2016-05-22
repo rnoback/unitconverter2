@@ -379,7 +379,7 @@
             $scope.convertUnitsFromBase( baseValue );
         }
         $scope.convertToBaseUnit = function(value, factor){
-            return formatNumberFactory.formatNumber(value/factor);
+            return formatNumberFactory.formatNumber2(value/factor);
         }
 
         $scope.convertUnitsFromBase = function(baseUnitValue){

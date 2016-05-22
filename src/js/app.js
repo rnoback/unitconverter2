@@ -88,17 +88,18 @@ converterApp.config(function ($routeProvider) {
 
  converterApp.controller('mainCtrl', ['$scope', function($scope) {
 
-
-    $('#background-container').on('click', function(evt){
+    $scope.backgroundImageURL = 'http://www.institute-of-traditional-architecture.org/';
+    $scope.openSponsorLink = function(){
         var $dd = $('.dropdown-menu');
-        var $this = $(evt.currentTarget);
         if( !$dd.is(':visible') ){
-            $('#background-container').css('cursor', 'pointer');           
-            window.open("http://www.institute-of-traditional-architecture.org/","_blank");
+            $('#background-container').css('cursor', 'normal');           
+            window.open($scope.backgroundImageURL,"_blank");
         }else{
            $('#background-container').css('cursor', 'normal');
         }
-    });
+    }
+
+    $('#background-container').on('click',$scope.openSponsorLink);
      
  }]);
 
@@ -210,16 +211,11 @@ converterApp.directive('unitWrapTemperature', function($timeout){
             calculateUnits: "&"
         },
         link: function (scope, element, attrs){
-
           scope.clickMe = function(obj){
-
             var v = element.find('.uc-input').val();
-           
             scope.calculateUnits( {aunit:obj, avalue:v} );  
           }
-
-
-        }  
+        }
     };
 });
 

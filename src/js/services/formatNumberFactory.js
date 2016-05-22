@@ -42,7 +42,7 @@
         }
 
         this.formatNumber2 = function(inputNum){
-            var aFloat = math.format(inputNum, {precision: 10});
+            var aFloat = math.format(inputNum, {precision: 14});
             //var aFloat = Math.round(inputNum, 2);
             //var aFloatStr = aFloat.toString();
             return parseFloat(aFloat);
